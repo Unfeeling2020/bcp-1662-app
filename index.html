@@ -65,6 +65,7 @@
     <!-- 1. Load the text libraries FIRST -->
     <script src="lectionary.js"></script>
     <script src="bcp.js"></script>
+    <script src="collects.js"></script>
 
     <!-- 2. Run the logic engine SECOND -->
     <script>
@@ -90,7 +91,55 @@
             document.getElementById('text-container').style.fontSize = currentFontSize + 'px';
         }
 
-        // --- 3. SERVICE BUILDER ---
+        // --- 3. BIBLE LINK ENGINE ---
+        function createBibleLink(reference) {
+            if (!reference || reference === "Proper Lesson") {
+                return "<p><i>[Proper Lesson]</i></p>";
+            }
+            // Formats the reference for a URL (e.g., "Jonah 4" becomes "Jonah%204")
+            let encodedRef = encodeURIComponent(reference);
+            let url = "https://www.biblegateway.com/passage/?search=" + encodedRef + "&version=AKJV";
+            
+            // Returns a nice clickable button
+            return "<p><a href='" + url + "' target='_blank' style='display: inline-block; padding: 10px 15px; margin: 5px 0; background-color: #e0e0e0; color: #1a1a1a; text-decoration: none; border-radius: 5px; font-weight: bold;'>📖 Read " + reference + "</a></p>";
+        }
+
+        // --- 4. LITURGICAL CALENDAR ENGINE ---
+        function getLiturgicalKey(date) {
+            let year = date.getFullYear();
+            
+            // 1. Calculate Easter for the current year
+            let a = year % 19, b = Math.floor(year / 100), c = year % 100;
+            let d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3);
+            let h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4;
+            let l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451);
+            let easterMonth = Math.floor((h + l - 7 * m + 114) / 31) - 1;
+            let easterDay = ((h + l - 7 * m + 114) % 31) + 1;
+            
+            let easter = new Date(year, easterMonth, easterDay);
+            
+            // 2. Find the difference in days between TODAY and EASTER
+            let todayMidnight = new Date(year, date.getMonth(), date.getDate());
+            let diffTime = todayMidnight.getTime() - easter.getTime();
+            let diffDays = Math.floor(diffTime / (1000 * 3600 * 24));
+            
+            // 3. Fixed Holy Days (Civil Calendar)
+            let currentMonth = date.getMonth(); 
+            let currentDay = date.getDate();
+            if (currentMonth === 11 && currentDay === 25) return "ChristmasDay";
+            
+            // 4. Movable Feasts (Easter Calendar)
+            if (diffDays === 0) return "EasterDay";
+            if (diffDays === -46) return "AshWednesday";
+            if (diffDays === 39) return "AscensionDay";
+            if (diffDays === 49) return "Pentecost";
+            if (diffDays === 56) return "TrinitySunday";
+            
+            // Fallback for days not yet programmed
+            return "Default";
+        }
+
+        // --- 5. SERVICE BUILDER ---
         function loadService(serviceName) {
             let container = document.getElementById('text-container');
             
@@ -117,24 +166,24 @@
                     serviceText += "<p><i>[Psalms for Day " + psalmDay + " missing]</i></p>";
                 }
 
-                // Add Lessons, Canticles, and the Collect if Lectionary data exists
+                // Add Lessons, Canticles, and the Collect
                 if (todaysData) {
                     let firstRef = todaysData.mpFirst;
                     let secondRef = todaysData.mpSecond;
                     
                     serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
-                    // Using fallback to bcp.bible if it exists, otherwise placeholder
-                    serviceText += (bcp.bible && bcp.bible[firstRef]) ? bcp.bible[firstRef] : "<p><i>[Bible text will go here]</i></p>";
+                    serviceText += createBibleLink(firstRef);
                     
                     serviceText += bcp.morningPrayer.teDeum;
                     
                     serviceText += "<h3>The Second Lesson: " + secondRef + "</h3>";
-                    serviceText += (bcp.bible && bcp.bible[secondRef]) ? bcp.bible[secondRef] : "<p><i>[Bible text will go here]</i></p>";
+                    serviceText += createBibleLink(secondRef);
                     
                     serviceText += bcp.morningPrayer.jubilate;
 
-                    // Add the Collect of the Day placeholder
-                    serviceText += "<h3>The Collect of the Day</h3><p><i>[Collect will be calculated based on the liturgical calendar]</i></p>";
+                    // Calculate the Liturgical Day and Add the Collect
+                    let liturgicalKey = getLiturgicalKey(today);
+                    serviceText += bcpCollects[liturgicalKey] || bcpCollects["Default"];
                 } else {
                     serviceText += "<p><i>[No Lectionary data found for " + mmdd + "]</i></p>";
                 }
