@@ -104,38 +104,65 @@
             return "<p><a href='" + url + "' target='_blank' style='display: inline-block; padding: 10px 15px; margin: 5px 0; background-color: #e0e0e0; color: #1a1a1a; text-decoration: none; border-radius: 5px; font-weight: bold;'>📖 Read " + reference + "</a></p>";
         }
 
-        // --- 4. LITURGICAL CALENDAR ENGINE ---
+     // --- 4. LITURGICAL CALENDAR ENGINE ---
         function getLiturgicalKey(date) {
             let year = date.getFullYear();
             
-            // 1. Calculate Easter for the current year
+            // 1. Calculate Easter
             let a = year % 19, b = Math.floor(year / 100), c = year % 100;
             let d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25), g = Math.floor((b - f + 1) / 3);
             let h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4;
             let l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451);
             let easterMonth = Math.floor((h + l - 7 * m + 114) / 31) - 1;
             let easterDay = ((h + l - 7 * m + 114) % 31) + 1;
-            
             let easter = new Date(year, easterMonth, easterDay);
             
-            // 2. Find the difference in days between TODAY and EASTER
+            // 2. Days from Easter
             let todayMidnight = new Date(year, date.getMonth(), date.getDate());
-            let diffTime = todayMidnight.getTime() - easter.getTime();
-            let diffDays = Math.floor(diffTime / (1000 * 3600 * 24));
+            let diffDays = Math.floor((todayMidnight.getTime() - easter.getTime()) / (1000 * 3600 * 24));
+            let weeksFromEaster = Math.floor(diffDays / 7);
             
-            // 3. Fixed Holy Days (Civil Calendar)
-            let currentMonth = date.getMonth(); 
-            let currentDay = date.getDate();
-            if (currentMonth === 11 && currentDay === 25) return "ChristmasDay";
-            
-            // 4. Movable Feasts (Easter Calendar)
-            if (diffDays === 0) return "EasterDay";
+            // 3. Fixed Holy Days
+            let month = date.getMonth(); let day = date.getDate();
+            if (month === 11 && day === 25) return "ChristmasDay";
+            if (month === 0 && day === 6) return "Epiphany";
             if (diffDays === -46) return "AshWednesday";
             if (diffDays === 39) return "AscensionDay";
-            if (diffDays === 49) return "Pentecost";
-            if (diffDays === 56) return "TrinitySunday";
+
+            // 4. Spring Movable Seasons (Pre-Lent, Lent, Easter, Trinity)
+            if (diffDays >= -63 && diffDays < -56) return "Septuagesima";
+            if (diffDays >= -56 && diffDays < -49) return "Sexagesima";
+            if (diffDays >= -49 && diffDays < -46) return "Quinquagesima";
             
-            // Fallback for days not yet programmed
+            if (diffDays >= -42 && diffDays < 0) return "Lent" + (weeksFromEaster + 7); // Lent 1 to 6
+            if (diffDays >= 0 && diffDays < 49) return "Easter" + weeksFromEaster; // Easter 0 to 5
+            if (diffDays >= 49 && diffDays < 56) return "Pentecost";
+            
+            if (diffDays >= 56) {
+                let trinityWeek = weeksFromEaster - 8;
+                if (trinityWeek === 0) return "TrinitySunday";
+                return "Trinity" + trinityWeek; // Trinity 1 through 25
+            }
+            
+            // 5. Winter Fixed Seasons (Advent & Epiphany season)
+            let christmas = new Date(year, 11, 25);
+            let chrisDayOfWeek = christmas.getDay();
+            let advent4 = new Date(year, 11, 25 - (chrisDayOfWeek === 0 ? 7 : chrisDayOfWeek)); 
+            let advent1 = new Date(advent4.getTime() - (21 * 24 * 3600 * 1000));
+            
+            if (todayMidnight >= advent1 && todayMidnight < christmas) {
+                let adventWeek = Math.floor((todayMidnight.getTime() - advent1.getTime()) / (1000 * 3600 * 24 * 7)) + 1;
+                return "Advent" + adventWeek;
+            }
+
+            let epiphany = new Date(year, 0, 6);
+            if (todayMidnight >= epiphany && diffDays < -63) { 
+                let firstSunAfterEpiph = new Date(year, 0, 6 + (7 - epiphany.getDay()));
+                if (todayMidnight < firstSunAfterEpiph) return "Epiphany";
+                let epiphWeek = Math.floor((todayMidnight.getTime() - firstSunAfterEpiph.getTime()) / (1000 * 3600 * 24 * 7)) + 1;
+                return "Epiphany" + epiphWeek;
+            }
+            
             return "Default";
         }
 
