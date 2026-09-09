@@ -45,6 +45,7 @@
 
     <div class="header">
         <h2>Daily Office 1662</h2>
+        <h4 id="date-display" style="margin-top: 0; color: #666;"></h4>
         <!-- Service Selection Buttons -->
         <button onclick="loadService('Morning Prayer')">Morning Prayer</button>
         <button onclick="loadService('Evening Prayer')">Evening Prayer</button>
@@ -66,35 +67,52 @@
 
     <!-- 2. Run the logic engine SECOND -->
     <script>
-        // Dark Mode Toggle
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
+    // --- 1. SET UP THE DATE ---
+    let today = new Date();
+    let dayOfWeek = today.getDay(); // Sunday is 0, Monday is 1... Wednesday is 3, Friday is 5
+    let dayOfMonth = today.getDate(); // 1 through 31
+    
+    // Display the current date on the screen
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('date-display').innerText = today.toLocaleDateString('en-US', options);
 
-        // Font Size Adjuster
-        let currentFontSize = 18;
-        function changeFontSize(change) {
-            currentFontSize += change;
-            document.getElementById('text-container').style.fontSize = currentFontSize + 'px';
-        }
+    // --- 2. UI CONTROLS ---
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
 
-        // Service Loader pulling from bcp.js
-        function loadService(serviceName) {
-            let container = document.getElementById('text-container');
+    let currentFontSize = 18;
+    function changeFontSize(change) {
+        currentFontSize += change;
+        document.getElementById('text-container').style.fontSize = currentFontSize + 'px';
+    }
+
+    // --- 3. SERVICE BUILDER ---
+    function loadService(serviceName) {
+        let container = document.getElementById('text-container');
+        
+        if(serviceName === 'Morning Prayer') {
+            // Start building Morning Prayer
+            let serviceText = 
+                bcp.morningPrayer.title + 
+                bcp.morningPrayer.exhortation + 
+                bcp.morningPrayer.confession + 
+                bcp.morningPrayer.absolution + 
+                bcp.morningPrayer.lordsPrayer + 
+                bcp.morningPrayer.preces;
             
-            if(serviceName === 'Morning Prayer') {
-                // This stitches the parts together in order from the bcp.js file
-                container.innerHTML = 
-                    bcp.morningPrayer.title + 
-                    bcp.morningPrayer.exhortation + 
-                    bcp.morningPrayer.confession + 
-                    bcp.morningPrayer.absolution + 
-                    bcp.morningPrayer.lordsPrayer + 
-                    bcp.morningPrayer.preces;
-            } else {
-                container.innerHTML = "<p>Coming soon...</p>";
+            // LITANY RULE: If Wednesday (3), Friday (5), or Sunday (0), add the Litany
+            if (dayOfWeek === 3 || dayOfWeek === 5 || dayOfWeek === 0) {
+                serviceText += bcp.litany.title + bcp.litany.text;
             }
+            
+            // Output the final stitched text
+            container.innerHTML = serviceText;
+
+        } else {
+            container.innerHTML = "<p>Coming soon...</p>";
         }
-    </script>
+    }
+</script>
 </body>
 </html>
