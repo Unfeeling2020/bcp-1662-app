@@ -11,6 +11,18 @@ const bcp = {
         teDeum: "<h3>Te Deum Laudamus</h3><p>We praise thee, O God : we acknowledge thee to be the Lord...</p>",
         jubilate: "<h3>Jubilate Deo. Psalm 100.</h3><p>O be joyful in the Lord, all ye lands : serve the Lord with gladness...</p>"
     },
+
+    eveningPrayer: {
+        title: "<h2>Evening Prayer</h2>",
+        exhortation: "<p>Dearly beloved brethren, the Scripture moveth us in sundry places...</p>",
+        confession: "<h3>A General Confession</h3><p>Almighty and most merciful Father; We have erred, and strayed from thy ways like lost sheep...</p>",
+        absolution: "<h3>The Absolution</h3><p>Almighty God, the Father of our Lord Jesus Christ, who desireth not the death of a sinner...</p>",
+        lordsPrayer: "<h3>The Lord's Prayer</h3><p>Our Father, which art in heaven, Hallowed be thy Name...</p>",
+        preces: "<h3>The Preces</h3><p><i>Minister.</i> O Lord, open thou our lips.<br><i>Answer.</i> And our mouth shall shew forth thy praise.<br><i>Minister.</i> O God, make speed to save us.<br><i>Answer.</i> O Lord, make haste to help us.<br><i>Minister.</i> Glory be to the Father, and to the Son, and to the Holy Ghost;<br><i>Answer.</i> As it was in the beginning, is now, and ever shall be, world without end. Amen.<br><i>Minister.</i> Praise ye the Lord.<br><i>Answer.</i> The Lord's Name be praised.</p>",
+        magnificat: "<h3>Magnificat</h3><p>My soul doth magnify the Lord : and my spirit hath rejoiced in God my Saviour.<br>For he hath regarded : the lowliness of his hand-maiden.<br>For behold, from henceforth : all generations shall call me blessed.<br>For he that is mighty hath magnified me : and holy is his Name.<br>And his mercy is on them that fear him : throughout all generations.<br>He hath shewed strength with his arm : he hath scattered the proud in the imagination of their hearts.<br>He hath put down the mighty from their seat : and hath exalted the humble and meek.<br>He hath filled the hungry with good things : and the rich he hath sent empty away.<br>He remembering his mercy hath holpen his servant Israel : as he promised to our forefathers, Abraham and his seed, for ever.<br>Glory be to the Father, and to the Son : and to the Holy Ghost;<br>As it was in the beginning, is now, and ever shall be : world without end. Amen.</p>",
+        nuncDimittis: "<h3>Nunc Dimittis</h3><p>Lord, now lettest thou thy servant depart in peace : according to thy word.<br>For mine eyes have seen : thy salvation,<br>Which thou hast prepared : before the face of all people;<br>To be a light to lighten the Gentiles : and to be the glory of thy people Israel.<br>Glory be to the Father, and to the Son : and to the Holy Ghost;<br>As it was in the beginning, is now, and ever shall be : world without end. Amen.</p>"
+    },
+    
     litany: {
         title: "<h3>The Litany</h3>",
         text: "<p>O God the Father, of heaven : have mercy upon us miserable sinners.</p>"
