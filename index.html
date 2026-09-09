@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="manifest" href="manifest.json">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>1662 BCP</title>
@@ -87,6 +88,22 @@
                 container.innerHTML = "<h3>The Order for the Administration of the Lord's Supper, or Holy Communion</h3><p>Our Father, which art in heaven, Hallowed be thy Name...</p>";
             }
         }
-    </script>
+        <script src="bcp.js"></script>
+    <function loadService(serviceName) {
+    let container = document.getElementById('text-container');
+    
+    if(serviceName === 'Morning Prayer') {
+        // This stitches the parts together in order
+        container.innerHTML = 
+            bcp.morningPrayer.title + 
+            bcp.morningPrayer.exhortation + 
+            bcp.morningPrayer.confession + 
+            bcp.morningPrayer.absolution + 
+            bcp.morningPrayer.lordsPrayer + 
+            bcp.morningPrayer.preces;
+    } else {
+        container.innerHTML = "<p>Coming soon...</p>";
+    }
+}>
 </body>
 </html>
