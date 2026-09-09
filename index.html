@@ -66,21 +66,17 @@
     <script src="bcp.js"></script>
 
     <!-- 2. Run the logic engine SECOND -->
-    <script>
+   <script>
     // --- 1. SET UP THE DATE ---
     let today = new Date();
-    let dayOfWeek = today.getDay(); // Sunday is 0, Monday is 1... Wednesday is 3, Friday is 5
-    let dayOfMonth = today.getDate(); // 1 through 31
+    let dayOfWeek = today.getDay(); 
+    let dayOfMonth = today.getDate(); 
     
-    // Display the current date on the screen
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('date-display').innerText = today.toLocaleDateString('en-US', options);
 
     // --- 2. UI CONTROLS ---
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-    }
-
+    function toggleDarkMode() { document.body.classList.toggle('dark-mode'); }
     let currentFontSize = 18;
     function changeFontSize(change) {
         currentFontSize += change;
@@ -92,7 +88,7 @@
         let container = document.getElementById('text-container');
         
         if(serviceName === 'Morning Prayer') {
-            // Start building Morning Prayer
+            // 3a. Start with the static opening text
             let serviceText = 
                 bcp.morningPrayer.title + 
                 bcp.morningPrayer.exhortation + 
@@ -101,12 +97,24 @@
                 bcp.morningPrayer.lordsPrayer + 
                 bcp.morningPrayer.preces;
             
-            // LITANY RULE: If Wednesday (3), Friday (5), or Sunday (0), add the Litany
+            // 3b. Add the Psalms based on the day of the month
+            // BCP Rule: Day 31 repeats Day 30
+            let psalmDay = dayOfMonth;
+            if (psalmDay === 31) { psalmDay = 30; }
+            
+            // Look up the Psalms in our library. If we haven't typed them in yet, show a placeholder.
+            if (bcp.psalter["day" + psalmDay]) {
+                serviceText += bcp.psalter["day" + psalmDay].morning;
+            } else {
+                serviceText += "<p><i>[Psalms for Day " + psalmDay + " will go here once added to bcp.js]</i></p>";
+            }
+            
+            // 3c. LITANY RULE: If Wednesday (3), Friday (5), or Sunday (0)
             if (dayOfWeek === 3 || dayOfWeek === 5 || dayOfWeek === 0) {
                 serviceText += bcp.litany.title + bcp.litany.text;
             }
             
-            // Output the final stitched text
+            // 3d. Output the final stitched text to the screen
             container.innerHTML = serviceText;
 
         } else {
