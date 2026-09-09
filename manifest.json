@@ -1,0 +1,8 @@
+{
+  "name": "1662 Daily Office",
+  "short_name": "1662 BCP",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfc",
+  "theme_color": "#1a1a1a"
+}
