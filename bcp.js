@@ -9,7 +9,21 @@ const bcp = {
         // NEW CANTICLES ADDED HERE
         venite: "<h3>Venite, exultemus Domino. Psalm 95.</h3><p>O come, let us sing unto the Lord : let us heartily rejoice in the strength of our salvation...</p>",
         teDeum: "<h3>Te Deum Laudamus</h3><p>We praise thee, O God : we acknowledge thee to be the Lord...</p>",
-        jubilate: "<h3>Jubilate Deo. Psalm 100.</h3><p>O be joyful in the Lord, all ye lands : serve the Lord with gladness...</p>"
+        jubilate: "<h3>Jubilate Deo. Psalm 100.</h3><p>O be joyful in the Lord, all ye lands : serve the Lord with gladness...</p>",
+        benedictus: "<h3>Benedictus</h3><p>BLESSED be the Lord God of Israel : for he hath visited and redeemed his people;
+    And hath raised up a mighty salvation for us : in the house of his servant David;
+    As he spake by the mouth of his holy Prophets : which have been since the world began;
+    That we should be saved from our enemies : and from the hand of all that hate us.
+    To perform the mercy promised to our forefathers : and to remember his holy Covenant;
+    To perform the oath which he sware to our forefather Abraham : that he would give us;
+    That we being delivered out of the hand of our enemies : might serve him without fear;
+    In holiness and righteousness before him : all the days of our life.
+    And thou, Child, shalt be called the Prophet of the Highest : for thou shalt go before the face of the Lord to prepare his ways;
+    To give knowledge of salvation unto his people : for the remission of their sins,
+    Through the tender mercy of our God : whereby the day-spring from on high hath visited us;
+    To give light to them that sit in darkness, and in the shadow of death : and to guide our feet into the way of peace.
+    Glory be to the Father, and to the Son : and to the Holy Ghost;
+    As it was in the beginning, is now, and ever shall be : world without end. Amen.</p>"
     },
 
     eveningPrayer: {
