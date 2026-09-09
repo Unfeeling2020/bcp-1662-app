@@ -66,11 +66,17 @@
     <script src="bcp.js"></script>
 
     <!-- 2. Run the logic engine SECOND -->
-   <script>
+<script>
     // --- 1. SET UP THE DATE ---
     let today = new Date();
     let dayOfWeek = today.getDay(); 
     let dayOfMonth = today.getDate(); 
+    
+    // Create a YYYY-MM-DD string to look up in our lectionary
+    let year = today.getFullYear();
+    let month = String(today.getMonth() + 1).padStart(2, '0');
+    let day = String(today.getDate()).padStart(2, '0');
+    let dateString = `${year}-${month}-${day}`; 
     
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     document.getElementById('date-display').innerText = today.toLocaleDateString('en-US', options);
@@ -88,7 +94,9 @@
         let container = document.getElementById('text-container');
         
         if(serviceName === 'Morning Prayer') {
-            // 3a. Start with the static opening text
+            // Look up today's data in the lectionary
+            let todaysData = bcp.lectionary[dateString];
+
             let serviceText = 
                 bcp.morningPrayer.title + 
                 bcp.morningPrayer.exhortation + 
@@ -97,24 +105,43 @@
                 bcp.morningPrayer.lordsPrayer + 
                 bcp.morningPrayer.preces;
             
-            // 3b. Add the Psalms based on the day of the month
-            // BCP Rule: Day 31 repeats Day 30
-            let psalmDay = dayOfMonth;
-            if (psalmDay === 31) { psalmDay = 30; }
+            // Add Venite
+            serviceText += bcp.morningPrayer.venite;
             
-            // Look up the Psalms in our library. If we haven't typed them in yet, show a placeholder.
+            // Add Psalms
+            let psalmDay = dayOfMonth === 31 ? 30 : dayOfMonth;
             if (bcp.psalter["day" + psalmDay]) {
                 serviceText += bcp.psalter["day" + psalmDay].morning;
             } else {
-                serviceText += "<p><i>[Psalms for Day " + psalmDay + " will go here once added to bcp.js]</i></p>";
+                serviceText += "<p><i>[Psalms for Day " + psalmDay + " missing]</i></p>";
+            }
+
+            // Add Lessons, Canticles, and the Collect if Lectionary data exists
+            if (todaysData) {
+                let firstRef = todaysData.mpFirstLesson;
+                let secondRef = todaysData.mpSecondLesson;
+                
+                serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
+                serviceText += bcp.bible[firstRef] || "<p>[Text missing]</p>";
+                
+                serviceText += bcp.morningPrayer.teDeum;
+                
+                serviceText += "<h3>The Second Lesson: " + secondRef + "</h3>";
+                serviceText += bcp.bible[secondRef] || "<p>[Text missing]</p>";
+                
+                serviceText += bcp.morningPrayer.jubilate;
+
+                // Add the Collect of the Day
+                serviceText += todaysData.collect;
+            } else {
+                serviceText += "<p><i>[No Lectionary data found for " + dateString + "]</i></p>";
             }
             
-            // 3c. LITANY RULE: If Wednesday (3), Friday (5), or Sunday (0)
+            // Add Litany on Wed, Fri, Sun
             if (dayOfWeek === 3 || dayOfWeek === 5 || dayOfWeek === 0) {
                 serviceText += bcp.litany.title + bcp.litany.text;
             }
             
-            // 3d. Output the final stitched text to the screen
             container.innerHTML = serviceText;
 
         } else {
