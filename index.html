@@ -62,92 +62,94 @@
         <p><i>Select a service above to begin.</i></p>
     </div>
 
-    <!-- 1. Load the text library FIRST -->
+    <!-- 1. Load the text libraries FIRST -->
+    <script src="lectionary.js"></script>
     <script src="bcp.js"></script>
 
     <!-- 2. Run the logic engine SECOND -->
-<script>
-    // --- 1. SET UP THE DATE ---
-    let today = new Date();
-    let dayOfWeek = today.getDay(); 
-    let dayOfMonth = today.getDate(); 
-    
-    // Create a YYYY-MM-DD string to look up in our lectionary
-    let year = today.getFullYear();
-    let month = String(today.getMonth() + 1).padStart(2, '0');
-    let day = String(today.getDate()).padStart(2, '0');
-    let dateString = `${year}-${month}-${day}`; 
-    
-    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('date-display').innerText = today.toLocaleDateString('en-US', options);
+    <script>
+        // --- 1. SET UP THE DATE ---
+        let today = new Date();
+        let dayOfWeek = today.getDay(); 
+        let dayOfMonth = today.getDate(); 
 
-    // --- 2. UI CONTROLS ---
-    function toggleDarkMode() { document.body.classList.toggle('dark-mode'); }
-    let currentFontSize = 18;
-    function changeFontSize(change) {
-        currentFontSize += change;
-        document.getElementById('text-container').style.fontSize = currentFontSize + 'px';
-    }
-
-    // --- 3. SERVICE BUILDER ---
-    function loadService(serviceName) {
-        let container = document.getElementById('text-container');
+        // Create a MM-DD string to look up in your Excel data
+        let month = String(today.getMonth() + 1).padStart(2, '0');
+        let day = String(today.getDate()).padStart(2, '0');
+        let mmdd = `${month}-${day}`;
         
-        if(serviceName === 'Morning Prayer') {
-            // Look up today's data in the lectionary
-            let todaysData = bcp.lectionary[dateString];
+        // Display the date on the screen
+        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('date-display').innerText = today.toLocaleDateString('en-US', options);
 
-            let serviceText = 
-                bcp.morningPrayer.title + 
-                bcp.morningPrayer.exhortation + 
-                bcp.morningPrayer.confession + 
-                bcp.morningPrayer.absolution + 
-                bcp.morningPrayer.lordsPrayer + 
-                bcp.morningPrayer.preces;
-            
-            // Add Venite
-            serviceText += bcp.morningPrayer.venite;
-            
-            // Add Psalms
-            let psalmDay = dayOfMonth === 31 ? 30 : dayOfMonth;
-            if (bcp.psalter["day" + psalmDay]) {
-                serviceText += bcp.psalter["day" + psalmDay].morning;
-            } else {
-                serviceText += "<p><i>[Psalms for Day " + psalmDay + " missing]</i></p>";
-            }
-
-            // Add Lessons, Canticles, and the Collect if Lectionary data exists
-            if (todaysData) {
-                let firstRef = todaysData.mpFirstLesson;
-                let secondRef = todaysData.mpSecondLesson;
-                
-                serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
-                serviceText += bcp.bible[firstRef] || "<p>[Text missing]</p>";
-                
-                serviceText += bcp.morningPrayer.teDeum;
-                
-                serviceText += "<h3>The Second Lesson: " + secondRef + "</h3>";
-                serviceText += bcp.bible[secondRef] || "<p>[Text missing]</p>";
-                
-                serviceText += bcp.morningPrayer.jubilate;
-
-                // Add the Collect of the Day
-                serviceText += todaysData.collect;
-            } else {
-                serviceText += "<p><i>[No Lectionary data found for " + dateString + "]</i></p>";
-            }
-            
-            // Add Litany on Wed, Fri, Sun
-            if (dayOfWeek === 3 || dayOfWeek === 5 || dayOfWeek === 0) {
-                serviceText += bcp.litany.title + bcp.litany.text;
-            }
-            
-            container.innerHTML = serviceText;
-
-        } else {
-            container.innerHTML = "<p>Coming soon...</p>";
+        // --- 2. UI CONTROLS ---
+        function toggleDarkMode() { document.body.classList.toggle('dark-mode'); }
+        let currentFontSize = 18;
+        function changeFontSize(change) {
+            currentFontSize += change;
+            document.getElementById('text-container').style.fontSize = currentFontSize + 'px';
         }
-    }
-</script>
+
+        // --- 3. SERVICE BUILDER ---
+        function loadService(serviceName) {
+            let container = document.getElementById('text-container');
+            
+            if(serviceName === 'Morning Prayer') {
+                // Look up today's data in the EXCEL lectionary
+                let todaysData = fixedLectionary[mmdd];
+
+                let serviceText = 
+                    bcp.morningPrayer.title + 
+                    bcp.morningPrayer.exhortation + 
+                    bcp.morningPrayer.confession + 
+                    bcp.morningPrayer.absolution + 
+                    bcp.morningPrayer.lordsPrayer + 
+                    bcp.morningPrayer.preces;
+                
+                // Add Venite
+                serviceText += bcp.morningPrayer.venite;
+                
+                // Add Psalms
+                let psalmDay = dayOfMonth === 31 ? 30 : dayOfMonth;
+                if (bcp.psalter && bcp.psalter["day" + psalmDay]) {
+                    serviceText += bcp.psalter["day" + psalmDay].morning;
+                } else {
+                    serviceText += "<p><i>[Psalms for Day " + psalmDay + " missing]</i></p>";
+                }
+
+                // Add Lessons, Canticles, and the Collect if Lectionary data exists
+                if (todaysData) {
+                    let firstRef = todaysData.mpFirst;
+                    let secondRef = todaysData.mpSecond;
+                    
+                    serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
+                    // Using fallback to bcp.bible if it exists, otherwise placeholder
+                    serviceText += (bcp.bible && bcp.bible[firstRef]) ? bcp.bible[firstRef] : "<p><i>[Bible text will go here]</i></p>";
+                    
+                    serviceText += bcp.morningPrayer.teDeum;
+                    
+                    serviceText += "<h3>The Second Lesson: " + secondRef + "</h3>";
+                    serviceText += (bcp.bible && bcp.bible[secondRef]) ? bcp.bible[secondRef] : "<p><i>[Bible text will go here]</i></p>";
+                    
+                    serviceText += bcp.morningPrayer.jubilate;
+
+                    // Add the Collect of the Day placeholder
+                    serviceText += "<h3>The Collect of the Day</h3><p><i>[Collect will be calculated based on the liturgical calendar]</i></p>";
+                } else {
+                    serviceText += "<p><i>[No Lectionary data found for " + mmdd + "]</i></p>";
+                }
+                
+                // Add Litany on Wed, Fri, Sun
+                if (dayOfWeek === 3 || dayOfWeek === 5 || dayOfWeek === 0) {
+                    serviceText += bcp.litany.title + bcp.litany.text;
+                }
+                
+                container.innerHTML = serviceText;
+
+            } else {
+                container.innerHTML = "<p>Coming soon...</p>";
+            }
+        }
+    </script>
 </body>
 </html>
