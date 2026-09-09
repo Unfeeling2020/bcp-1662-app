@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>1662 BCP</title>
+    <style>
+        /* Basic styling for our app */
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fdfdfc;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+        }
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .header {
+            text-align: center;
+            position: sticky;
+            top: 0;
+            background: inherit;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #666;
+            background: #eee;
+            border-radius: 5px;
+        }
+        .dark-mode button { background: #333; color: white; }
+        #text-container { margin-top: 20px; line-height: 1.6; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>Daily Office 1662</h2>
+        <!-- Service Selection Buttons -->
+        <button onclick="loadService('Morning Prayer')">Morning Prayer</button>
+        <button onclick="loadService('Evening Prayer')">Evening Prayer</button>
+        <button onclick="loadService('Holy Communion')">Holy Communion</button>
+        <br><br>
+        <!-- Customization Controls -->
+        <button onclick="toggleDarkMode()">Dark Mode</button>
+        <button onclick="changeFontSize(2)">A+</button>
+        <button onclick="changeFontSize(-2)">A-</button>
+    </div>
+
+    <!-- This is where the liturgy will be injected by our logic later -->
+    <div id="text-container">
+        <p><i>Select a service above to begin.</i></p>
+    </div>
+
+    <script>
+        // --- THIS IS THE JAVASCRIPT ENGINE (LOGIC) ---
+
+        // 1. Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // 2. Font Size Adjuster
+        let currentFontSize = 18;
+        function changeFontSize(change) {
+            currentFontSize += change;
+            document.getElementById('text-container').style.fontSize = currentFontSize + 'px';
+        }
+
+        // 3. Service Loader (Placeholder for now)
+        function loadService(serviceName) {
+            let container = document.getElementById('text-container');
+            
+            if(serviceName === 'Morning Prayer') {
+                container.innerHTML = "<h3>The Order for Morning Prayer</h3><p>Dearly beloved brethren, the Scripture moveth us in sundry places...</p>";
+            } else if (serviceName === 'Evening Prayer') {
+                container.innerHTML = "<h3>The Order for Evening Prayer</h3><p>Dearly beloved brethren, the Scripture moveth us in sundry places...</p>";
+            } else if (serviceName === 'Holy Communion') {
+                container.innerHTML = "<h3>The Order for the Administration of the Lord's Supper, or Holy Communion</h3><p>Our Father, which art in heaven, Hallowed be thy Name...</p>";
+            }
+        }
+    </script>
+</body>
+</html>
