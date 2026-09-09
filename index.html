@@ -170,10 +170,11 @@
         function loadService(serviceName) {
             let container = document.getElementById('text-container');
             
+            // Look up today's data in the EXCEL lectionary
+            let todaysData = fixedLectionary[mmdd];
+            let psalmDay = dayOfMonth === 31 ? 30 : dayOfMonth;
+            
             if(serviceName === 'Morning Prayer') {
-                // Look up today's data in the EXCEL lectionary
-                let todaysData = fixedLectionary[mmdd];
-
                 let serviceText = 
                     bcp.morningPrayer.title + 
                     bcp.morningPrayer.exhortation + 
@@ -182,33 +183,26 @@
                     bcp.morningPrayer.lordsPrayer + 
                     bcp.morningPrayer.preces;
                 
-                // Add Venite
                 serviceText += bcp.morningPrayer.venite;
                 
-                // Add Psalms
-                let psalmDay = dayOfMonth === 31 ? 30 : dayOfMonth;
                 if (bcp.psalter && bcp.psalter["day" + psalmDay]) {
                     serviceText += bcp.psalter["day" + psalmDay].morning;
                 } else {
                     serviceText += "<p><i>[Psalms for Day " + psalmDay + " missing]</i></p>";
                 }
 
-                // Add Lessons, Canticles, and the Collect
                 if (todaysData) {
                     let firstRef = todaysData.mpFirst;
                     let secondRef = todaysData.mpSecond;
                     
                     serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
                     serviceText += createBibleLink(firstRef);
-                    
                     serviceText += bcp.morningPrayer.teDeum;
                     
                     serviceText += "<h3>The Second Lesson: " + secondRef + "</h3>";
                     serviceText += createBibleLink(secondRef);
-                    
                     serviceText += bcp.morningPrayer.jubilate;
 
-                    // Calculate the Liturgical Day and Add the Collect
                     let liturgicalKey = getLiturgicalKey(today);
                     serviceText += bcpCollects[liturgicalKey] || bcpCollects["Default"];
                 } else {
@@ -218,6 +212,42 @@
                 // Add Litany on Wed, Fri, Sun
                 if (dayOfWeek === 3 || dayOfWeek === 5 || dayOfWeek === 0) {
                     serviceText += bcp.litany.title + bcp.litany.text;
+                }
+                
+                container.innerHTML = serviceText;
+
+            } else if (serviceName === 'Evening Prayer') {
+                let serviceText = 
+                    bcp.eveningPrayer.title + 
+                    bcp.eveningPrayer.exhortation + 
+                    bcp.eveningPrayer.confession + 
+                    bcp.eveningPrayer.absolution + 
+                    bcp.eveningPrayer.lordsPrayer + 
+                    bcp.eveningPrayer.preces;
+                
+                if (bcp.psalter && bcp.psalter["day" + psalmDay]) {
+                    serviceText += bcp.psalter["day" + psalmDay].evening;
+                } else {
+                    serviceText += "<p><i>[Psalms for Day " + psalmDay + " missing]</i></p>";
+                }
+
+                if (todaysData) {
+                    // Notice we pull the "epFirst" and "epSecond" readings here!
+                    let firstRef = todaysData.epFirst;
+                    let secondRef = todaysData.epSecond;
+                    
+                    serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
+                    serviceText += createBibleLink(firstRef);
+                    serviceText += bcp.eveningPrayer.magnificat;
+                    
+                    serviceText += "<h3>The Second Lesson: " + secondRef + "</h3>";
+                    serviceText += createBibleLink(secondRef);
+                    serviceText += bcp.eveningPrayer.nuncDimittis;
+
+                    let liturgicalKey = getLiturgicalKey(today);
+                    serviceText += bcpCollects[liturgicalKey] || bcpCollects["Default"];
+                } else {
+                    serviceText += "<p><i>[No Lectionary data found for " + mmdd + "]</i></p>";
                 }
                 
                 container.innerHTML = serviceText;
