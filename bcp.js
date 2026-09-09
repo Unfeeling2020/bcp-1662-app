@@ -2260,7 +2260,695 @@ psalter: {
                          "<sup>16</sup> All the whole heavens are the Lord's : the earth hath he given to the children of men.<br>" +
                          "<sup>17</sup> The dead praise not thee, O Lord : neither all they that go down into silence.<br>" +
                          "<sup>18</sup> But we will praise the Lord : from this time forth for evermore. Praise the Lord.</p>"
+            },day24: {
+                morning: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 116.</b> <i>Dilexi, quoniam.</i><br>" +
+                         "I am well pleased : that the Lord hath heard the voice of my prayer;<br>" +
+                         "<sup>2</sup> That he hath inclined his ear unto me : therefore will I call upon him as long as I live.<br>" +
+                         "<sup>3</sup> The snares of death compassed me round about : and the pains of hell gat hold upon me.<br>" +
+                         "<sup>4</sup> I shall find trouble and heaviness, and I will call upon the Name of the Lord : O Lord, I beseech thee, deliver my soul.<br>" +
+                         "<sup>5</sup> Gracious is the Lord, and righteous : yea, our God is merciful.<br>" +
+                         "<sup>6</sup> The Lord preserveth the simple : I was in misery, and he helped me.<br>" +
+                         "<sup>7</sup> Turn again then unto thy rest, O my soul : for the Lord hath rewarded thee.<br>" +
+                         "<sup>8</sup> And why? thou hast delivered my soul from death : mine eyes from tears, and my feet from falling.<br>" +
+                         "<sup>9</sup> I will walk before the Lord : in the land of the living.<br>" +
+                         "<sup>10</sup> I believed, and therefore will I speak; but I was sore troubled : I said in my haste, All men are liars.<br>" +
+                         "<sup>11</sup> What reward shall I give unto the Lord : for all the benefits that he hath done unto me?<br>" +
+                         "<sup>12</sup> I will receive the cup of salvation : and call upon the Name of the Lord.<br>" +
+                         "<sup>13</sup> I will pay my vows now in the presence of all his people : right dear in the sight of the Lord is the death of his saints.<br>" +
+                         "<sup>14</sup> Behold, O Lord, how that I am thy servant : I am thy servant, and the son of thine handmaid; thou hast broken my bonds in sunder.<br>" +
+                         "<sup>15</sup> I will offer to thee the sacrifice of thanksgiving : and will call upon the Name of the Lord.<br>" +
+                         "<sup>16</sup> I will pay my vows unto the Lord in the sight of all his people : in the courts of the Lord's house, even in the midst of thee, O Jerusalem. Praise the Lord.</p>" +
+
+                         "<p><b>Psalm 117.</b> <i>Laudate Dominum.</i><br>" +
+                         "O praise the Lord, all ye heathen : praise him, all ye nations.<br>" +
+                         "<sup>2</sup> For his merciful kindness is ever more and more towards us : and the truth of the Lord endureth for ever. Praise the Lord.</p>" +
+
+                         "<p><b>Psalm 118.</b> <i>Confitemini Domino.</i><br>" +
+                         "O give thanks unto the Lord, for he is gracious : because his mercy endureth for ever.<br>" +
+                         "<sup>2</sup> Let Israel now confess, that he is gracious : and that his mercy endureth for ever.<br>" +
+                         "<sup>3</sup> Let the house of Aaron now confess : that his mercy endureth for ever.<br>" +
+                         "<sup>4</sup> Yea, let them now that fear the Lord confess : that his mercy endureth for ever.<br>" +
+                         "<sup>5</sup> I called upon the Lord in trouble : and the Lord heard me at large.<br>" +
+                         "<sup>6</sup> The Lord is on my side : I will not fear what man doeth unto me.<br>" +
+                         "<sup>7</sup> The Lord taketh my part with them that help me : therefore shall I see my desire upon mine enemies.<br>" +
+                         "<sup>8</sup> It is better to trust in the Lord : than to put any confidence in man.<br>" +
+                         "<sup>9</sup> It is better to trust in the Lord : than to put any confidence in princes.<br>" +
+                         "<sup>10</sup> All nations compassed me round about : but in the Name of the Lord will I destroy them.<br>" +
+                         "<sup>11</sup> They kept me in on every side, they kept me in, I say, on every side : but in the Name of the Lord will I destroy them.<br>" +
+                         "<sup>12</sup> They came about me like bees, and are extinct even as the fire among the thorns : for in the Name of the Lord I will destroy them.<br>" +
+                         "<sup>13</sup> Thou hast thrust sore at me, that I might fall : but the Lord was my help.<br>" +
+                         "<sup>14</sup> The Lord is my strength, and my song : and is become my salvation.<br>" +
+                         "<sup>15</sup> The voice of joy and health is in the dwellings of the righteous : the right hand of the Lord bringeth mighty things to pass.<br>" +
+                         "<sup>16</sup> The right hand of the Lord hath the pre-eminence : the right hand of the Lord bringeth mighty things to pass.<br>" +
+                         "<sup>17</sup> I shall not die, but live : and declare the works of the Lord.<br>" +
+                         "<sup>18</sup> The Lord hath chastened and corrected me : but he hath not given me over unto death.<br>" +
+                         "<sup>19</sup> Open me the gates of righteousness : that I may go into them, and give thanks unto the Lord.<br>" +
+                         "<sup>20</sup> This is the gate of the Lord : the righteous shall enter into it.<br>" +
+                         "<sup>21</sup> I will thank thee, for thou hast heard me : and art become my salvation.<br>" +
+                         "<sup>22</sup> The same stone which the builders refused : is become the head-stone in the corner.<br>" +
+                         "<sup>23</sup> This is the Lord's doing : and it is marvellous in our eyes.<br>" +
+                         "<sup>24</sup> This is the day which the Lord hath made : we will rejoice and be glad in it.<br>" +
+                         "<sup>25</sup> Help me now, O Lord : O Lord, send us now prosperity.<br>" +
+                         "<sup>26</sup> Blessed be he that cometh in the Name of the Lord : we have wished you good luck, ye that are of the house of the Lord.<br>" +
+                         "<sup>27</sup> God is the Lord who hath shewed us light : bind the sacrifice with cords, yea, even unto the horns of the altar.<br>" +
+                         "<sup>28</sup> Thou art my God, and I will thank thee : thou art my God, and I will praise thee.<br>" +
+                         "<sup>29</sup> O give thanks unto the Lord, for he is gracious : and his mercy endureth for ever.</p>",
+                
+                evening: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 119.</b> <i>Beati immaculati.</i><br>" +
+                         "Blessed are those that are undefiled in the way : and walk in the law of the Lord.<br>" +
+                         "<sup>2</sup> Blessed are they that keep his testimonies : and seek him with their whole heart.<br>" +
+                         "<sup>3</sup> For they who do no wickedness : walk in his ways.<br>" +
+                         "<sup>4</sup> Thou hast charged : that we shall diligently keep thy commandments.<br>" +
+                         "<sup>5</sup> O that my ways were made so direct : that I might keep thy statutes!<br>" +
+                         "<sup>6</sup> So shall I not be confounded : while I have respect unto all thy commandments.<br>" +
+                         "<sup>7</sup> I will thank thee with an unfeigned heart : when I shall have learned the judgments of thy righteousness.<br>" +
+                         "<sup>8</sup> I will keep thy ceremonies : O forsake me not utterly.</p>" +
+
+                         "<p><i>In quo corriget?</i><br>" +
+                         "<sup>9</sup> Wherewithal shall a young man cleanse his way : even by ruling himself after thy word.<br>" +
+                         "<sup>10</sup> With my whole heart have I sought thee : O let me not go wrong out of thy commandments.<br>" +
+                         "<sup>11</sup> Thy words have I hid within my heart : that I should not sin against thee.<br>" +
+                         "<sup>12</sup> Blessed art thou, O Lord : O teach me thy statutes.<br>" +
+                         "<sup>13</sup> With my lips have I been telling : of all the judgments of thy mouth.<br>" +
+                         "<sup>14</sup> I have had as great delight in the way of thy testimonies : as in all manner of riches.<br>" +
+                         "<sup>15</sup> I will talk of thy commandments : and have respect unto thy ways.<br>" +
+                         "<sup>16</sup> My delight shall be in thy statutes : and I will not forget thy word.</p>" +
+
+                         "<p><i>Retribue servo tuo.</i><br>" +
+                         "<sup>17</sup> O do well unto thy servant : that I may live, and keep thy word.<br>" +
+                         "<sup>18</sup> Open thou mine eyes : that I may see the wondrous things of thy law.<br>" +
+                         "<sup>19</sup> I am a stranger upon earth : O hide not thy commandments from me.<br>" +
+                         "<sup>20</sup> My soul breaketh out for the very fervent desire : that it hath alway unto thy judgments.<br>" +
+                         "<sup>21</sup> Thou hast rebuked the proud : and cursed are they that do err from thy commandments.<br>" +
+                         "<sup>22</sup> O turn from me shame and rebuke : for I have kept thy testimonies.<br>" +
+                         "<sup>23</sup> Princes also did sit and speak against me : but thy servant is occupied in thy statutes.<br>" +
+                         "<sup>24</sup> For thy testimonies are my delight : and my counsellors.</p>" +
+
+                         "<p><i>Adhaesit pavimento.</i><br>" +
+                         "<sup>25</sup> My soul cleaveth to the dust : O quicken thou me, according to thy word.<br>" +
+                         "<sup>26</sup> I have acknowledged my ways, and thou heardest me : O teach me thy statutes.<br>" +
+                         "<sup>27</sup> Make me to understand the way of thy commandments : and so shall I talk of thy wondrous works.<br>" +
+                         "<sup>28</sup> My soul melteth away for very heaviness : comfort thou me according unto thy word.<br>" +
+                         "<sup>29</sup> Take from me the way of lying : and cause thou me to make much of thy law.<br>" +
+                         "<sup>30</sup> I have chosen the way of truth : and thy judgments have I laid before me.<br>" +
+                         "<sup>31</sup> I have stuck unto thy testimonies : O Lord, confound me not.<br>" +
+                         "<sup>32</sup> I will run the way of thy commandments : when thou hast set my heart at liberty.</p>"
             },
+            day25: {
+                morning: "<h3>The Psalms</h3>" +
+                         "<p><i>Legem pone.</i><br>" +
+                         "<sup>33</sup> Teach me, O Lord, the way of thy statutes : and I shall keep it unto the end.<br>" +
+                         "<sup>34</sup> Give me understanding, and I shall keep thy law : yea, I shall keep it with my whole heart.<br>" +
+                         "<sup>35</sup> Make me to go in the path of thy commandments : for therein is my desire.<br>" +
+                         "<sup>36</sup> Incline my heart unto thy testimonies : and not to covetousness.<br>" +
+                         "<sup>37</sup> O turn away mine eyes, lest they behold vanity : and quicken thou me in thy way.<br>" +
+                         "<sup>38</sup> O stablish thy word in thy servant : that I may fear thee.<br>" +
+                         "<sup>39</sup> Take away the rebuke that I am afraid of : for thy judgments are good.<br>" +
+                         "<sup>40</sup> Behold, my delight is in thy commandments : O quicken me in thy righteousness.</p>" +
+
+                         "<p><i>Et veniat super me.</i><br>" +
+                         "<sup>41</sup> Let thy loving mercy come also unto me, O Lord : even thy salvation, according unto thy word.<br>" +
+                         "<sup>42</sup> So shall I make answer unto my blasphemers : for my trust is in thy word.<br>" +
+                         "<sup>43</sup> O take not the word of thy truth utterly out of my mouth : for my hope is in thy judgments.<br>" +
+                         "<sup>44</sup> So shall I alway keep thy law : yea, for ever and ever.<br>" +
+                         "<sup>45</sup> And I will walk at liberty : for I seek thy commandments.<br>" +
+                         "<sup>46</sup> I will speak of thy testimonies also, even before kings : and will not be ashamed.<br>" +
+                         "<sup>47</sup> And my delight shall be in thy commandments : which I have loved.<br>" +
+                         "<sup>48</sup> My hands also will I lift up unto thy commandments, which I have loved : and my study shall be in thy statutes.</p>" +
+
+                         "<p><i>Memor esto verbi tui.</i><br>" +
+                         "<sup>49</sup> O think upon thy servant, as concerning thy word : wherein thou hast caused me to put my trust.<br>" +
+                         "<sup>50</sup> The same is my comfort in my trouble : for thy word hath quickened me.<br>" +
+                         "<sup>51</sup> The proud have had me exceedingly in derision : yet have I not shrinked from thy law.<br>" +
+                         "<sup>52</sup> For I remembered thine everlasting judgments, O Lord : and received comfort.<br>" +
+                         "<sup>53</sup> I am horribly afraid : for the ungodly that forsake thy law.<br>" +
+                         "<sup>54</sup> Thy statutes have been my songs : in the house of my pilgrimage.<br>" +
+                         "<sup>55</sup> I have thought upon thy Name, O Lord, in the night-season : and have kept thy law.<br>" +
+                         "<sup>56</sup> This I had : because I kept thy commandments.</p>" +
+
+                         "<p><i>Portio mea, Domine.</i><br>" +
+                         "<sup>57</sup> Thou art my portion, O Lord : I have promised to keep thy law.<br>" +
+                         "<sup>58</sup> I made my humble petition in thy presence with my whole heart : O be merciful unto me, according to thy word.<br>" +
+                         "<sup>59</sup> I called mine own ways to remembrance : and turned my feet unto thy testimonies.<br>" +
+                         "<sup>60</sup> I made haste, and prolonged not the time : to keep thy commandments.<br>" +
+                         "<sup>61</sup> The congregations of the ungodly have robbed me : but I have not forgotten thy law.<br>" +
+                         "<sup>62</sup> At midnight I will rise to give thanks unto thee : because of thy righteous judgments.<br>" +
+                         "<sup>63</sup> I am a companion of all them that fear thee : and keep thy commandments.<br>" +
+                         "<sup>64</sup> The earth, O Lord, is full of thy mercy : O teach me thy statutes.</p>" +
+
+                         "<p><i>Bonitatem fecisti.</i><br>" +
+                         "<sup>65</sup> O Lord, thou hast dealt graciously with thy servant : according unto thy word.<br>" +
+                         "<sup>66</sup> O learn me true understanding and knowledge : for I have believed thy commandments.<br>" +
+                         "<sup>67</sup> Before I was troubled, I went wrong : but now have I kept thy word.<br>" +
+                         "<sup>68</sup> Thou art good and gracious : O teach me thy statutes.<br>" +
+                         "<sup>69</sup> The proud have imagined a lie against me : but I will keep thy commandments with my whole heart.<br>" +
+                         "<sup>70</sup> Their heart is as fat as brawn : but my delight hath been in thy law.<br>" +
+                         "<sup>71</sup> It is good for me that I have been in trouble : that I may learn thy statutes.<br>" +
+                         "<sup>72</sup> The law of thy mouth is dearer unto me : than thousands of gold and silver.</p>",
+                
+                evening: "<h3>The Psalms</h3>" +
+                         "<p><i>Manus tuae fecerunt me.</i><br>" +
+                         "<sup>73</sup> Thy hands have made me and fashioned me : O give me understanding, that I may learn thy commandments.<br>" +
+                         "<sup>74</sup> They that fear thee will be glad when they see me : because I have put my trust in thy word.<br>" +
+                         "<sup>75</sup> I know, O Lord, that thy judgments are right : and that thou of very faithfulness hast caused me to be troubled.<br>" +
+                         "<sup>76</sup> O let thy merciful kindness be my comfort : according to thy word unto thy servant.<br>" +
+                         "<sup>77</sup> O let thy loving mercies come unto me, that I may live : for thy law is my delight.<br>" +
+                         "<sup>78</sup> Let the proud be confounded, for they go wickedly about to destroy me : but I will be occupied in thy commandments.<br>" +
+                         "<sup>79</sup> Let such as fear thee, and have known thy testimonies : be turned unto me.<br>" +
+                         "<sup>80</sup> O let my heart be sound in thy statutes : that I be not ashamed.</p>" +
+
+                         "<p><i>Defecit anima mea.</i><br>" +
+                         "<sup>81</sup> My soul hath longed for thy salvation : and I have a good hope because of thy word.<br>" +
+                         "<sup>82</sup> Mine eyes long sore for thy word : saying, O when wilt thou comfort me?<br>" +
+                         "<sup>83</sup> For I am become like a bottle in the smoke : yet do I not forget thy statutes.<br>" +
+                         "<sup>84</sup> How many are the days of thy servant : when wilt thou be avenged of them that persecute me?<br>" +
+                         "<sup>85</sup> The proud have digged pits for me : which are not after thy law.<br>" +
+                         "<sup>86</sup> All thy commandments are true : they persecute me falsely; O be thou my help.<br>" +
+                         "<sup>87</sup> They had almost made an end of me upon earth : but I forsook not thy commandments.<br>" +
+                         "<sup>88</sup> O quicken me after thy loving-kindness : and so shall I keep the testimonies of thy mouth.</p>" +
+
+                         "<p><i>In aeternum, Domine.</i><br>" +
+                         "<sup>89</sup> O Lord, thy word : endureth for ever in heaven.<br>" +
+                         "<sup>90</sup> Thy truth also remaineth from one generation to another : thou hast laid the foundation of the earth, and it abideth.<br>" +
+                         "<sup>91</sup> They continue this day according to thine ordinance : for all things serve thee.<br>" +
+                         "<sup>92</sup> If my delight had not been in thy law : I should have perished in my trouble.<br>" +
+                         "<sup>93</sup> I will never forget thy commandments : for with them thou hast quickened me.<br>" +
+                         "<sup>94</sup> I am thine, O save me : for I have sought thy commandments.<br>" +
+                         "<sup>95</sup> The ungodly laid wait for me to destroy me : but I will consider thy testimonies.<br>" +
+                         "<sup>96</sup> I see that all things come to an end : but thy commandment is exceeding broad.</p>" +
+
+                         "<p><i>Quomodo dilexi!</i><br>" +
+                         "<sup>97</sup> Lord, what love have I unto thy law : all the day long is my study in it.<br>" +
+                         "<sup>98</sup> Thou through thy commandments hast made me wiser than mine enemies : for they are ever with me.<br>" +
+                         "<sup>99</sup> I have more understanding than my teachers : for thy testimonies are my study.<br>" +
+                         "<sup>100</sup> I am wiser than the aged : because I keep thy commandments.<br>" +
+                         "<sup>101</sup> I have refrained my feet from every evil way : that I may keep thy word.<br>" +
+                         "<sup>102</sup> I have not shrunk from thy judgments : for thou teachest me.<br>" +
+                         "<sup>103</sup> O how sweet are thy words unto my throat : yea, sweeter than honey unto my mouth.<br>" +
+                         "<sup>104</sup> Through thy commandments I get understanding : therefore I hate all evil ways.</p>"
+            },
+            day26: {
+                morning: "<h3>The Psalms</h3>" +
+                         "<p><i>Lucerna pedibus meis.</i><br>" +
+                         "<sup>105</sup> Thy word is a lantern unto my feet : and a light unto my paths.<br>" +
+                         "<sup>106</sup> I have sworn, and am stedfastly purposed : to keep thy righteous judgments.<br>" +
+                         "<sup>107</sup> I am troubled above measure : quicken me, O Lord, according to thy word.<br>" +
+                         "<sup>108</sup> Let the free-will offerings of my mouth please thee, O Lord : and teach me thy judgments.<br>" +
+                         "<sup>109</sup> My soul is alway in my hand : yet do I not forget thy law.<br>" +
+                         "<sup>110</sup> The ungodly have laid a snare for me : but yet I swerved not from thy commandments.<br>" +
+                         "<sup>111</sup> Thy testimonies have I claimed as mine heritage for ever : and why? they are the very joy of my heart.<br>" +
+                         "<sup>112</sup> I have applied my heart to fulfil thy statutes alway : even unto the end.</p>" +
+
+                         "<p><i>Iniquos odio habui.</i><br>" +
+                         "<sup>113</sup> I hate them that imagine evil things : but thy law do I love.<br>" +
+                         "<sup>114</sup> Thou art my defence and shield : and my trust is in thy word.<br>" +
+                         "<sup>115</sup> Away from me, ye wicked : I will keep the commandments of my God.<br>" +
+                         "<sup>116</sup> O stablish me according to thy word, that I may live : and let me not be disappointed of my hope.<br>" +
+                         "<sup>117</sup> Hold thou me up, and I shall be safe : yea, my delight shall be ever in thy statutes.<br>" +
+                         "<sup>118</sup> Thou hast trodden down all them that depart from thy statutes : for they imagine but deceit.<br>" +
+                         "<sup>119</sup> Thou puttest away all the ungodly of the earth like dross : therefore I love thy testimonies.<br>" +
+                         "<sup>120</sup> My flesh trembleth for fear of thee : and I am afraid of thy judgments.</p>" +
+
+                         "<p><i>Feci judicium.</i><br>" +
+                         "<sup>121</sup> I deal with the thing that is lawful and right : O give me not over unto mine oppressors.<br>" +
+                         "<sup>122</sup> Make thou thy servant to delight in that which is good : that the proud do me no wrong.<br>" +
+                         "<sup>123</sup> Mine eyes are wasted away with looking for thy health : and for the word of thy righteousness.<br>" +
+                         "<sup>124</sup> O deal with thy servant according unto thy loving mercy : and teach me thy statutes.<br>" +
+                         "<sup>125</sup> I am thy servant, O grant me understanding : that I may know thy testimonies.<br>" +
+                         "<sup>126</sup> It is time for thee, Lord, to lay to thine hand : for they have destroyed thy law.<br>" +
+                         "<sup>127</sup> For I love thy commandments : above gold and precious stone.<br>" +
+                         "<sup>128</sup> Therefore hold I straight all thy commandments : and all false ways I utterly abhor.</p>" +
+
+                         "<p><i>Mirabilia.</i><br>" +
+                         "<sup>129</sup> Thy testimonies are wonderful : therefore doth my soul keep them.<br>" +
+                         "<sup>130</sup> When thy word goeth forth : it giveth light and understanding unto the simple.<br>" +
+                         "<sup>131</sup> I opened my mouth, and drew in my breath : for my delight was in thy commandments.<br>" +
+                         "<sup>132</sup> O look thou upon me, and be merciful unto me : as thou usest to do unto those that love thy Name.<br>" +
+                         "<sup>133</sup> Order my steps in thy word : and so shall no wickedness have dominion over me.<br>" +
+                         "<sup>134</sup> O deliver me from the wrongful dealings of men : and so shall I keep thy commandments.<br>" +
+                         "<sup>135</sup> Shew the light of thy countenance upon thy servant : and teach me thy statutes.<br>" +
+                         "<sup>136</sup> Mine eyes gush out with water : because men keep not thy law.</p>" +
+
+                         "<p><i>Justus es, Domine.</i><br>" +
+                         "<sup>137</sup> Righteous art thou, O Lord : and true is thy judgment.<br>" +
+                         "<sup>138</sup> The testimonies that thou hast commanded : are exceeding righteous and true.<br>" +
+                         "<sup>139</sup> My zeal hath even consumed me : because mine enemies have forgotten thy words.<br>" +
+                         "<sup>140</sup> Thy word is tried to the uttermost : and thy servant loveth it.<br>" +
+                         "<sup>141</sup> I am small, and of no reputation : yet do I not forget thy commandments.<br>" +
+                         "<sup>142</sup> Thy righteousness is an everlasting righteousness : and thy law is the truth.<br>" +
+                         "<sup>143</sup> Trouble and heaviness have taken hold upon me : yet is my delight in thy commandments.<br>" +
+                         "<sup>144</sup> The righteousness of thy testimonies is everlasting : O grant me understanding, and I shall live.</p>",
+                
+                evening: "<h3>The Psalms</h3>" +
+                         "<p><i>Clamavi in toto corde meo.</i><br>" +
+                         "<sup>145</sup> I call with my whole heart : hear me, O Lord, I will keep thy statutes.<br>" +
+                         "<sup>146</sup> Yea, even unto thee do I call : help me, and I shall keep thy testimonies.<br>" +
+                         "<sup>147</sup> Early in the morning do I cry unto thee : for in thy word is my trust.<br>" +
+                         "<sup>148</sup> Mine eyes prevent the night-watches : that I might be occupied in thy words.<br>" +
+                         "<sup>149</sup> Hear my voice, O Lord, according unto thy loving-kindness : quicken me, according as thou art wont.<br>" +
+                         "<sup>150</sup> They draw nigh that of malice persecute me : and are far from thy law.<br>" +
+                         "<sup>151</sup> Be thou nigh at hand, O Lord : for all thy commandments are true.<br>" +
+                         "<sup>152</sup> As concerning thy testimonies, I have known long since : that thou hast grounded them for ever.</p>" +
+
+                         "<p><i>Vide humilitatem.</i><br>" +
+                         "<sup>153</sup> O consider mine adversity, and deliver me : for I do not forget thy law.<br>" +
+                         "<sup>154</sup> Avenge thou my cause, and deliver me : quicken me, according to thy word.<br>" +
+                         "<sup>155</sup> Health is far from the ungodly : for they regard not thy statutes.<br>" +
+                         "<sup>156</sup> Great is thy mercy, O Lord : quicken me, as thou art wont.<br>" +
+                         "<sup>157</sup> Many there are that trouble me, and persecute me : yet do I not swerve from thy testimonies.<br>" +
+                         "<sup>158</sup> It grieveth me when I see the transgressors : because they keep not thy law.<br>" +
+                         "<sup>159</sup> Consider, O Lord, how I love thy commandments : O quicken me, according to thy loving-kindness.<br>" +
+                         "<sup>160</sup> Thy word is true from everlasting : all the judgments of thy righteousness endure for evermore.</p>" +
+
+                         "<p><i>Principes persecuti sunt.</i><br>" +
+                         "<sup>161</sup> Princes have persecuted me without a cause : but my heart standeth in awe of thy word.<br>" +
+                         "<sup>162</sup> I am as glad of thy word : as one that findeth great spoils.<br>" +
+                         "<sup>163</sup> As for lies, I hate and abhor them : but thy law do I love.<br>" +
+                         "<sup>164</sup> Seven times a day do I praise thee : because of thy righteous judgments.<br>" +
+                         "<sup>165</sup> Great is the peace that they have who love thy law : and they are not offended at it.<br>" +
+                         "<sup>166</sup> Lord, I have looked for thy saving health : and done after thy commandments.<br>" +
+                         "<sup>167</sup> My soul hath kept thy testimonies : and loved them exceedingly.<br>" +
+                         "<sup>168</sup> I have kept thy commandments and testimonies : for all my ways are before thee.</p>" +
+
+                         "<p><i>Appropinquet deprecatio.</i><br>" +
+                         "<sup>169</sup> Let my complaint come before thee, O Lord : give me understanding, according to thy word.<br>" +
+                         "<sup>170</sup> Let my supplication come before thee : deliver me, according to thy word.<br>" +
+                         "<sup>171</sup> My lips shall speak of thy praise : when thou hast taught me thy statutes.<br>" +
+                         "<sup>172</sup> Yea, my tongue shall sing of thy word : for all thy commandments are righteous.<br>" +
+                         "<sup>173</sup> Let thine hand help me : for I have chosen thy commandments.<br>" +
+                         "<sup>174</sup> I have longed for thy saving health, O Lord : and in thy law is my delight.<br>" +
+                         "<sup>175</sup> O let my soul live, and it shall praise thee : and thy judgments shall help me.<br>" +
+                         "<sup>176</sup> I have gone astray like a sheep that is lost : O seek thy servant, for I do not forget thy commandments.</p>"
+            },day27: {
+                morning: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 120.</b> <i>Ad Dominum.</i><br>" +
+                         "When I was in trouble I called upon the Lord : and he heard me.<br>" +
+                         "<sup>2</sup> Deliver my soul, O Lord, from lying lips : and from a deceitful tongue.<br>" +
+                         "<sup>3</sup> What reward shall be given or done unto thee, thou false tongue : even mighty and sharp arrows, with hot burning coals.<br>" +
+                         "<sup>4</sup> Woe is me, that I am constrained to dwell with Mesech : and to have my habitation among the tents of Kedar.<br>" +
+                         "<sup>5</sup> My soul hath long dwelt among them : that are enemies unto peace.<br>" +
+                         "<sup>6</sup> I labour for peace, but when I speak unto them thereof : they make them ready to battle.</p>" +
+
+                         "<p><b>Psalm 121.</b> <i>Levavi oculos.</i><br>" +
+                         "I will lift up mine eyes unto the hills : from whence cometh my help.<br>" +
+                         "<sup>2</sup> My help cometh even from the Lord : who hath made heaven and earth.<br>" +
+                         "<sup>3</sup> He will not suffer thy foot to be moved : and he that keepeth thee will not sleep.<br>" +
+                         "<sup>4</sup> Behold, he that keepeth Israel : shall neither slumber nor sleep.<br>" +
+                         "<sup>5</sup> The Lord himself is thy keeper : the Lord is thy defence upon thy right hand;<br>" +
+                         "<sup>6</sup> So that the sun shall not burn thee by day : neither the moon by night.<br>" +
+                         "<sup>7</sup> The Lord shall preserve thee from all evil : yea, it is even he that shall keep thy soul.<br>" +
+                         "<sup>8</sup> The Lord shall preserve thy going out, and thy coming in : from this time forth for evermore.</p>" +
+
+                         "<p><b>Psalm 122.</b> <i>Laetatus sum.</i><br>" +
+                         "I was glad when they said unto me : We will go into the house of the Lord.<br>" +
+                         "<sup>2</sup> Our feet shall stand in thy gates : O Jerusalem.<br>" +
+                         "<sup>3</sup> Jerusalem is built as a city : that is at unity in itself.<br>" +
+                         "<sup>4</sup> For thither the tribes go up, even the tribes of the Lord : to testify unto Israel, to give thanks unto the Name of the Lord.<br>" +
+                         "<sup>5</sup> For there is the seat of judgment : even the seat of the house of David.<br>" +
+                         "<sup>6</sup> O pray for the peace of Jerusalem : they shall prosper that love thee.<br>" +
+                         "<sup>7</sup> Peace be within thy walls : and plenteousness within thy palaces.<br>" +
+                         "<sup>8</sup> For my brethren and companions' sakes : I will wish thee prosperity.<br>" +
+                         "<sup>9</sup> Yea, because of the house of the Lord our God : I will seek to do thee good.</p>" +
+
+                         "<p><b>Psalm 123.</b> <i>Ad te levavi oculos meos.</i><br>" +
+                         "Unto thee lift I up mine eyes : O thou that dwellest in the heavens.<br>" +
+                         "<sup>2</sup> Behold, even as the eyes of servants look unto the hand of their masters, and as the eyes of a maiden unto the hand of her mistress : even so our eyes wait upon the Lord our God, until he have mercy upon us.<br>" +
+                         "<sup>3</sup> Have mercy upon us, O Lord, have mercy upon us : for we are utterly despised.<br>" +
+                         "<sup>4</sup> Our soul is filled with the scornful reproof of the wealthy : and with the despitefulness of the proud.</p>" +
+
+                         "<p><b>Psalm 124.</b> <i>Nisi quia Dominus.</i><br>" +
+                         "If the Lord himself had not been on our side, now may Israel say : if the Lord himself had not been on our side, when men rose up against us;<br>" +
+                         "<sup>2</sup> They had swallowed us up quick : when they were so wrathfully displeased at us.<br>" +
+                         "<sup>3</sup> Yea, the waters had drowned us : and the stream had gone over our soul.<br>" +
+                         "<sup>4</sup> The deep waters of the proud : had gone even over our soul.<br>" +
+                         "<sup>5</sup> But praised be the Lord : who hath not given us over for a prey unto their teeth.<br>" +
+                         "<sup>6</sup> Our soul is escaped even as a bird out of the snare of the fowler : the snare is broken, and we are delivered.<br>" +
+                         "<sup>7</sup> Our help standeth in the Name of the Lord : who hath made heaven and earth.</p>" +
+
+                         "<p><b>Psalm 125.</b> <i>Qui confidunt.</i><br>" +
+                         "They that put their trust in the Lord shall be even as the mount Sion : which may not be removed, but standeth fast for ever.<br>" +
+                         "<sup>2</sup> The hills stand about Jerusalem : even so standeth the Lord round about his people, from this time forth for evermore.<br>" +
+                         "<sup>3</sup> For the rod of the ungodly cometh not into the lot of the righteous : lest the righteous put their hand unto wickedness.<br>" +
+                         "<sup>4</sup> Do well, O Lord : unto those that are good and true of heart.<br>" +
+                         "<sup>5</sup> As for such as turn back unto their own wickedness : the Lord shall lead them forth with the evil-doers; but peace shall be upon Israel.</p>",
+                
+                evening: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 126.</b> <i>In convertendo.</i><br>" +
+                         "When the Lord turned again the captivity of Sion : then were we like unto them that dream.<br>" +
+                         "<sup>2</sup> Then was our mouth filled with laughter : and our tongue with joy.<br>" +
+                         "<sup>3</sup> Then said they among the heathen : The Lord hath done great things for them.<br>" +
+                         "<sup>4</sup> Yea, the Lord hath done great things for us already : whereof we rejoice.<br>" +
+                         "<sup>5</sup> Turn our captivity, O Lord : as the rivers in the south.<br>" +
+                         "<sup>6</sup> They that sow in tears : shall reap in joy.<br>" +
+                         "<sup>7</sup> He that now goeth on his way weeping, and beareth forth good seed : shall doubtless come again with joy, and bring his sheaves with him.</p>" +
+
+                         "<p><b>Psalm 127.</b> <i>Nisi Dominus.</i><br>" +
+                         "Except the Lord build the house : their labour is but lost that build it.<br>" +
+                         "<sup>2</sup> Except the Lord keep the city : the watchman waketh but in vain.<br>" +
+                         "<sup>3</sup> It is but lost labour that ye haste to rise up early, and so late take rest, and eat the bread of carefulness : for so he giveth his beloved sleep.<br>" +
+                         "<sup>4</sup> Lo, children and the fruit of the womb : are an heritage and gift that cometh of the Lord.<br>" +
+                         "<sup>5</sup> Like as the arrows in the hand of the giant : even so are the young children.<br>" +
+                         "<sup>6</sup> Happy is the man that hath his quiver full of them : they shall not be ashamed when they speak with their enemies in the gate.</p>" +
+
+                         "<p><b>Psalm 128.</b> <i>Beati omnes.</i><br>" +
+                         "Blessed are all they that fear the Lord : and walk in his ways.<br>" +
+                         "<sup>2</sup> For thou shalt eat the labours of thine hands : O well is thee, and happy shalt thou be.<br>" +
+                         "<sup>3</sup> Thy wife shall be as the fruitful vine : upon the walls of thine house.<br>" +
+                         "<sup>4</sup> Thy children like the olive-branches : round about thy table.<br>" +
+                         "<sup>5</sup> Lo, thus shall the man be blessed : that feareth the Lord.<br>" +
+                         "<sup>6</sup> The Lord from out of Sion shall so bless thee : that thou shalt see Jerusalem in prosperity all thy life long.<br>" +
+                         "<sup>7</sup> Yea, that thou shalt see thy children's children : and peace upon Israel.</p>" +
+
+                         "<p><b>Psalm 129.</b> <i>Saepe expugnaverunt.</i><br>" +
+                         "Many a time have they fought against me from my youth up : may Israel now say.<br>" +
+                         "<sup>2</sup> Yea, many a time have they vexed me from my youth up : but they have not prevailed against me.<br>" +
+                         "<sup>3</sup> The plowers plowed upon my back : and made long furrows.<br>" +
+                         "<sup>4</sup> But the righteous Lord : hath hewn the snares of the ungodly in pieces.<br>" +
+                         "<sup>5</sup> Let them be confounded and turned backward : as many as have evil will at Sion.<br>" +
+                         "<sup>6</sup> Let them be even as the grass growing upon the house-tops : which withereth afore it be plucked up;<br>" +
+                         "<sup>7</sup> Whereof the mower filleth not his hand : neither he that bindeth up the sheaves his bosom.<br>" +
+                         "<sup>8</sup> So that they who go by say not so much as, The Lord prosper you : we wish you good luck in the Name of the Lord.</p>" +
+
+                         "<p><b>Psalm 130.</b> <i>De profundis.</i><br>" +
+                         "Out of the deep have I called unto thee, O Lord : Lord, hear my voice.<br>" +
+                         "<sup>2</sup> O let thine ears consider well : the voice of my complaint.<br>" +
+                         "<sup>3</sup> If thou, Lord, wilt be extreme to mark what is done amiss : O Lord, who may abide it?<br>" +
+                         "<sup>4</sup> For there is mercy with thee : therefore shalt thou be feared.<br>" +
+                         "<sup>5</sup> I look for the Lord; my soul doth wait for him : in his word is my trust.<br>" +
+                         "<sup>6</sup> My soul fleeth unto the Lord : before the morning watch, I say, before the morning watch.<br>" +
+                         "<sup>7</sup> O Israel, trust in the Lord, for with the Lord there is mercy : and with him is plenteous redemption.<br>" +
+                         "<sup>8</sup> And he shall redeem Israel : from all his sins.</p>" +
+
+                         "<p><b>Psalm 131.</b> <i>Domine, non est.</i><br>" +
+                         "Lord, I am not high-minded : I have no proud looks.<br>" +
+                         "<sup>2</sup> I do not exercise myself in great matters : which are too high for me.<br>" +
+                         "<sup>3</sup> But I refrain my soul, and keep it low, like as a child that is weaned from his mother : yea, my soul is even as a weaned child.<br>" +
+                         "<sup>4</sup> O Israel, trust in the Lord : from this time forth for evermore.</p>"
+            },
+            day28: {
+                morning: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 132.</b> <i>Memento, Domine.</i><br>" +
+                         "Lord, remember David : and all his trouble;<br>" +
+                         "<sup>2</sup> How he sware unto the Lord : and vowed a vow unto the Almighty God of Jacob;<br>" +
+                         "<sup>3</sup> I will not come within the tabernacle of mine house : nor climb up into my bed;<br>" +
+                         "<sup>4</sup> I will not suffer mine eyes to sleep, nor mine eye-lids to slumber : neither the temples of my head to take any rest;<br>" +
+                         "<sup>5</sup> Until I find out a place for the temple of the Lord : an habitation for the mighty God of Jacob.<br>" +
+                         "<sup>6</sup> Lo, we heard of the same at Ephrata : and found it in the wood.<br>" +
+                         "<sup>7</sup> We will go into his tabernacle : and fall low on our knees before his footstool.<br>" +
+                         "<sup>8</sup> Arise, O Lord, into thy resting-place : thou, and the ark of thy strength.<br>" +
+                         "<sup>9</sup> Let thy priests be clothed with righteousness : and let thy saints sing with joyfulness.<br>" +
+                         "<sup>10</sup> For thy servant David's sake : turn not away the presence of thine Anointed.<br>" +
+                         "<sup>11</sup> The Lord hath made a faithful oath unto David : and he shall not shrink from it;<br>" +
+                         "<sup>12</sup> Of the fruit of thy body : shall I set upon thy seat.<br>" +
+                         "<sup>13</sup> If thy children will keep my covenant, and my testimonies that I shall learn them : their children also shall sit upon thy seat for evermore.<br>" +
+                         "<sup>14</sup> For the Lord hath chosen Sion to be an habitation for himself : he hath longed for her.<br>" +
+                         "<sup>15</sup> This shall be my rest for ever : here will I dwell, for I have a delight therein.<br>" +
+                         "<sup>16</sup> I will bless her victuals with increase : and will satisfy her poor with bread.<br>" +
+                         "<sup>17</sup> I will deck her priests with health : and her saints shall rejoice and sing.<br>" +
+                         "<sup>18</sup> There shall I make the horn of David to flourish : I have ordained a lantern for mine Anointed.<br>" +
+                         "<sup>19</sup> As for his enemies, I shall clothe them with shame : but upon himself shall his crown flourish.</p>" +
+
+                         "<p><b>Psalm 133.</b> <i>Ecce, quam bonum!</i><br>" +
+                         "Behold, how good and joyful a thing it is : brethren, to dwell together in unity!<br>" +
+                         "<sup>2</sup> It is like the precious ointment upon the head, that ran down unto the beard : even unto Aaron's beard, and went down to the skirts of his clothing.<br>" +
+                         "<sup>3</sup> Like as the dew of Hermon : which fell upon the hill of Sion.<br>" +
+                         "<sup>4</sup> For there the Lord promised his blessing : and life for evermore.</p>" +
+
+                         "<p><b>Psalm 134.</b> <i>Ecce nunc.</i><br>" +
+                         "Behold now, praise the Lord : all ye servants of the Lord;<br>" +
+                         "<sup>2</sup> Ye that by night stand in the house of the Lord : even in the courts of the house of our God.<br>" +
+                         "<sup>3</sup> Lift up your hands in the sanctuary : and praise the Lord.<br>" +
+                         "<sup>4</sup> The Lord that made heaven and earth : give thee blessing out of Sion.</p>" +
+
+                         "<p><b>Psalm 135.</b> <i>Laudate Nomen.</i><br>" +
+                         "O praise the Lord, laud ye the Name of the Lord : praise it, O ye servants of the Lord;<br>" +
+                         "<sup>2</sup> Ye that stand in the house of the Lord : in the courts of the house of our God.<br>" +
+                         "<sup>3</sup> O praise the Lord, for the Lord is gracious : O sing praises unto his Name, for it is lovely.<br>" +
+                         "<sup>4</sup> For why? the Lord hath chosen Jacob unto himself : and Israel for his own possession.<br>" +
+                         "<sup>5</sup> For I know that the Lord is great : and that our Lord is above all gods.<br>" +
+                         "<sup>6</sup> Whatsoever the Lord pleased, that did he in heaven, and in earth : and in the sea, and in all deep places.<br>" +
+                         "<sup>7</sup> He bringeth forth the clouds from the ends of the world : and sendeth forth lightnings with the rain, bringing the winds out of his treasures.<br>" +
+                         "<sup>8</sup> He smote the first-born of Egypt : both of man and beast.<br>" +
+                         "<sup>9</sup> He hath sent tokens and wonders into the midst of thee, O thou land of Egypt : upon Pharaoh, and all his servants.<br>" +
+                         "<sup>10</sup> He smote divers nations : and slew mighty kings;<br>" +
+                         "<sup>11</sup> Sehon king of the Amorites, and Og the king of Basan : and all the kingdoms of Canaan;<br>" +
+                         "<sup>12</sup> And gave their land to be an heritage : even an heritage unto Israel his people.<br>" +
+                         "<sup>13</sup> Thy Name, O Lord, endureth for ever : so doth thy memorial, O Lord, from one generation to another.<br>" +
+                         "<sup>14</sup> For the Lord will avenge his people : and be gracious unto his servants.<br>" +
+                         "<sup>15</sup> As for the images of the heathen, they are but silver and gold : the work of men's hands.<br>" +
+                         "<sup>16</sup> They have mouths, and speak not : eyes have they, but they see not.<br>" +
+                         "<sup>17</sup> They have ears, and yet they hear not : neither is there any breath in their mouths.<br>" +
+                         "<sup>18</sup> They that make them are like unto them : and so are all they that put their trust in them.<br>" +
+                         "<sup>19</sup> Praise the Lord, ye house of Israel : praise the Lord, ye house of Aaron.<br>" +
+                         "<sup>20</sup> Praise the Lord, ye house of Levi : ye that fear the Lord, praise the Lord.<br>" +
+                         "<sup>21</sup> Praised be the Lord out of Sion : who dwelleth at Jerusalem.</p>",
+                
+                evening: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 136.</b> <i>Confitemini.</i><br>" +
+                         "O give thanks unto the Lord, for he is gracious : and his mercy endureth for ever.<br>" +
+                         "<sup>2</sup> O give thanks unto the God of all gods : for his mercy endureth for ever.<br>" +
+                         "<sup>3</sup> O thank the Lord of all lords : for his mercy endureth for ever.<br>" +
+                         "<sup>4</sup> Who only doeth great wonders : for his mercy endureth for ever.<br>" +
+                         "<sup>5</sup> Who by his excellent wisdom made the heavens : for his mercy endureth for ever.<br>" +
+                         "<sup>6</sup> Who laid out the earth above the waters : for his mercy endureth for ever.<br>" +
+                         "<sup>7</sup> Who hath made great lights : for his mercy endureth for ever;<br>" +
+                         "<sup>8</sup> The sun to rule the day : for his mercy endureth for ever;<br>" +
+                         "<sup>9</sup> The moon and the stars to govern the night : for his mercy endureth for ever.<br>" +
+                         "<sup>10</sup> Who smote Egypt with their first-born : for his mercy endureth for ever;<br>" +
+                         "<sup>11</sup> And brought out Israel from among them : for his mercy endureth for ever;<br>" +
+                         "<sup>12</sup> With a mighty hand, and stretched out arm : for his mercy endureth for ever.<br>" +
+                         "<sup>13</sup> Who divided the Red sea in two parts : for his mercy endureth for ever;<br>" +
+                         "<sup>14</sup> And made Israel to go through the midst of it : for his mercy endureth for ever.<br>" +
+                         "<sup>15</sup> But as for Pharaoh and his host, he overthrew them in the Red sea : for his mercy endureth for ever.<br>" +
+                         "<sup>16</sup> Who led his people through the wilderness : for his mercy endureth for ever.<br>" +
+                         "<sup>17</sup> Who smote great kings : for his mercy endureth for ever;<br>" +
+                         "<sup>18</sup> Yea, and slew mighty kings : for his mercy endureth for ever;<br>" +
+                         "<sup>19</sup> Sehon king of the Amorites : for his mercy endureth for ever;<br>" +
+                         "<sup>20</sup> And Og the king of Basan : for his mercy endureth for ever;<br>" +
+                         "<sup>21</sup> And gave away their land for an heritage : for his mercy endureth for ever;<br>" +
+                         "<sup>22</sup> Even for an heritage unto Israel his servant : for his mercy endureth for ever.<br>" +
+                         "<sup>23</sup> Who remembered us when we were in trouble : for his mercy endureth for ever;<br>" +
+                         "<sup>24</sup> And hath delivered us from our enemies : for his mercy endureth for ever.<br>" +
+                         "<sup>25</sup> Who giveth food to all flesh : for his mercy endureth for ever.<br>" +
+                         "<sup>26</sup> O give thanks unto the God of heaven : for his mercy endureth for ever.<br>" +
+                         "<sup>27</sup> O give thanks unto the Lord of lords : for his mercy endureth for ever.</p>" +
+
+                         "<p><b>Psalm 137.</b> <i>Super flumina.</i><br>" +
+                         "By the waters of Babylon we sat down and wept : when we remembered thee, O Sion.<br>" +
+                         "<sup>2</sup> As for our harps, we hanged them up : upon the trees that are therein.<br>" +
+                         "<sup>3</sup> For they that led us away captive required of us then a song, and melody, in our heaviness : Sing us one of the songs of Sion.<br>" +
+                         "<sup>4</sup> How shall we sing the Lord's song : in a strange land?<br>" +
+                         "<sup>5</sup> If I forget thee, O Jerusalem : let my right hand forget her cunning.<br>" +
+                         "<sup>6</sup> If I do not remember thee, let my tongue cleave to the roof of my mouth : yea, if I prefer not Jerusalem in my mirth.<br>" +
+                         "<sup>7</sup> Remember the children of Edom, O Lord, in the day of Jerusalem : how they said, Down with it, down with it, even to the ground.<br>" +
+                         "<sup>8</sup> O daughter of Babylon, wasted with misery : yea, happy shall he be that rewardeth thee, as thou hast served us.<br>" +
+                         "<sup>9</sup> Blessed shall he be that taketh thy children : and throweth them against the stones.</p>" +
+
+                         "<p><b>Psalm 138.</b> <i>Confitebor tibi.</i><br>" +
+                         "I will give thanks unto thee, O Lord, with my whole heart : even before the gods will I sing praise unto thee.<br>" +
+                         "<sup>2</sup> I will worship toward thy holy temple, and praise thy Name, because of thy loving-kindness and truth : for thou hast magnified thy Name, and thy Word, above all things.<br>" +
+                         "<sup>3</sup> When I called upon thee, thou heardest me : and enduedst my soul with much strength.<br>" +
+                         "<sup>4</sup> All the kings of the earth shall praise thee, O Lord : for they have heard the words of thy mouth.<br>" +
+                         "<sup>5</sup> Yea, they shall sing in the ways of the Lord : that great is the glory of the Lord.<br>" +
+                         "<sup>6</sup> For though the Lord be high, yet hath he respect unto the lowly : as for the proud, he beholdeth them afar off.<br>" +
+                         "<sup>7</sup> Though I walk in the midst of trouble, yet shalt thou refresh me : thou shalt stretch forth thy hand upon the furiousness of mine enemies, and thy right hand shall save me.<br>" +
+                         "<sup>8</sup> The Lord shall make good his loving-kindness toward me : yea, thy mercy, O Lord, endureth for ever; despise not then the works of thine own hands.</p>"
+            },
+            day29: {
+                morning: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 139.</b> <i>Domine, probasti.</i><br>" +
+                         "O Lord, thou hast searched me out, and known me : thou knowest my down-sitting, and mine up-rising; thou understandest my thoughts long before.<br>" +
+                         "<sup>2</sup> Thou art about my path, and about my bed : and spiest out all my ways.<br>" +
+                         "<sup>3</sup> For lo, there is not a word in my tongue : but thou, O Lord, knowest it altogether.<br>" +
+                         "<sup>4</sup> Thou hast fashioned me behind and before : and laid thine hand upon me.<br>" +
+                         "<sup>5</sup> Such knowledge is too wonderful and excellent for me : I cannot attain unto it.<br>" +
+                         "<sup>6</sup> Whither shall I go then from thy Spirit : or whither shall I go then from thy presence?<br>" +
+                         "<sup>7</sup> If I climb up into heaven, thou art there : if I go down to hell, thou art there also.<br>" +
+                         "<sup>8</sup> If I take the wings of the morning : and remain in the uttermost parts of the sea;<br>" +
+                         "<sup>9</sup> Even there also shall thy hand lead me : and thy right hand shall hold me.<br>" +
+                         "<sup>10</sup> If I say, Peradventure the darkness shall cover me : then shall my night be turned to day.<br>" +
+                         "<sup>11</sup> Yea, the darkness is no darkness with thee, but the night is as clear as the day : the darkness and light to thee are both alike.<br>" +
+                         "<sup>12</sup> For my reins are thine : thou hast covered me in my mother's womb.<br>" +
+                         "<sup>13</sup> I will give thanks unto thee, for I am fearfully and wonderfully made : marvellous are thy works, and that my soul knoweth right well.<br>" +
+                         "<sup>14</sup> My bones are not hid from thee : though I be made secretly, and fashioned beneath in the earth.<br>" +
+                         "<sup>15</sup> Thine eyes did see my substance, yet being imperfect : and in thy book were all my members written;<br>" +
+                         "<sup>16</sup> Which day by day were fashioned : when as yet there was none of them.<br>" +
+                         "<sup>17</sup> How dear are thy counsels unto me, O God : O how great is the sum of them!<br>" +
+                         "<sup>18</sup> If I tell them, they are more in number than the sand : when I wake up I am present with thee.<br>" +
+                         "<sup>19</sup> Wilt thou not slay the wicked, O God : depart from me, ye blood-thirsty men.<br>" +
+                         "<sup>20</sup> For they speak unrighteously against thee : and thine enemies take thy Name in vain.<br>" +
+                         "<sup>21</sup> Do not I hate them, O Lord, that hate thee : and am not I grieved with those that rise up against thee?<br>" +
+                         "<sup>22</sup> Yea, I hate them right sore : even as though they were mine enemies.<br>" +
+                         "<sup>23</sup> Try me, O God, and seek the ground of my heart : prove me, and examine my thoughts.<br>" +
+                         "<sup>24</sup> Look well if there be any way of wickedness in me : and lead me in the way everlasting.</p>" +
+
+                         "<p><b>Psalm 140.</b> <i>Eripe me, Domine.</i><br>" +
+                         "Deliver me, O Lord, from the evil man : and preserve me from the wicked man.<br>" +
+                         "<sup>2</sup> Who imagine mischief in their hearts : and stir up strife all the day long.<br>" +
+                         "<sup>3</sup> They have sharpened their tongues like a serpent : adder's poison is under their lips.<br>" +
+                         "<sup>4</sup> Keep me, O Lord, from the hands of the ungodly : preserve me from the wicked men, who are purposed to overthrow my goings.<br>" +
+                         "<sup>5</sup> The proud have laid a snare for me, and spread a net abroad with cords : yea, and set traps in my way.<br>" +
+                         "<sup>6</sup> I said unto the Lord, Thou art my God : hear the voice of my prayers, O Lord.<br>" +
+                         "<sup>7</sup> O Lord God, thou strength of my health : thou hast covered my head in the day of battle.<br>" +
+                         "<sup>8</sup> Let not the ungodly have his desire, O Lord : let not his mischievous imagination prosper, lest they be too proud.<br>" +
+                         "<sup>9</sup> Let the mischief of their own lips fall upon the head of them : that compass me about.<br>" +
+                         "<sup>10</sup> Let hot burning coals fall upon them : let them be cast into the fire, and into the pit, that they never rise up again.<br>" +
+                         "<sup>11</sup> A man full of words shall not prosper upon the earth : evil shall hunt the wicked person to overthrow him.<br>" +
+                         "<sup>12</sup> Sure I am that the Lord will avenge the poor : and maintain the cause of the helpless.<br>" +
+                         "<sup>13</sup> The righteous also shall give thanks unto thy Name : and the just shall continue in thy sight.</p>" +
+
+                         "<p><b>Psalm 141.</b> <i>Domine, clamavi.</i><br>" +
+                         "Lord, I call upon thee, haste thee unto me : and consider my voice when I cry unto thee.<br>" +
+                         "<sup>2</sup> Let my prayer be set forth in thy sight as the incense : and let the lifting up of my hands be an evening sacrifice.<br>" +
+                         "<sup>3</sup> Set a watch, O Lord, before my mouth : and keep the door of my lips.<br>" +
+                         "<sup>4</sup> O let not mine heart be inclined to any evil thing : let me not be occupied in ungodly works with the men that work wickedness, lest I eat of such things as please them.<br>" +
+                         "<sup>5</sup> Let the righteous rather smite me friendly : and reprove me.<br>" +
+                         "<sup>6</sup> But let not their precious balms break my head : yea, I will pray yet against their wickedness.<br>" +
+                         "<sup>7</sup> Let their judges be overthrown in stony places : that they may hear my words, for they are sweet.<br>" +
+                         "<sup>8</sup> Our bones lie scattered before the pit : like as when one breaketh and heweth wood upon the earth.<br>" +
+                         "<sup>9</sup> But mine eyes look unto thee, O Lord God : in thee is my trust, O cast not out my soul.<br>" +
+                         "<sup>10</sup> Keep me from the snare that they have laid for me : and from the traps of the wicked doers.<br>" +
+                         "<sup>11</sup> Let the ungodly fall into their own nets together : and let me ever escape them.</p>",
+                
+                evening: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 142.</b> <i>Voce mea ad Dominum.</i><br>" +
+                         "I cried unto the Lord with my voice : yea, even unto the Lord did I make my supplication.<br>" +
+                         "<sup>2</sup> I poured out my complaints before him : and shewed him of my trouble.<br>" +
+                         "<sup>3</sup> When my spirit was in heaviness thou knewest my path : in the way wherein I walked have they privily laid a snare for me.<br>" +
+                         "<sup>4</sup> I looked also upon my right hand : and saw there was no man that would know me.<br>" +
+                         "<sup>5</sup> I had no place to flee unto : and no man cared for my soul.<br>" +
+                         "<sup>6</sup> I cried unto thee, O Lord, and said : Thou art my hope, and my portion in the land of the living.<br>" +
+                         "<sup>7</sup> Consider my complaint : for I am brought very low.<br>" +
+                         "<sup>8</sup> O deliver me from my persecutors : for they are too strong for me.<br>" +
+                         "<sup>9</sup> Bring my soul out of prison, that I may give thanks unto thy Name : which thing if thou wilt grant me, then shall the righteous resort unto my company.</p>" +
+
+                         "<p><b>Psalm 143.</b> <i>Domine, exaudi.</i><br>" +
+                         "Hear my prayer, O Lord, and consider my desire : hearken unto me for thy truth and righteousness' sake.<br>" +
+                         "<sup>2</sup> And enter not into judgment with thy servant : for in thy sight shall no man living be justified.<br>" +
+                         "<sup>3</sup> For the enemy hath persecuted my soul; he hath smitten my life down to the ground : he hath laid me in the darkness, as the men that have been long dead.<br>" +
+                         "<sup>4</sup> Therefore is my spirit vexed within me : and my heart within me is desolate.<br>" +
+                         "<sup>5</sup> Yet do I remember the time past; I muse upon all thy works : yea, I exercise myself in the works of thy hands.<br>" +
+                         "<sup>6</sup> I stretch forth my hands unto thee : my soul gaspeth unto thee as a thirsty land.<br>" +
+                         "<sup>7</sup> Hear me, O Lord, and that soon, for my spirit waxeth faint : hide not thy face from me, lest I be like unto them that go down into the pit.<br>" +
+                         "<sup>8</sup> O let me hear thy loving-kindness betimes in the morning, for in thee is my trust : shew thou me the way that I should walk in, for I lift up my soul unto thee.<br>" +
+                         "<sup>9</sup> Deliver me, O Lord, from mine enemies : for I flee unto thee to hide me.<br>" +
+                         "<sup>10</sup> Teach me to do the thing that pleaseth thee, for thou art my God : let thy loving Spirit lead me forth into the land of righteousness.<br>" +
+                         "<sup>11</sup> Quicken me, O Lord, for thy Name's sake : and for thy righteousness' sake bring my soul out of trouble.<br>" +
+                         "<sup>12</sup> And of thy goodness slay mine enemies : and destroy all them that vex my soul; for I am thy servant.</p>"
+            },
+            day30: {
+                morning: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 144.</b> <i>Benedictus Dominus.</i><br>" +
+                         "Blessed be the Lord my strength : who teacheth my hands to war, and my fingers to fight;<br>" +
+                         "<sup>2</sup> My hope and my fortress, my castle and deliverer, my defender in whom I trust : who subdueth my people that is under me.<br>" +
+                         "<sup>3</sup> Lord, what is man, that thou hast such respect unto him : or the son of man, that thou so regardest him?<br>" +
+                         "<sup>4</sup> Man is like a thing of nought : his time passeth away like a shadow.<br>" +
+                         "<sup>5</sup> Bow thy heavens, O Lord, and come down : touch the mountains, and they shall smoke.<br>" +
+                         "<sup>6</sup> Cast forth thy lightning, and tear them : shoot out thine arrows, and consume them.<br>" +
+                         "<sup>7</sup> Send down thine hand from above : deliver me, and take me out of the great waters, from the hand of strange children;<br>" +
+                         "<sup>8</sup> Whose mouth talketh of vanity : and their right hand is a right hand of wickedness.<br>" +
+                         "<sup>9</sup> I will sing a new song unto thee, O God : and sing praises unto thee upon a ten-stringed lute.<br>" +
+                         "<sup>10</sup> Thou hast given victory unto kings : and hast delivered David thy servant from the peril of the sword.<br>" +
+                         "<sup>11</sup> Save me, and deliver me from the hand of strange children : whose mouth talketh of vanity, and their right hand is a right hand of iniquity.<br>" +
+                         "<sup>12</sup> That our sons may grow up as the young plants : and that our daughters may be as the polished corners of the temple.<br>" +
+                         "<sup>13</sup> That our garners may be full and plenteous with all manner of store : that our sheep may bring forth thousands and ten thousands in our streets.<br>" +
+                         "<sup>14</sup> That our oxen may be strong to labour, that there be no decay : no leading into captivity, and no complaining in our streets.<br>" +
+                         "<sup>15</sup> Happy are the people that are in such a case : yea, blessed are the people who have the Lord for their God.</p>" +
+
+                         "<p><b>Psalm 145.</b> <i>Exaltabo te, Deus.</i><br>" +
+                         "I will magnify thee, O God, my King : and I will praise thy Name for ever and ever.<br>" +
+                         "<sup>2</sup> Every day will I give thanks unto thee : and praise thy Name for ever and ever.<br>" +
+                         "<sup>3</sup> Great is the Lord, and marvellous, worthy to be praised : there is no end of his greatness.<br>" +
+                         "<sup>4</sup> One generation shall praise thy works unto another : and declare thy power.<br>" +
+                         "<sup>5</sup> As for me, I will be talking of thy worship : thy glory, thy praise, and wondrous works;<br>" +
+                         "<sup>6</sup> So that men shall speak of the might of thy marvellous acts : and I will also tell of thy greatness.<br>" +
+                         "<sup>7</sup> The memorial of thine abundant kindness shall be shewed : and men shall sing of thy righteousness.<br>" +
+                         "<sup>8</sup> The Lord is gracious, and merciful : long-suffering, and of great goodness.<br>" +
+                         "<sup>9</sup> The Lord is loving unto every man : and his mercy is over all his works.<br>" +
+                         "<sup>10</sup> All thy works praise thee, O Lord : and thy saints give thanks unto thee.<br>" +
+                         "<sup>11</sup> They shew the glory of thy kingdom : and talk of thy power;<br>" +
+                         "<sup>12</sup> That thy power, thy glory, and mightiness of thy kingdom : might be known unto men.<br>" +
+                         "<sup>13</sup> Thy kingdom is an everlasting kingdom : and thy dominion endureth throughout all ages.<br>" +
+                         "<sup>14</sup> The Lord upholdeth all such as fall : and lifteth up all those that are down.<br>" +
+                         "<sup>15</sup> The eyes of all wait upon thee, O Lord : and thou givest them their meat in due season.<br>" +
+                         "<sup>16</sup> Thou openest thine hand : and fillest all things living with plenteousness.<br>" +
+                         "<sup>17</sup> The Lord is righteous in all his ways : and holy in all his works.<br>" +
+                         "<sup>18</sup> The Lord is nigh unto all them that call upon him : yea, all such as call upon him faithfully.<br>" +
+                         "<sup>19</sup> He will fulfil the desire of them that fear him : he also will hear their cry, and will help them.<br>" +
+                         "<sup>20</sup> The Lord preserveth all them that love him : but scattereth abroad all the ungodly.<br>" +
+                         "<sup>21</sup> My mouth shall speak the praise of the Lord : and let all flesh give thanks unto his holy Name for ever and ever.</p>" +
+
+                         "<p><b>Psalm 146.</b> <i>Lauda, anima mea.</i><br>" +
+                         "Praise the Lord, O my soul; while I live will I praise the Lord : yea, as long as I have any being, I will sing praises unto my God.<br>" +
+                         "<sup>2</sup> O put not your trust in princes, nor in any child of man : for there is no help in them.<br>" +
+                         "<sup>3</sup> For when the breath of man goeth forth he shall turn again to his earth : and then all his thoughts perish.<br>" +
+                         "<sup>4</sup> Blessed is he that hath the God of Jacob for his help : and whose hope is in the Lord his God;<br>" +
+                         "<sup>5</sup> Who made heaven and earth, the sea, and all that therein is : who keepeth his promise for ever;<br>" +
+                         "<sup>6</sup> Who helpeth them to right that suffer wrong : who feedeth the hungry.<br>" +
+                         "<sup>7</sup> The Lord looseth men out of prison : the Lord giveth sight to the blind.<br>" +
+                         "<sup>8</sup> The Lord helpeth them that are fallen : the Lord careth for the righteous.<br>" +
+                         "<sup>9</sup> The Lord careth for the strangers; he defendeth the fatherless and widow : as for the way of the ungodly, he turneth it upside down.<br>" +
+                         "<sup>10</sup> The Lord thy God, O Sion, shall be King for evermore : and throughout all generations.</p>",
+                
+                evening: "<h3>The Psalms</h3>" +
+                         "<p><b>Psalm 147.</b> <i>Laudate Dominum.</i><br>" +
+                         "O praise the Lord, for it is a good thing to sing praises unto our God : yea, a joyful and pleasant thing it is to be thankful.<br>" +
+                         "<sup>2</sup> The Lord doth build up Jerusalem : and gather together the out-casts of Israel.<br>" +
+                         "<sup>3</sup> He healeth those that are broken in heart : and giveth medicine to heal their sickness.<br>" +
+                         "<sup>4</sup> He telleth the number of the stars : and calleth them all by their names.<br>" +
+                         "<sup>5</sup> Great is our Lord, and great is his power : yea, and his wisdom is infinite.<br>" +
+                         "<sup>6</sup> The Lord setteth up the meek : and bringeth the ungodly down to the ground.<br>" +
+                         "<sup>7</sup> O sing unto the Lord with thanksgiving : sing praises upon the harp unto our God;<br>" +
+                         "<sup>8</sup> Who covereth the heaven with clouds, and prepareth rain for the earth : and maketh the grass to grow upon the mountains, and herb for the use of men;<br>" +
+                         "<sup>9</sup> Who giveth fodder unto the cattle : and feedeth the young ravens that call upon him.<br>" +
+                         "<sup>10</sup> He hath no pleasure in the strength of an horse : neither delighteth he in any man's legs.<br>" +
+                         "<sup>11</sup> But the Lord's delight is in them that fear him : and put their trust in his mercy.<br>" +
+                         "<sup>12</sup> Praise the Lord, O Jerusalem : praise thy God, O Sion.<br>" +
+                         "<sup>13</sup> For he hath made fast the bars of thy gates : and hath blessed thy children within thee.<br>" +
+                         "<sup>14</sup> He maketh peace in thy borders : and filleth thee with the flour of wheat.<br>" +
+                         "<sup>15</sup> He sendeth forth his commandment upon earth : and his word runneth very swiftly.<br>" +
+                         "<sup>16</sup> He giveth snow like wool : and scattereth the hoar-frost like ashes.<br>" +
+                         "<sup>17</sup> He casteth forth his ice like morsels : who is able to abide his frost?<br>" +
+                         "<sup>18</sup> He sendeth out his word, and melteth them : he bloweth with his wind, and the waters flow.<br>" +
+                         "<sup>19</sup> He sheweth his word unto Jacob : his statutes and ordinances unto Israel.<br>" +
+                         "<sup>20</sup> He hath not dealt so with any nation : neither have the heathen knowledge of his laws.</p>" +
+
+                         "<p><b>Psalm 148.</b> <i>Laudate Dominum de caelis.</i><br>" +
+                         "O praise the Lord of heaven : praise him in the height.<br>" +
+                         "<sup>2</sup> Praise him, all ye angels of his : praise him, all his host.<br>" +
+                         "<sup>3</sup> Praise him, sun and moon : praise him, all ye stars and light.<br>" +
+                         "<sup>4</sup> Praise him, all ye heavens : and ye waters that are above the heavens.<br>" +
+                         "<sup>5</sup> Let them praise the Name of the Lord : for he spake the word, and they were made; he commanded, and they were created.<br>" +
+                         "<sup>6</sup> He hath made them fast for ever and ever : he hath given them a law which shall not be broken.<br>" +
+                         "<sup>7</sup> Praise the Lord upon earth : ye dragons, and all deeps;<br>" +
+                         "<sup>8</sup> Fire and hail, snow and vapours : wind and storm, fulfilling his word;<br>" +
+                         "<sup>9</sup> Mountains and all hills : fruitful trees and all cedars;<br>" +
+                         "<sup>10</sup> Beasts and all cattle : worms and feathered fowls;<br>" +
+                         "<sup>11</sup> Kings of the earth and all people : princes and all judges of the world;<br>" +
+                         "<sup>12</sup> Let them praise the Name of the Lord : for his Name only is excellent, and his praise above heaven and earth.<br>" +
+                         "<sup>13</sup> He shall exalt the horn of his people; all his saints shall praise him : even the children of Israel, even the people that serveth him.</p>" +
+
+                         "<p><b>Psalm 149.</b> <i>Cantate Domino.</i><br>" +
+                         "O sing unto the Lord a new song : let the congregation of saints praise him.<br>" +
+                         "<sup>2</sup> Let Israel rejoice in him that made him : and let the children of Sion be joyful in their King.<br>" +
+                         "<sup>3</sup> Let them praise his Name in the dance : let them sing praises unto him with tabret and harp.<br>" +
+                         "<sup>4</sup> For the Lord hath pleasure in his people : and helpeth the meek-hearted.<br>" +
+                         "<sup>5</sup> Let the saints be joyful with glory : let them rejoice in their beds.<br>" +
+                         "<sup>6</sup> Let the praises of God be in their mouth : and a two-edged sword in their hands;<br>" +
+                         "<sup>7</sup> To be avenged of the heathen : and to rebuke the people;<br>" +
+                         "<sup>8</sup> To bind their kings in chains : and their nobles with links of iron.<br>" +
+                         "<sup>9</sup> That they may be avenged of them, as it is written : Such honour have all his saints.</p>" +
+
+                         "<p><b>Psalm 150.</b> <i>Laudate Dominum in sanctis.</i><br>" +
+                         "O praise God in his holiness : praise him in the firmament of his power.<br>" +
+                         "<sup>2</sup> Praise him in his noble acts : praise him according to his excellent greatness.<br>" +
+                         "<sup>3</sup> Praise him in the sound of the trumpet : praise him upon the lute and harp.<br>" +
+                         "<sup>4</sup> Praise him in the cymbals and dances : praise him upon the strings and pipe.<br>" +
+                         "<sup>5</sup> Praise him upon the well-tuned cymbals : praise him upon the loud cymbals.<br>" +
+                         "<sup>6</sup> Let every thing that hath breath : praise the Lord.</p>"
+            }
     },
     // NEW LECTIONARY MAPPING
     lectionary: {
