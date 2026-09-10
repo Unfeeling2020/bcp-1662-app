@@ -166,13 +166,15 @@
             return "Default";
         }
 
-        // --- 5. SERVICE BUILDER ---
+       // --- 5. SERVICE BUILDER ---
         function loadService(serviceName) {
             let container = document.getElementById('text-container');
             
-            // Look up today's data in the EXCEL lectionary
+            // Look up today's data
             let todaysData = fixedLectionary[mmdd];
             let psalmDay = dayOfMonth === 31 ? 30 : dayOfMonth;
+            let liturgicalKey = getLiturgicalKey(today);
+            let litData = bcpCollects[liturgicalKey] || bcpCollects["Default"];
             
             if(serviceName === 'Morning Prayer') {
                 let serviceText = 
@@ -181,19 +183,23 @@
                     bcp.morningPrayer.confession + 
                     bcp.morningPrayer.absolution + 
                     bcp.morningPrayer.lordsPrayer + 
-                    bcp.morningPrayer.preces;
+                    bcp.morningPrayer.preces +
+                    bcp.morningPrayer.venite;
                 
-                serviceText += bcp.morningPrayer.venite;
-                
-                if (bcp.psalter && bcp.psalter["day" + psalmDay]) {
+                // 1. PSALM OVERRIDE CHECK
+                if (litData.mpPsalms) {
+                    serviceText += litData.mpPsalms;
+                } else if (bcp.psalter && bcp.psalter["day" + psalmDay]) {
                     serviceText += bcp.psalter["day" + psalmDay].morning;
                 } else {
                     serviceText += "<p><i>[Psalms for Day " + psalmDay + " missing]</i></p>";
                 }
 
                 if (todaysData) {
-                    let firstRef = todaysData.mpFirst;
-                    let secondRef = todaysData.mpSecond;
+                    // 2. LESSON OVERRIDE CHECK
+                    // If litData has a specific lesson, use it. Otherwise, use todaysData (the civil calendar).
+                    let firstRef = litData.mpFirst || todaysData.mpFirst;
+                    let secondRef = litData.mpSecond || todaysData.mpSecond;
                     
                     serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
                     serviceText += createBibleLink(firstRef);
@@ -203,8 +209,18 @@
                     serviceText += createBibleLink(secondRef);
                     serviceText += bcp.morningPrayer.jubilate;
 
-                    let liturgicalKey = getLiturgicalKey(today);
-                    serviceText += bcpCollects[liturgicalKey] || bcpCollects["Default"];
+                    // 3. THE COLLECTS & SEASONAL RUBRICS
+                    serviceText += litData.collect;
+                    
+                    // If it's Advent (but not Advent 1), append the Advent 1 Collect
+                    if (liturgicalKey.startsWith("Advent") && liturgicalKey !== "Advent1") {
+                        serviceText += bcpCollects["Advent1"].collect;
+                    }
+                    // If it's Lent (but not Ash Wednesday), append the Ash Wednesday Collect
+                    if (liturgicalKey.startsWith("Lent") && liturgicalKey !== "AshWednesday") {
+                        serviceText += bcpCollects["AshWednesday"].collect;
+                    }
+
                 } else {
                     serviceText += "<p><i>[No Lectionary data found for " + mmdd + "]</i></p>";
                 }
@@ -225,16 +241,19 @@
                     bcp.eveningPrayer.lordsPrayer + 
                     bcp.eveningPrayer.preces;
                 
-                if (bcp.psalter && bcp.psalter["day" + psalmDay]) {
+                // 1. PSALM OVERRIDE CHECK
+                if (litData.epPsalms) {
+                    serviceText += litData.epPsalms;
+                } else if (bcp.psalter && bcp.psalter["day" + psalmDay]) {
                     serviceText += bcp.psalter["day" + psalmDay].evening;
                 } else {
                     serviceText += "<p><i>[Psalms for Day " + psalmDay + " missing]</i></p>";
                 }
 
                 if (todaysData) {
-                    // Notice we pull the "epFirst" and "epSecond" readings here!
-                    let firstRef = todaysData.epFirst;
-                    let secondRef = todaysData.epSecond;
+                    // 2. LESSON OVERRIDE CHECK
+                    let firstRef = litData.epFirst || todaysData.epFirst;
+                    let secondRef = litData.epSecond || todaysData.epSecond;
                     
                     serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
                     serviceText += createBibleLink(firstRef);
@@ -244,8 +263,16 @@
                     serviceText += createBibleLink(secondRef);
                     serviceText += bcp.eveningPrayer.nuncDimittis;
 
-                    let liturgicalKey = getLiturgicalKey(today);
-                    serviceText += bcpCollects[liturgicalKey] || bcpCollects["Default"];
+                    // 3. THE COLLECTS & SEASONAL RUBRICS
+                    serviceText += litData.collect;
+                    
+                    if (liturgicalKey.startsWith("Advent") && liturgicalKey !== "Advent1") {
+                        serviceText += bcpCollects["Advent1"].collect;
+                    }
+                    if (liturgicalKey.startsWith("Lent") && liturgicalKey !== "AshWednesday") {
+                        serviceText += bcpCollects["AshWednesday"].collect;
+                    }
+
                 } else {
                     serviceText += "<p><i>[No Lectionary data found for " + mmdd + "]</i></p>";
                 }
