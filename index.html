@@ -123,9 +123,9 @@
             let weeksFromEaster = Math.floor(diffDays / 7);
             
             // 3. Fixed Holy Days
-            let month = date.getMonth(); let day = date.getDate();
-            if (month === 11 && day === 25) return "ChristmasDay";
-            if (month === 0 && day === 6) return "Epiphany";
+            let monthCheck = date.getMonth(); let dayCheck = date.getDate();
+            if (monthCheck === 11 && dayCheck === 25) return "ChristmasDay";
+            if (monthCheck === 0 && dayCheck === 6) return "Epiphany";
             if (diffDays === -46) return "AshWednesday";
             if (diffDays === 39) return "AscensionDay";
 
@@ -177,6 +177,15 @@
             let litData = bcpCollects[liturgicalKey] || bcpCollects["Default"];
             
             // --- MORNING PRAYER ---
+            if(serviceName === 'Morning Prayer') {
+                let serviceText = 
+                    bcp.morningPrayer.title + 
+                    bcp.morningPrayer.exhortation + 
+                    bcp.morningPrayer.confession + 
+                    bcp.morningPrayer.absolution + 
+                    bcp.morningPrayer.lordsPrayer + 
+                    bcp.morningPrayer.preces +
+                    bcp.morningPrayer.venite;
 
                 // Determine if we should use Proper Lessons/Psalms today
                 let isSunday = (dayOfWeek === 0);
@@ -202,12 +211,6 @@
                         secondRef = litData.mpSecond || secondRef;
                     }
 
-                if (todaysData) {
-                    // 2. LESSON OVERRIDE CHECK
-                    // If litData has a specific lesson, use it. Otherwise, use todaysData (the civil calendar).
-                    let firstRef = litData.mpFirst || todaysData.mpFirst;
-                    let secondRef = litData.mpSecond || todaysData.mpSecond;
-                    
                     serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
                     serviceText += createBibleLink(firstRef);
                     serviceText += bcp.morningPrayer.teDeum;
@@ -239,6 +242,7 @@
                 
                 container.innerHTML = serviceText;
 
+           // --- EVENING PRAYER ---
            } else if (serviceName === 'Evening Prayer') {
                 let serviceText = 
                     bcp.eveningPrayer.title + 
@@ -299,7 +303,6 @@
             } else {
                 container.innerHTML = "<p>Coming soon...</p>";
             }
-        }
         }
     </script>
 </body>
