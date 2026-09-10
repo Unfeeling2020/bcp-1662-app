@@ -176,24 +176,31 @@
             let liturgicalKey = getLiturgicalKey(today);
             let litData = bcpCollects[liturgicalKey] || bcpCollects["Default"];
             
-            if(serviceName === 'Morning Prayer') {
-                let serviceText = 
-                    bcp.morningPrayer.title + 
-                    bcp.morningPrayer.exhortation + 
-                    bcp.morningPrayer.confession + 
-                    bcp.morningPrayer.absolution + 
-                    bcp.morningPrayer.lordsPrayer + 
-                    bcp.morningPrayer.preces +
-                    bcp.morningPrayer.venite;
+            // --- MORNING PRAYER ---
+
+                // Determine if we should use Proper Lessons/Psalms today
+                let isSunday = (dayOfWeek === 0);
+                let isExactHolyDay = !liturgicalKey.match(/\d/); // True if key has no numbers (e.g., "AshWednesday")
+                let usePropers = isSunday || isExactHolyDay;
                 
                 // 1. PSALM OVERRIDE CHECK
-                if (litData.mpPsalms) {
+                if (usePropers && litData.mpPsalms) {
                     serviceText += litData.mpPsalms;
                 } else if (bcp.psalter && bcp.psalter["day" + psalmDay]) {
                     serviceText += bcp.psalter["day" + psalmDay].morning;
                 } else {
                     serviceText += "<p><i>[Psalms for Day " + psalmDay + " missing]</i></p>";
                 }
+
+                if (todaysData) {
+                    // 2. LESSON OVERRIDE CHECK
+                    let firstRef = todaysData.mpFirst;
+                    let secondRef = todaysData.mpSecond;
+                    
+                    if (usePropers) {
+                        firstRef = litData.mpFirst || firstRef;
+                        secondRef = litData.mpSecond || secondRef;
+                    }
 
                 if (todaysData) {
                     // 2. LESSON OVERRIDE CHECK
@@ -232,7 +239,7 @@
                 
                 container.innerHTML = serviceText;
 
-            } else if (serviceName === 'Evening Prayer') {
+           } else if (serviceName === 'Evening Prayer') {
                 let serviceText = 
                     bcp.eveningPrayer.title + 
                     bcp.eveningPrayer.exhortation + 
@@ -241,8 +248,13 @@
                     bcp.eveningPrayer.lordsPrayer + 
                     bcp.eveningPrayer.preces;
                 
+                // Determine if we should use Proper Lessons/Psalms today
+                let isSunday = (dayOfWeek === 0);
+                let isExactHolyDay = !liturgicalKey.match(/\d/);
+                let usePropers = isSunday || isExactHolyDay;
+
                 // 1. PSALM OVERRIDE CHECK
-                if (litData.epPsalms) {
+                if (usePropers && litData.epPsalms) {
                     serviceText += litData.epPsalms;
                 } else if (bcp.psalter && bcp.psalter["day" + psalmDay]) {
                     serviceText += bcp.psalter["day" + psalmDay].evening;
@@ -252,8 +264,13 @@
 
                 if (todaysData) {
                     // 2. LESSON OVERRIDE CHECK
-                    let firstRef = litData.epFirst || todaysData.epFirst;
-                    let secondRef = litData.epSecond || todaysData.epSecond;
+                    let firstRef = todaysData.epFirst;
+                    let secondRef = todaysData.epSecond;
+                    
+                    if (usePropers) {
+                        firstRef = litData.epFirst || firstRef;
+                        secondRef = litData.epSecond || secondRef;
+                    }
                     
                     serviceText += "<h3>The First Lesson: " + firstRef + "</h3>";
                     serviceText += createBibleLink(firstRef);
@@ -282,6 +299,7 @@
             } else {
                 container.innerHTML = "<p>Coming soon...</p>";
             }
+        }
         }
     </script>
 </body>
