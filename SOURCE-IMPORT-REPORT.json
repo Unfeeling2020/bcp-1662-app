@@ -1,0 +1,36 @@
+{
+  "sources": {
+    "lectionary": {
+      "file": "1662 for SingTheOffice.xlsx",
+      "sheet": "Calendar",
+      "sha256": "aff5939ba9d1c9648a5669b4f4893562c3892cf07264f6b7453dc6dbda8323a9",
+      "dailyRows": 366,
+      "properRows": 90,
+      "correctionsApplied": [],
+      "conversionNotes": [
+        "The storage year 2022 is discarded; only month and day are used.",
+        "The literal 2/29 entry is preserved as 02-29.",
+        "Cell text, including nonbreaking spaces, is preserved in this data file.",
+        "Null cells remain null. Per-lesson fallback happens in the resolver, not here."
+      ]
+    },
+    "additions": {
+      "file": "Additions to the BCP 1662.docx",
+      "sha256": "6717c77fb24849ea5ec7f899a85b8743a3901fac40aee361166bf22918c00376",
+      "prayerCount": 11,
+      "correctionsApplied": []
+    }
+  },
+  "issues": [
+    {
+      "id": "st-stephen-ep-first",
+      "appointment": "st-stephen",
+      "slot": "epFirst",
+      "sourceCell": "Calendar!D373",
+      "status": "unresolved; source retained",
+      "message": "The workbook gives Ecclesiastes 4. The online original-1662 holy-day table gives Ecclus. iv (Ecclesiasticus 4). No correction has been applied.",
+      "comparisonSource": "https://www.eskimo.com/~lhowell/bcp1662/info/1662_day.html"
+    }
+  ],
+  "roundTripComparison": "All 1824 lesson slots and all 11 prayer bodies exported without textual correction."
+}

@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>BCP 1662 - Calendar and Prayer Preview</title>
+  <style>
+    :root { --paper:#f8f6f1; --panel:#fffefb; --ink:#262822; --muted:#66675e; --line:#d9d8cc; --accent:#754239; --soft:#f2e9df; --focus:#285c92; --prayer-size:20px; }
+    body.dark { --paper:#191d1d; --panel:#232828; --ink:#eeece5; --muted:#bdbfb5; --line:#414948; --accent:#e3ab96; --soft:#39312c; --focus:#9fcaef; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(920px,100%); margin:auto; padding:32px 22px 64px; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font:normal clamp(29px,5vw,42px)/1.15 Georgia,serif; margin:8px 0 12px; }
+    h2 { font-size:20px; font-weight:650; margin:0 0 15px; }
+    h3 { font:normal 23px/1.3 Georgia,serif; margin:20px 0 10px; }
+    .eyebrow { letter-spacing:.15em; font-size:12px; font-weight:750; color:var(--accent); }
+    .muted { color:var(--muted); }
+    .small { font-size:13px; }
+    .intro { max-width:72ch; margin-bottom:18px; }
+    .notice { background:var(--soft); border-left:3px solid var(--accent); padding:13px 16px; margin:14px 0; }
+    .panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:22px; margin:18px 0; }
+    .toolbar,.datebar,.tools { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .toolbar { justify-content:space-between; margin:24px 0 16px; }
+    button,input,select { font:inherit; color:inherit; }
+    button,select,input[type=date],input[type=text] { min-height:44px; border:1px solid var(--line); background:var(--panel); border-radius:6px; padding:9px 12px; }
+    button { cursor:pointer; }
+    button:hover { border-color:var(--accent); }
+    button:disabled { cursor:default; opacity:.55; }
+    :focus-visible { outline:3px solid var(--focus); outline-offset:3px; }
+    a { color:var(--accent); text-underline-offset:3px; }
+    fieldset { border:0; margin:0; padding:0; min-width:0; }
+    legend { font-size:13px; font-weight:650; color:var(--muted); margin-bottom:7px; }
+    .service-options { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+    .service-options label { position:relative; }
+    .service-options input { position:absolute; opacity:0; width:1px; height:1px; }
+    .service-options span { display:flex; align-items:center; justify-content:center; min-height:50px; border:1px solid var(--line); border-radius:7px; padding:10px; background:var(--panel); text-align:center; font-size:14px; cursor:pointer; }
+    .service-options input:checked+span { color:var(--accent); border:2px solid var(--accent); padding:9px; font-weight:700; background:var(--soft); }
+    .service-options input:focus-visible+span { outline:3px solid var(--focus); outline-offset:3px; }
+    details { margin-top:16px; }
+    summary { cursor:pointer; color:var(--accent); font-weight:600; padding:7px 0; }
+    .settings { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:14px; }
+    .setting { display:flex; flex-direction:column; gap:5px; }
+    .setting input,.setting select { width:100%; }
+    .check { display:flex; gap:10px; align-items:flex-start; padding:9px 0; }
+    input[type=checkbox] { width:19px; height:19px; flex:0 0 auto; margin-top:3px; accent-color:var(--accent); }
+    .date-heading { font:normal 28px/1.3 Georgia,serif; }
+    .tags { display:flex; flex-wrap:wrap; gap:7px; margin:12px 0; }
+    .tag { border:1px solid var(--line); padding:4px 9px; font-size:13px; border-radius:4px; }
+    .metadata { display:grid; grid-template-columns:110px 1fr; gap:5px 12px; margin:12px 0 0; font-size:14px; }
+    .metadata dt { color:var(--muted); }
+    .metadata dd { margin:0; }
+    .lesson-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .lesson { border-top:1px solid var(--line); padding-top:12px; }
+    .lesson .reference { font:normal 23px/1.3 Georgia,serif; margin:7px 0; }
+    .prayer { margin-top:23px; }
+    .prayer+.prayer { padding-top:14px; border-top:1px solid var(--line); }
+    .prayer-text { font:normal var(--prayer-size)/1.65 Georgia,"Times New Roman",serif; white-space:pre-line; overflow-wrap:anywhere; }
+    .reason { color:var(--muted); font-size:13px; margin-bottom:10px; }
+    .source { font-size:12px; color:var(--muted); }
+    .petition { font:normal var(--prayer-size)/1.6 Georgia,serif; }
+    .petition p { margin-bottom:7px; }
+    #choices { display:grid; grid-template-columns:1fr 1fr; gap:0 22px; padding:12px 0; }
+    .choice-label { display:block; }
+    .choice-label small { display:block; color:var(--muted); }
+    #messages:empty,#plan-notices:empty { display:none; }
+    #messages p:last-child,#plan-notices p:last-child { margin-bottom:0; }
+    #share-output { width:100%; margin-top:8px; }
+    pre { font:13px/1.5 ui-monospace,Consolas,monospace; overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; }
+    footer { color:var(--muted); font-size:13px; margin-top:28px; }
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+    [hidden] { display:none !important; }
+    @media(max-width:620px) { main { padding:22px 15px 44px; } .panel { padding:18px; } .service-options { grid-template-columns:1fr 1fr; } .settings,.lesson-grid,#choices { grid-template-columns:1fr; } .datebar { width:100%; } #date { flex:1; min-width:155px; } .tools { margin-top:4px; } .metadata { grid-template-columns:95px 1fr; } }
+    @media print { body { background:#fff; color:#000; } main { width:100%; padding:0; } .controls,details,.tools,footer,#share-message { display:none !important; } .panel { border:0; padding:8px 0; } .prayer { break-inside:avoid; } a { color:#000; } .notice { border:1px solid #888; background:none; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">BOOK OF COMMON PRAYER 1662 &middot; FOUNDATION 0.1</div>
+    <h1>Calendar &amp; prayer preview</h1>
+    <p class="intro muted">Original-1662 lectionary data, your American state-prayer adaptations, and your dated additions.</p>
+    <div class="notice"><strong>Development preview, not a complete service.</strong> This page checks lesson references and prayer selections. The complete Offices, Communion rites, Psalter, collects, and embedded Scripture are not included in this installment. Your existing main page is unchanged.</div>
+  </header>
+  <noscript><div class="notice">This preview needs JavaScript enabled. Its calendar and prayer data run in your browser.</div></noscript>
+  <div class="controls">
+    <div class="toolbar">
+      <div class="datebar">
+        <button id="previous" type="button" aria-label="Previous day">&larr;</button>
+        <label class="sr-only" for="date">Date</label>
+        <input type="date" id="date" min="1583-01-01" max="4099-12-31" required>
+        <button id="next" type="button" aria-label="Next day">&rarr;</button>
+        <button id="today" type="button">Today</button>
+      </div>
+      <div class="tools">
+        <button id="dark" type="button" aria-pressed="false">Dark</button>
+        <button id="smaller" type="button" aria-label="Smaller prayer text">A&minus;</button>
+        <button id="larger" type="button" aria-label="Larger prayer text">A+</button>
+        <button id="share" type="button">Share date</button>
+      </div>
+    </div>
+    <fieldset>
+      <legend>Plan prayers for</legend>
+      <div class="service-options">
+        <label><input type="radio" name="service" value="mp" checked><span>Morning Prayer</span></label>
+        <label><input type="radio" name="service" value="ep"><span>Evening Prayer</span></label>
+        <label><input type="radio" name="service" value="communion"><span>Holy Communion</span></label>
+        <label><input type="radio" name="service" value="ante-communion"><span>Ante-Communion</span></label>
+      </div>
+    </fieldset>
+    <details>
+      <summary>Preferences and personal overrides</summary>
+      <div class="settings">
+        <label class="setting" for="litany">Morning Prayer Litany
+          <select id="litany"><option value="rubric">According to the rubric</option><option value="always">Always include (personal setting)</option><option value="never">Do not include (personal setting)</option></select>
+        </label>
+        <label class="setting" for="ember">Ember prayer
+          <select id="ember"><option value="ember-1">First form</option><option value="ember-2">Second form</option></select>
+        </label>
+        <label class="setting" for="president">Name in the Litany and Church Militant reference
+          <input type="text" id="president" maxlength="80" placeholder="N." autocomplete="off">
+        </label>
+        <div>
+          <label class="check"><input type="checkbox" id="illinois" checked><span>Include the Illinois courts prayer date</span></label>
+          <label class="check"><input type="checkbox" id="special"><span>Include the conditional special-petition clauses in All Conditions and the General Thanksgiving</span></label>
+        </div>
+      </div>
+      <p class="small muted">These settings stay in this browser when storage is available. Names are not sent to a server or included in share links. Manual prayer selections reset when the date or service changes.</p>
+    </details>
+    <div id="share-message" role="status" class="small"></div>
+    <input type="text" id="share-output" readonly hidden aria-label="Link to the selected date">
+  </div>
+  <div id="fatal" class="notice" role="alert" hidden></div>
+  <section id="calendar-panel" class="panel" aria-labelledby="day-title">
+    <h2 id="day-title" class="date-heading">Loading date...</h2>
+    <div id="tags" class="tags"></div>
+    <dl id="metadata" class="metadata"></dl>
+    <div id="ember-notice" class="notice" hidden></div>
+    <div id="appointment-box" class="controls" hidden>
+      <p id="collision-note" class="small muted"></p>
+      <label for="appointment">Lesson appointment</label>
+      <select id="appointment"></select>
+    </div>
+  </section>
+  <div id="messages" class="notice" role="status"></div>
+  <section class="panel" aria-labelledby="lessons-title">
+    <h2 id="lessons-title">Office lessons</h2>
+    <p id="lessons-description" class="small muted"></p>
+    <div id="lessons" class="lesson-grid"></div>
+  </section>
+  <section class="panel" aria-labelledby="state-title">
+    <h2 id="state-title">State-prayer plan</h2>
+    <p class="small muted">The approved replacements are shown here for checking. This is not their complete service context.</p>
+    <div id="state-prayers"></div>
+  </section>
+  <section class="panel" aria-labelledby="prayers-title">
+    <h2 id="prayers-title">Additional prayers</h2>
+    <p id="placement" class="small muted"></p>
+    <div id="plan-notices" class="notice"></div>
+    <div id="prayers"></div>
+    <details class="controls">
+      <summary>Select additional prayers for this date</summary>
+      <p class="small muted">All 11 supplied prayer texts are included. The two presidential forms are regular replacements; the other nine are available below, alongside the four BCP prayers needed for your automatic defaults. The rest of the BCP occasional-prayer library is not yet imported.</p>
+      <div id="choices"></div>
+      <button id="reset-prayers" type="button">Reset to automatic selections</button>
+    </details>
+  </section>
+  <details>
+    <summary>Sources, scope, and checks</summary>
+    <p class="small">Lesson references come from <strong>1662 for SingTheOffice.xlsx</strong>: 366 daily entries and 90 named entries. Prayer additions come from <strong>Additions to the BCP 1662.docx</strong>. The original bodies and source locations are retained in the data file.</p>
+    <p class="small">No feast-transfer policy is silently supplied. Coinciding appointments require a choice. Null lesson cells remain visible when no fallback exists. The St. Stephen reading discrepancy is flagged, not corrected.</p>
+    <p class="small">Gregorian dates are used. For the daily Ember prayer, an Ember Week is implemented as Sunday through Saturday containing the appointed Ember Wednesday. This boundary convention is documented separately from the Prayer Book's instruction to pray every day in those weeks.</p>
+    <p class="small">The seasonal label is informational, not a Collect selector. Communion readings, carry-over collects, evening anticipations, complete service texts, and final liturgical verification remain for the service-building stage.</p>
+    <p class="small"><a href="SOURCE-NOTES.md">Source notes</a> &middot; <a href="README-START-HERE.md">Installation and integration guide</a></p>
+    <button id="run-tests" type="button">Run code checks</button>
+    <pre id="test-results" aria-live="polite"></pre>
+  </details>
+  <footer>This development preview does not change index.html, bcp.js, collects.js, lectionary.js, or manifest.json.</footer>
+</main>
+<script src="bcp1662-data.js"></script>
+<script src="bcp1662-calendar.js"></script>
+<script src="bcp1662-lectionary.js"></script>
+<script src="bcp1662-prayers.js"></script>
+<script src="bcp1662-tests.js"></script>
+<script>
+(function () {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  function fatal(message) { $("fatal").hidden = false; $("fatal").textContent = message; }
+  if (!window.BCP1662 || !BCP1662.calendar || !BCP1662.lectionary || !BCP1662.prayers) {
+    fatal("A required JavaScript file did not load. Upload all four bcp1662 data/engine files beside preview.html, preserving their filenames.");
+    return;
+  }
+  const C = BCP1662.calendar, L = BCP1662.lectionary, P = BCP1662.prayers;
+  const STORAGE = "bcp1662-preview-preferences-v1";
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORAGE) || "{}"); } catch (_) { saved = {}; }
+  if (!saved || typeof saved !== "object" || Array.isArray(saved)) saved = {};
+  const query = new URLSearchParams(location.search);
+  let date = C.iso(new Date()), service = "mp", appointment = "auto";
+  const requestedDate = query.get("date");
+  if (requestedDate) { try { C.describe(requestedDate); date = requestedDate; } catch (_) { fatal("The link contained an invalid date. Today's date is shown instead."); } }
+  if (P.services.includes(query.get("service"))) service = query.get("service");
+  if (query.get("appointment")) {
+    try { C.chooseAppointment(C.describe(date), query.get("appointment")); appointment = query.get("appointment"); }
+    catch (_) { fatal("The requested appointment is not available on this date. Automatic selection is shown instead."); }
+  }
+  const mode = query.get("litany") || saved.litany;
+  $("litany").value = ["rubric", "always", "never"].includes(mode) ? mode : "rubric";
+  const form = query.get("ember") || saved.ember;
+  $("ember").value = ["ember-1", "ember-2"].includes(form) ? form : "ember-1";
+  $("illinois").checked = query.has("illinois") ? query.get("illinois") === "1" : saved.illinois !== false;
+  $("special").checked = saved.special === true;
+  $("president").value = typeof saved.president === "string" ? saved.president.slice(0,80) : "";
+  let fontSize = Number.isFinite(saved.fontSize) ? Math.max(16, Math.min(28, saved.fontSize)) : 20;
+  let dark = typeof saved.dark === "boolean" ? saved.dark : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  let includes = new Set(), excludes = new Set();
+  const creedLabels = { apostles: "Apostles' Creed", athanasian: "Athanasian Creed", nicene: "Nicene Creed", unresolved: "Select the coinciding appointment first" };
+  function options(manual = true) {
+    return { appointment, litany: $("litany").value, emberForm: $("ember").value,
+      includeIllinois: $("illinois").checked, presidentName: $("president").value,
+      includeSpecialPetitions: $("special").checked,
+      include: manual ? [...includes] : [], exclude: manual ? [...excludes] : [] };
+  }
+  function save() {
+    try { localStorage.setItem(STORAGE, JSON.stringify({ litany: $("litany").value, ember: $("ember").value,
+      illinois: $("illinois").checked, president: $("president").value, special: $("special").checked, fontSize, dark })); } catch (_) { /* Storage is optional. */ }
+  }
+  function appearance() {
+    document.body.classList.toggle("dark", dark);
+    document.documentElement.style.setProperty("--prayer-size", fontSize + "px");
+    $("dark").setAttribute("aria-pressed", String(dark)); $("dark").textContent = dark ? "Light" : "Dark";
+    $("smaller").disabled = fontSize <= 16; $("larger").disabled = fontSize >= 28;
+  }
+  function el(tag, text, className) {
+    const node = document.createElement(tag);
+    if (text != null) node.textContent = text;
+    if (className) node.className = className;
+    return node;
+  }
+  function formatDate(value) {
+    return new Intl.DateTimeFormat("en-US", { weekday:"long", month:"long", day:"numeric", year:"numeric", timeZone:"UTC" }).format(new Date(C.dayNumber(value) * 86400000));
+  }
+  function paragraphs(target, strings) {
+    target.replaceChildren(...strings.map(text => el("p", text)));
+  }
+  function renderPrayer(target, prayer) {
+    const article = el("article", null, "prayer"); article.dataset.prayerId = prayer.id;
+    article.append(el("h3", prayer.title), el("p", prayer.reason, "reason"), el("p", prayer.text, "prayer-text"));
+    if (prayer.rubric) article.append(el("p", prayer.rubric, "source"));
+    article.append(el("p", prayer.sourceFile ? prayer.sourceFile + " - paragraph " + prayer.sourceParagraph : "Book of Common Prayer 1662 - Prayers and Thanksgivings", "source"));
+    target.append(article);
+  }
+  function changeDate(next) {
+    try { C.describe(next); date = C.iso(next); appointment = "auto"; includes.clear(); excludes.clear(); render(); }
+    catch (error) { fatal(error.message); $("date").value = date; }
+  }
+  function shareURL() {
+    const url = new URL(location.href); url.search = ""; url.hash = "";
+    for (const [key,value] of Object.entries({ date, service, litany:$("litany").value, ember:$("ember").value, illinois:$("illinois").checked ? "1" : "0" })) url.searchParams.set(key,value);
+    if (appointment !== "auto") url.searchParams.set("appointment",appointment);
+    // Do not share names, special-petition flags, or manually selected/omitted prayers.
+    return url.href;
+  }
+  function render() {
+    try {
+      const opts = options(), info = C.describe(date, opts), readings = L.resolve(date, opts);
+      const plan = P.plan(date, service, opts), automatic = P.plan(date, service, options(false));
+      $("date").value = date;
+      document.querySelectorAll("input[name=service]").forEach(r => { r.checked = r.value === service; });
+      $("litany").disabled = service !== "mp";
+      $("previous").disabled = date === "1583-01-01"; $("next").disabled = date === "4099-12-31";
+      $("day-title").textContent = formatDate(date);
+      $("tags").replaceChildren(el("span", info.season, "tag"));
+      for (const event of info.personalObservances) $("tags").append(el("span", event.title, "tag"));
+      if (info.isRogationDay) $("tags").append(el("span", "Rogation Day", "tag"));
+      const selected = C.chooseAppointment(info, appointment);
+      const metadata = [["Appointment", selected ? C.label(selected) : "Coinciding appointments - selection required"], ["Creed", creedLabels[plan.creed]]];
+      if (service === "mp") metadata.push(["Litany", plan.litany ? "Included in this plan" : "Not included in this plan"]);
+      metadata.push(["Easter", info.easter], ["Advent begins", info.advent]);
+      $("metadata").replaceChildren();
+      for (const [key,value] of metadata) $("metadata").append(el("dt",key),el("dd",value));
+      $("ember-notice").hidden = !info.emberWeek;
+      if (info.emberWeek) $("ember-notice").textContent = (info.isEmberDay ? "Ember Day. " : "Ember Week. ") + "Daily Ember prayer: " + info.emberWeek.start + " through " + info.emberWeek.end + ". Ember Days: " + info.emberWeek.days.join(", ") + ".";
+      $("appointment-box").hidden = !info.candidates.length;
+      $("collision-note").textContent = info.requiresChoice ? "No precedence rule has been imposed. Select the appointment you intend to observe. Any unfilled lessons will remain flagged." : "The named appointment is selected automatically. The daily-row option is provided only for checking the source data.";
+      $("appointment").replaceChildren();
+      const automaticOption = el("option",info.requiresChoice ? "Choose an appointment..." : "Automatic: " + C.label(info.defaultAppointment));
+      automaticOption.value = "auto"; $("appointment").append(automaticOption);
+      for (const candidate of info.candidates) { const opt = el("option",candidate.label); opt.value=candidate.key; $("appointment").append(opt); }
+      const dailyOpt = el("option","Only the month/day row (manual check)"); dailyOpt.value="daily"; $("appointment").append(dailyOpt); $("appointment").value=appointment;
+      paragraphs($("messages"),readings.warnings);
+      const office = service === "mp" || service === "ep";
+      $("lessons-title").textContent = office ? (service === "mp" ? "Morning Prayer lessons" : "Evening Prayer lessons") : "Communion propers";
+      $("lessons-description").textContent = office ? "References are resolved from your workbook. Biblical text opens separately; this preview does not yet embed it." : "The Office lectionary is not a source for the Communion Epistle and Gospel. Those printed BCP propers are not included in this installment.";
+      $("lessons").replaceChildren();
+      if (office && readings.lessons) {
+        const lessonSlots = service === "mp" ? ["mpFirst","mpSecond"] : ["epFirst","epSecond"];
+        lessonSlots.forEach((slot,index) => {
+          const lesson = readings.lessons[slot], block = el("div",null,"lesson");
+          block.append(el("div",index === 0 ? "FIRST LESSON" : "SECOND LESSON","eyebrow"));
+          if (!lesson) block.append(el("p","Unassigned in the source data","reference"));
+          else {
+            block.append(el("p",lesson.reference,"reference"),el("p",lesson.sourceCell + " - " + lesson.source + " row","source"));
+            const link=el("a",lesson.link.label); link.href=lesson.link.url; link.target="_blank"; link.rel="noopener noreferrer"; block.append(link);
+            if (!lesson.link.exactPassage) block.append(el("p","The source opens at its book index. Locate the reference shown above; Sirach is listed as Ecclesiasticus.","small muted"));
+          }
+          $("lessons").append(block);
+        });
+      }
+      $("state-prayers").replaceChildren();
+      if (plan.stateVersicle) {
+        const verse=el("div",null,"petition"); verse.append(el("p",plan.stateVersicle),el("p",plan.stateResponse)); $("state-prayers").append(verse);
+      }
+      if (plan.litanyPetition) {
+        $("state-prayers").append(el("p","Presidential petition only - the complete Litany is not shown in this preview.","reason"));
+        const block=el("div",null,"petition"); block.append(el("p",plan.litanyPetition.text),el("p",plan.litanyPetition.response)); $("state-prayers").append(block);
+        $("state-prayers").append(el("p","The separate Office state prayer is omitted when the Litany is read. The Royal Family and Council/Nobility petitions and their responses are omitted by your adaptation.","source"));
+      }
+      plan.regular.forEach(prayer => renderPrayer($("state-prayers"),prayer));
+      if (plan.churchMilitantRuler) $("state-prayers").append(el("p","Approved Church Militant ruler reference (fragment only): " + plan.churchMilitantRuler,"reason"));
+      $("placement").textContent=plan.occasionalPlacement + ".";
+      paragraphs($("plan-notices"),plan.notices);
+      $("prayers-title").textContent=office ? "Additional prayers" : "Supplementary devotions";
+      $("prayers").replaceChildren();
+      const prayerList=office ? plan.occasional : plan.supplementary;
+      if (!prayerList.length) $("prayers").append(el("p","No additional prayers are selected for this date and service.","muted"));
+      prayerList.forEach(prayer=>renderPrayer($("prayers"),prayer));
+      $("choices").replaceChildren();
+      for (const prayer of Object.values(P.catalog).filter(p=>p.category!=="state")) {
+        const label=el("label",null,"check"), checkbox=document.createElement("input"); checkbox.type="checkbox"; checkbox.dataset.prayerId=prayer.id; checkbox.checked=plan.selectedIds.includes(prayer.id);
+        const text=el("span",prayer.title,"choice-label");
+        text.append(el("small",automatic.selectedIds.includes(prayer.id) ? "Automatically selected today" : prayer.category === "addition" ? "From your additions document" : "Book of Common Prayer"));
+        checkbox.addEventListener("change",()=>{
+          if (checkbox.checked) {
+            includes.add(prayer.id); excludes.delete(prayer.id);
+            if (prayer.id==="ember-1") { includes.delete("ember-2"); excludes.delete("ember-2"); }
+            if (prayer.id==="ember-2") { includes.delete("ember-1"); excludes.delete("ember-1"); }
+          } else { includes.delete(prayer.id); excludes.add(prayer.id); }
+          render();
+          const replacement=Array.from($("choices").querySelectorAll("input")).find(x=>x.dataset.prayerId===prayer.id); if(replacement) replacement.focus();
+        });
+        label.append(checkbox,text); $("choices").append(label);
+      }
+      $("share-output").hidden=true; $("share-message").textContent="";
+      save(); appearance();
+    } catch (error) { fatal(error.message); console.error(error); }
+  }
+  $("date").addEventListener("change",()=>changeDate($("date").value));
+  $("previous").addEventListener("click",()=>changeDate(C.addDays(date,-1)));
+  $("next").addEventListener("click",()=>changeDate(C.addDays(date,1)));
+  $("today").addEventListener("click",()=>changeDate(C.iso(new Date())));
+  document.querySelectorAll("input[name=service]").forEach(r=>r.addEventListener("change",()=>{ service=r.value; includes.clear(); excludes.clear(); render(); }));
+  $("appointment").addEventListener("change",()=>{ appointment=$("appointment").value; render(); });
+  ["litany","ember","illinois","special","president"].forEach(id=>$(id).addEventListener("change",()=>{
+    if(id==="ember") { includes.delete("ember-1"); includes.delete("ember-2"); excludes.delete("ember-1"); excludes.delete("ember-2"); }
+    render();
+  }));
+  $("dark").addEventListener("click",()=>{ dark=!dark; appearance(); save(); });
+  $("smaller").addEventListener("click",()=>{ fontSize=Math.max(16,fontSize-1); appearance(); save(); });
+  $("larger").addEventListener("click",()=>{ fontSize=Math.min(28,fontSize+1); appearance(); save(); });
+  $("reset-prayers").addEventListener("click",()=>{ includes.clear(); excludes.clear(); render(); });
+  $("share").addEventListener("click",async()=>{
+    const url=shareURL();
+    try {
+      if(location.protocol === "file:") throw new Error("Local file links are not public.");
+      if(!navigator.clipboard) throw new Error("Clipboard not available.");
+      await navigator.clipboard.writeText(url);
+      $("share-message").textContent="Link copied. It includes the date, service, appointment and automatic settings, but not names or manual prayer changes.";
+    } catch (_) {
+      $("share-output").value=url; $("share-output").hidden=false; $("share-output").focus(); $("share-output").select();
+      $("share-message").textContent=location.protocol === "file:" ? "This is a local preview. Upload the files to GitHub Pages before sharing a public link." : "Copy the link below. Names and manual prayer changes are not included.";
+    }
+  });
+  $("run-tests").addEventListener("click",()=>{
+    if(!BCP1662.tests) { $("test-results").textContent="Upload bcp1662-tests.js to enable the checks."; return; }
+    const report=BCP1662.tests.run();
+    $("test-results").textContent=report.passed + "/" + report.total + " checks passed.\n" + report.results.map(r=>(r.pass ? "PASS " : "FAIL ") + r.name + (r.error ? ": " + r.error : "")).join("\n");
+  });
+  render();
+})();
+</script>
+</body>
+</html>
