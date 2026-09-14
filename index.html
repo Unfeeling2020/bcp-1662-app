@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="light" data-spacing="compact">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,9 +7,27 @@
 <meta name="description" content="Morning Prayer, Evening Prayer, Holy Communion and Ante-Communion, with the original 1662 lectionary and American state prayers.">
 <title>Daily Prayer - BCP 1662</title>
 <style>
-:root{--paper:#fffdf8;--background:#f1eee7;--ink:#272722;--muted:#66655d;--line:#d8d3c8;--accent:#7c342f;--soft:#f4eae2;--control:#ffffff;--prayer-size:20px;color-scheme:light}
+:root{--paper:#fffdf8;--background:#f1eee7;--ink:#272722;--muted:#66655d;--line:#d8d3c8;--accent:#7c342f;--soft:#f4eae2;--control:#ffffff;--prayer-size:20px;--prayer-leading:1.2;--paragraph-before:.25rem;--paragraph-after:.4rem;--verse-gap:.1rem;--section-before:1.4rem;--section-after:.6rem;--gloria-after:1rem;color-scheme:light}
 :root[data-theme=dark]{--paper:#222321;--background:#171917;--ink:#eee9de;--muted:#c2bdb1;--line:#4d4d45;--accent:#e7aaa0;--soft:#39302a;--control:#30322d;color-scheme:dark}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}body{margin:0;background:var(--background);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--accent);text-underline-offset:.2em}button,input,select{font:inherit;color:inherit}button,input[type=date],input[type=text],select{border:1px solid var(--line);border-radius:6px;background:var(--control);padding:.6rem .75rem;min-height:44px}button{cursor:pointer}button:hover{border-color:var(--accent)}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:3px}button[aria-pressed=true]{color:var(--paper);background:var(--accent);border-color:var(--accent)}[hidden]{display:none!important}.skip{position:absolute;left:-10000px}.skip:focus{left:1rem;top:1rem;background:var(--paper);padding:1rem;z-index:5}.site-header{max-width:960px;margin:auto;padding:2.2rem 1.4rem 1.3rem}.eyebrow{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 .5rem}.site-header h1{font:normal clamp(2rem,6vw,2.8rem)/1.2 Georgia,serif;margin:0}.subtitle{font-size:.95rem;color:var(--muted);margin:.5rem 0 0}.app{max-width:960px;margin:auto;padding:0 1.4rem 2rem}.controls,.settings,.about{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:1rem;margin-bottom:1rem}.date-row{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}.date-label{font-size:.85rem;font-weight:600}.date-row input{flex:1;max-width:240px;min-width:155px}.service-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.9rem}.service-nav button{font-size:.9rem}.toolbar{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;margin-top:.9rem}.toolbar button{font-size:.83rem;padding:.45rem .65rem}.toolbar .spacer{flex:1}.settings summary,.about summary{cursor:pointer;font-weight:650}.settings .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}.field label{display:block;font-size:.86rem;margin-bottom:.3rem;font-weight:600}.field select,.field input[type=text]{width:100%;min-width:0}.field small{display:block;color:var(--muted);font-size:.79rem;margin-top:.25rem}.field.wide{grid-column:1/-1}.check{display:flex;gap:.7rem;align-items:flex-start;font-size:.9rem;padding:.35rem 0}.check input{flex:none;accent-color:var(--accent);width:18px;height:18px;margin-top:.24rem}.check span{min-width:0}.check small{color:var(--accent);font-weight:600;font-size:.7rem;margin-left:.3rem}.prayer-picker{max-height:400px;overflow:auto;padding-right:.5rem}.prayer-picker h4{margin:.8rem 0 .4rem}.auto-note{font-size:.87rem;color:var(--muted)}.appointment{margin-top:1rem;padding:.8rem;background:var(--soft);border-radius:6px}.appointment select{width:100%;margin-top:.4rem}.notice{font: .9rem/1.6 system-ui,sans-serif;background:var(--soft);padding:.85rem 1rem;border-left:3px solid var(--accent);border-radius:0 5px 5px 0;color:var(--ink);margin:0 0 .9rem}.service-page{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:clamp(1.2rem,5vw,3.5rem);box-shadow:0 3px 15px #00000005}.service-heading{text-align:center;margin-bottom:2.7rem;padding-bottom:1.6rem;border-bottom:1px solid var(--line)}.service-heading h2{font:normal clamp(1.9rem,6vw,2.5rem)/1.2 Georgia,serif;margin:.4rem 0}.service-heading p{margin:.35rem 0;color:var(--muted);font-size:.9rem}#season-label{color:var(--accent);font-size:.82rem}#service{font:var(--prayer-size)/1.72 Georgia,"Times New Roman",serif;overflow-wrap:break-word}#service h3{font-size:1.1em;line-height:1.4;text-align:center;font-weight:normal;color:var(--accent);margin:2.25rem 0 1rem}#service h4{font-size:.85em;font-weight:600;margin:1.2rem 0 .5rem}#service p{margin:.8rem 0 1.1rem}#service .rubric{font-size:.78em;color:var(--accent);font-style:italic;line-height:1.6}#service .speaker{color:var(--accent);font-size:.8em;font-style:italic}#service .response{font-weight:600}#service .notice{font-family:system-ui,sans-serif;font-size:.85rem}#service .source-link,.provenance{font: .8rem/1.6 system-ui,sans-serif;color:var(--muted)}#service .provenance p{margin:.5rem 0}#service .provenance{margin:.8rem 0}#service .psalm-gloria{margin:.8rem 0 2rem;font-size:.9em}#service .bible-verse{margin:.35rem 0}#service sup{font-size:.6em;color:var(--muted);padding-right:.3em}.choice{display:block;width:100%;margin:.7rem 0}hr{border:0;border-top:1px solid var(--line);margin:3rem 0}.about{margin-top:1.2rem;font-size:.87rem;color:var(--muted)}.about h3{font-size:1rem;color:var(--ink)}.about p{margin:.8rem 0}.about pre{white-space:pre-wrap;font-size:.76rem;max-height:280px;overflow:auto}.status{font-size:.8rem;color:var(--muted);overflow-wrap:anywhere;min-height:1.2em}.footer{text-align:center;color:var(--muted);font-size:.78rem;margin:1.2rem 0}.error{border:2px solid var(--accent);padding:1rem}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:600px){.site-header{padding:1.5rem 1rem 1rem}.app{padding:0 .7rem 1rem}.controls{padding:.8rem}.date-row{gap:.4rem}.date-label{width:100%}.date-row input{max-width:none;min-width:100px;width:120px}.date-row button{padding:.5rem}.service-nav{grid-template-columns:1fr 1fr}.settings .grid{grid-template-columns:1fr}.toolbar .spacer{display:none}.service-page{padding:1.15rem}.service-heading{margin-bottom:1.6rem}.settings,.about{padding:.85rem}}@media print{body{background:white;color:black}.site-header,.controls,.settings,.about,.footer,.status,#notices,.skip,.provenance{display:none!important}.app{max-width:none;padding:0}.service-page{border:0;box-shadow:none;padding:0;background:white;color:black}.service-heading{margin-bottom:1rem}#service{font-size:12pt;line-height:1.5}#service h3{break-after:avoid}#service a{color:black}.rubric,.speaker{color:#555!important}:root{--ink:black;--accent:#444;--muted:#555;--paper:white;--soft:#f3f3f3}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1rem}body{margin:0;background:var(--background);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--accent);text-underline-offset:.2em}button,input,select{font:inherit;color:inherit}button,input[type=date],input[type=text],select{border:1px solid var(--line);border-radius:6px;background:var(--control);padding:.6rem .75rem;min-height:44px}button{cursor:pointer}button:hover{border-color:var(--accent)}button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:3px}button[aria-pressed=true]{color:var(--paper);background:var(--accent);border-color:var(--accent)}[hidden]{display:none!important}.skip{position:absolute;left:-10000px}.skip:focus{left:1rem;top:1rem;background:var(--paper);padding:1rem;z-index:5}.site-header{max-width:960px;margin:auto;padding:2.2rem 1.4rem 1.3rem}.eyebrow{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 .5rem}.site-header h1{font:normal clamp(2rem,6vw,2.8rem)/1.2 Georgia,serif;margin:0}.subtitle{font-size:.95rem;color:var(--muted);margin:.5rem 0 0}.app{max-width:960px;margin:auto;padding:0 1.4rem 2rem}.controls,.settings,.about{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:1rem;margin-bottom:1rem}.date-row{display:flex;gap:.55rem;flex-wrap:wrap;align-items:center}.date-label{font-size:.85rem;font-weight:600}.date-row input{flex:1;max-width:240px;min-width:155px}.service-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-top:.9rem}.service-nav button{font-size:.9rem}.toolbar{display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;margin-top:.9rem}.toolbar button{font-size:.83rem;padding:.45rem .65rem}.toolbar .spacer{flex:1}.settings summary,.about summary{cursor:pointer;font-weight:650}.settings .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}.field label{display:block;font-size:.86rem;margin-bottom:.3rem;font-weight:600}.field select,.field input[type=text]{width:100%;min-width:0}.field small{display:block;color:var(--muted);font-size:.79rem;margin-top:.25rem}.field.wide{grid-column:1/-1}.check{display:flex;gap:.7rem;align-items:flex-start;font-size:.9rem;padding:.35rem 0}.check input{flex:none;accent-color:var(--accent);width:18px;height:18px;margin-top:.24rem}.check span{min-width:0}.check small{color:var(--accent);font-weight:600;font-size:.7rem;margin-left:.3rem}.prayer-picker{max-height:400px;overflow:auto;padding-right:.5rem}.prayer-picker h4{margin:.8rem 0 .4rem}.auto-note{font-size:.87rem;color:var(--muted)}.appointment{margin-top:1rem;padding:.8rem;background:var(--soft);border-radius:6px}.appointment select{width:100%;margin-top:.4rem}.notice{font: .9rem/1.6 system-ui,sans-serif;background:var(--soft);padding:.85rem 1rem;border-left:3px solid var(--accent);border-radius:0 5px 5px 0;color:var(--ink);margin:0 0 .9rem}.service-page{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:clamp(1.2rem,5vw,3.5rem);box-shadow:0 3px 15px #00000005}.service-heading{text-align:center;margin-bottom:2.7rem;padding-bottom:1.6rem;border-bottom:1px solid var(--line)}.service-heading h2{font:normal clamp(1.9rem,6vw,2.5rem)/1.2 Georgia,serif;margin:.4rem 0}.service-heading p{margin:.35rem 0;color:var(--muted);font-size:.9rem}#season-label{color:var(--accent);font-size:.82rem}#service{font:var(--prayer-size)/var(--prayer-leading) Georgia,"Times New Roman",serif;overflow-wrap:break-word}#service h3{font-size:1.1em;line-height:1.4;text-align:center;font-weight:normal;color:var(--accent);margin:var(--section-before) 0 var(--section-after)}#service h4{font-size:.85em;font-weight:600;margin:1.2rem 0 .5rem}#service p{margin:var(--paragraph-before) 0 var(--paragraph-after)}#service .rubric{font-size:.78em;color:var(--accent);font-style:italic;line-height:1.3}#service .speaker{color:var(--accent);font-size:.8em;font-style:italic}#service .response{font-weight:600}#service .notice{font-family:system-ui,sans-serif;font-size:.85rem}#service .source-link,.provenance{font: .8rem/1.6 system-ui,sans-serif;color:var(--muted)}#service .provenance p{margin:.5rem 0}#service .provenance{margin:.8rem 0}#service .psalm-gloria{margin:.4rem 0 var(--gloria-after);font-size:.9em}#service .bible-verse{margin:var(--verse-gap) 0}#service sup{line-height:0;font-size:.6em;color:var(--muted);padding-right:.3em}.choice{display:block;width:100%;margin:.7rem 0}hr{border:0;border-top:1px solid var(--line);margin:3rem 0}.about{margin-top:1.2rem;font-size:.87rem;color:var(--muted)}.about h3{font-size:1rem;color:var(--ink)}.about p{margin:.8rem 0}.about pre{white-space:pre-wrap;font-size:.76rem;max-height:280px;overflow:auto}.status{font-size:.8rem;color:var(--muted);overflow-wrap:anywhere;min-height:1.2em}.footer{text-align:center;color:var(--muted);font-size:.78rem;margin:1.2rem 0}.error{border:2px solid var(--accent);padding:1rem}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:600px){.site-header{padding:1.5rem 1rem 1rem}.app{padding:0 .7rem 1rem}.controls{padding:.8rem}.date-row{gap:.4rem}.date-label{width:100%}.date-row input{max-width:none;min-width:100px;width:120px}.date-row button{padding:.5rem}.service-nav{grid-template-columns:1fr 1fr}.settings .grid{grid-template-columns:1fr}.toolbar .spacer{display:none}.service-page{padding:1.15rem}.service-heading{margin-bottom:1.6rem}.settings,.about{padding:.85rem}}@media print{body{background:white;color:black}.site-header,.controls,.settings,.about,.footer,.status,#notices,.skip,.provenance{display:none!important}.app{max-width:none;padding:0}.service-page{border:0;box-shadow:none;padding:0;background:white;color:black}.service-heading{margin-bottom:1rem}#service{font-size:12pt;line-height:var(--prayer-leading)}#service h3{break-after:avoid}#service a{color:black}.rubric,.speaker{color:#555!important}:root{--ink:black;--accent:#444;--muted:#555;--paper:white;--soft:#f3f3f3}}
+
+/* 0.2.1: spacing preference, spoken invitations, and optional clauses. */
+:root[data-spacing=comfortable]{--prayer-leading:1.72;--paragraph-before:.8rem;--paragraph-after:1.1rem;--verse-gap:.35rem;--section-before:2.25rem;--section-after:1rem;--gloria-after:2rem}
+#service .spoken{color:var(--ink);font-style:normal}
+#service .optional-petition{color:inherit;font-style:italic}
+#service .opening-sentence .sentence-source{display:block;margin-top:.3em;font: .72em/1.3 system-ui,sans-serif;color:var(--muted)}
+#service .opening-sentence+.opening-sentence{margin-top:.65em}
+.sentence-settings{border-top:1px solid var(--line);padding-top:.8rem}
+.sentence-settings summary{font-size:.92rem}
+.sentence-hint{font-size:.82rem;color:var(--muted);margin:.6rem 0}
+.sentence-picker{border:1px solid var(--line);border-radius:6px;padding:.5rem .7rem;margin:0;max-height:24rem;overflow:auto;scrollbar-gutter:stable}
+.sentence-picker .check{display:flex;align-items:flex-start;font-weight:400;line-height:1.4;min-height:44px;margin:0;padding:.55rem 0}
+.sentence-picker .check+.check{border-top:1px solid var(--line)}
+.sentence-picker .sentence-reference{display:block;font-weight:650;margin-bottom:.15rem}
+.sentence-picker .sentence-copy{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1rem;line-height:1.4}
+.sentence-tools{display:flex;flex-wrap:wrap;gap:.5rem;margin:.65rem 0}
+.sentence-tools button{font-size:.82rem;padding:.45rem .65rem}
+.sentence-settings .status{margin:.35rem 0 0}
 </style>
 </head>
 <body>
@@ -23,6 +41,18 @@
 <div class="appointment" id="appointment-wrap" hidden><label for="appointment">Office appointment / coinciding occasions</label><select id="appointment"></select></div>
 </section>
 <details class="settings"><summary>Service settings</summary><div class="grid">
+<div class="field"><label for="lineSpacing">Line spacing</label><select id="lineSpacing"><option value="compact">Single / compact</option><option value="comfortable">Comfortable (previous spacing)</option></select><small>Applies to all services and to printing.</small></div>
+<details class="field wide sentence-settings" data-only="mp"><summary>Opening sentences &mdash; Morning Prayer (<span id="mp-sentence-count">1 selected</span>)</summary>
+<p class="sentence-hint" id="mp-sentence-hint">Select one or more. They appear in Prayer Book order. Your choices are saved separately for Morning and Evening Prayer.</p>
+<fieldset id="mp-sentence-options" class="sentence-picker" aria-describedby="mp-sentence-hint"></fieldset>
+<div class="sentence-tools"><button type="button" id="mp-sentences-all">Select all 11</button><button type="button" id="mp-sentences-default">Use Psalm 51:3 only</button></div>
+<p id="mp-sentence-status" class="status" role="status" aria-live="polite"></p></details>
+<details class="field wide sentence-settings" data-only="ep"><summary>Opening sentences &mdash; Evening Prayer (<span id="ep-sentence-count">1 selected</span>)</summary>
+<p class="sentence-hint" id="ep-sentence-hint">Select one or more. They appear in Prayer Book order. Your choices are saved separately for Morning and Evening Prayer.</p>
+<fieldset id="ep-sentence-options" class="sentence-picker" aria-describedby="ep-sentence-hint"></fieldset>
+<div class="sentence-tools"><button type="button" id="ep-sentences-all">Select all 11</button><button type="button" id="ep-sentences-default">Use Psalm 51:3 only</button></div>
+<p id="ep-sentence-status" class="status" role="status" aria-live="polite"></p></details>
+
 <div class="field" data-only="mp"><label for="litany">Litany at Morning Prayer</label><select id="litany"><option value="rubric">According to the rubric</option><option value="always">Always include (personal override)</option><option value="never">Omit (personal override)</option></select></div>
 <div class="field" data-only="office"><label for="emberForm">Ember prayer</label><select id="emberForm"><option value="ember-1">First form: Almighty God, our heavenly Father</option><option value="ember-2">Second form: Almighty God, the giver</option></select></div>
 <div class="field"><label for="presidentName">President's name in the Litany and Church Militant</label><input id="presidentName" type="text" maxlength="80" value="N." autocomplete="off"><small>Leave N. as a placeholder. This name stays in this browser's settings, not the shared link.</small></div>
@@ -35,7 +65,7 @@
 <div class="field" data-only="ep"><label for="eveChoice">Tomorrow's coinciding appointments</label><select id="eveChoice"></select><small>Only the collect is anticipated. Lessons and Psalms retain the selected civil date.</small></div>
 <div class="field" data-only="ante-communion"><label for="endCollect">Concluding collect</label><select id="endCollect"><option value="0">Assist us mercifully</option><option value="1">O Almighty Lord</option><option value="2">Grant, we beseech thee</option><option value="3">Prevent us, O Lord</option><option value="4">Almighty God, the fountain of all wisdom</option><option value="5">Almighty God, who hast promised</option></select></div>
 <div class="field" data-only="full-communion"><label for="postcommunion">Prayer after Communion</label><select id="postcommunion"><option value="thanksgiving">Almighty and everliving God (thanksgiving)</option><option value="oblation">O Lord and heavenly Father (oblation)</option></select></div>
-<div class="field wide"><label class="check"><input type="checkbox" id="inlineLessons" checked><span>Load canonical KJV Office lessons inside the service.</span></label><label class="check"><input type="checkbox" id="includeIllinois" checked><span>Include the supplied Illinois courts intention.</span></label><label class="check"><input type="checkbox" id="includeSpecialPetitions"><span>Include the special-petition clauses in All Conditions and the General Thanksgiving.</span></label><label class="check" data-only="communion"><input type="checkbox" id="alms"><span>Alms or oblations are present (include that clause in Church Militant).</span></label></div>
+<div class="field wide"><label class="check"><input type="checkbox" id="inlineLessons" checked><span>Load canonical KJV Office lessons inside the service.</span></label><label class="check"><input type="checkbox" id="includeIllinois" checked><span>Include the supplied Illinois courts intention.</span></label><label class="check"><input type="checkbox" id="includeSpecialPetitions" checked><span>Include the special-petition clauses in All Conditions and the General Thanksgiving.</span></label><label class="check" data-only="communion"><input type="checkbox" id="alms"><span>Alms or oblations are present (include that clause in Church Militant).</span></label></div>
 </div><p><button id="reset-settings">Restore default settings</button></p></details>
 <details class="settings"><summary>Prayers and Thanksgivings</summary><p class="auto-note">The dated intentions and personal defaults are selected automatically. Change selections for this service below; changing date or service restores its defaults.</p><div id="prayer-options" class="prayer-picker"></div><p><button id="reset-prayers">Restore this service's prayer defaults</button></p></details>
 <div id="notices" aria-live="polite"></div>
@@ -43,15 +73,16 @@
 <p id="load-status" class="status" aria-live="polite"></p>
 <details class="about"><summary>Sources, scope, and checks</summary>
 <h3>What this page does</h3><p>This is the service renderer, not the earlier preview. It assembles Morning Prayer, Evening Prayer, the Communion ordinary, and Ante-Communion from the selected date. It uses the original-1662 lesson table imported from <em>1662 for SingTheOffice.xlsx</em> and the supplied <em>Additions to the BCP 1662</em>, without silently repairing their wording.</p>
+<h3>Reading preferences</h3><p>Under Service settings, select one or more of the eleven opening sentences, separately for Morning and Evening Prayer. Choices appear in Prayer Book order. Special-petition clauses are enabled by default and printed in italics when included; the checkbox remains optional. Line spacing defaults to Single / compact, with the previous Comfortable spacing available. These preferences are saved in this browser. The first load of version 0.2.1 imports earlier settings and enables the new special-petition default once; later opt-outs are remembered.</p>
 <h3>Readings and textual limits</h3><p>Canonical Office lessons are loaded as KJV from <a href="https://github.com/aruljohn/Bible-kjv" target="_blank" rel="noopener noreferrer">Arul John's Bible-kjv repository</a>. A KJV source link remains available on failure. This is a modern-spelling KJV transcription, not a diplomatic transcription of a 1611 printing. Apocryphal lessons open in the <a href="https://www.eskimo.com/~lhowell/bcp1662/apocrypha/index.html" target="_blank" rel="noopener noreferrer">specified Apocrypha source</a>. Communion Epistles and Gospels open in the corresponding <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/readings.html" target="_blank" rel="noopener noreferrer">printed BCP propers</a>; they are not yet embedded. The two advance-warning exhortations, alternative Offertory sentences and the full administrative rubrics are available through source links rather than all reproduced in the service stream.</p>
 <p>The Psalms are extracted as text from the existing local <code>bcp.js</code>. Its abbreviated service texts are not used or executed. This preserves that file's transcription; it is not a fresh collation of every Psalm against a printed edition. Common prayers and collects are transcribed from the public-domain BCP text; capitalization and punctuation are not a facsimile. A complete independent textual and rubrical audit remains outstanding.</p>
 <h3>Calendar conventions</h3><p>Modern Gregorian civil dates are used. Coinciding appointments require an explicit choice; feasts are not silently transferred. The Office lesson table remains separate from the Communion propers. The collect is anticipated at Evening Prayer before Sundays and feasts with vigils; fasting-day transfers are not used to move the lesson table. Ember weeks use the documented Sunday-through-Saturday convention. Extra Trinity Sundays require a minister's choice of an omitted Epiphany proper; the Sunday next before Advent uses the final Trinity proper.</p>
 <p>The source's St. Stephen reading, <em>Ecclesiastes 4</em>, remains flagged rather than silently changed to <em>Ecclesiasticus 4</em>. American state adaptations and the additional intentions are the project owner's directions, not a claim to reproduce an unmodified Church of England edition. Presidential forms come from the supplied document. January 20 is an annual intention, moved to January 21 only when January 20 is Sunday. It does not duplicate a presidential prayer.</p>
 <h3>Sources</h3><p><a href="https://www.eskimo.com/~lhowell/bcp1662/daily/morning.html" target="_blank" rel="noopener noreferrer">Morning Prayer</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/evening.html" target="_blank" rel="noopener noreferrer">Evening Prayer</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/litany.html" target="_blank" rel="noopener noreferrer">Litany</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/prayers.html" target="_blank" rel="noopener noreferrer">Prayers</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/thanksgivings.html" target="_blank" rel="noopener noreferrer">Thanksgivings</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/index.html" target="_blank" rel="noopener noreferrer">Communion and complete directions</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/info/tables/rules.html" target="_blank" rel="noopener noreferrer">Feasts, vigils and fasts</a>.</p>
 <p>Online transcriptions can contain later amendments and typographical errors. Priest-only acts remain labeled: this display does not turn them into lay prayers. For public liturgical use, compare the service with the authoritative printed book and the minister's directions.</p>
-<h3>Code checks</h3><p>The button below runs the earlier foundation checks, not a complete textual or liturgical certification of this service renderer.</p><button id="checks">Run foundation checks</button><pre id="check-result"></pre><p>Service renderer version 0.2.0. Calendar, lesson references, prayer data and foundation code are bundled in this index.html; the old separate foundation files may remain but are not loaded by this page. No account or installation is needed. Internet access is required for external readings. Preferences are stored locally in this browser; no account database is used.</p>
+<h3>Code checks</h3><p>The button below runs the earlier foundation checks, not a complete textual or liturgical certification of this service renderer.</p><button id="checks">Run foundation checks</button><pre id="check-result"></pre><p>Service renderer version 0.2.1. Calendar, lesson references, prayer data and foundation code are bundled in this index.html; the old separate foundation files may remain but are not loaded by this page. No account or installation is needed. Internet access is required for external readings. Preferences are stored locally in this browser; no account database is used.</p>
 </details>
-<footer class="footer">BCP 1662 / Daily Prayer &middot; American state-prayer adaptation</footer>
+<footer class="footer">BCP 1662 / Daily Prayer &middot; American state-prayer adaptation &middot; v0.2.1</footer>
 </main>
 <script>
 /* Bundled unchanged: bcp1662-data.js */
@@ -4366,13 +4397,49 @@ const C=B.calendar, L=B.lectionary, P=B.prayers, D=B.data;
 const BASE='https://www.eskimo.com/~lhowell/bcp1662/';
 const SERVICES={mp:'Morning Prayer',ep:'Evening Prayer',communion:'Holy Communion','ante-communion':'Ante-Communion'};
 const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const paras=text=>String(text).split('\n').filter(Boolean).map(t=>'<p>'+esc(t)+'</p>').join('');
+// Escape every text segment before adding our own optional-clause markup.
+// The caller supplies a catalog clause, never arbitrary HTML.
+const paras=(text,optionalText='')=>String(text).split('\n').filter(Boolean).map(t=>{
+ const clause=String(optionalText||'').trim();
+ const body=esc(t),needle=esc(clause);
+ return '<p>'+(clause?body.replace(needle,()=>'<em class="optional-petition">'+needle+'</em>'):body)+'</p>';
+}).join('');
 const rubric=t=>'<p class="rubric">'+esc(t)+'</p>';
 const heading=t=>'<h3>'+esc(t)+'</h3>';
-const prayer=(title,text,role='')=>'<section class="prayer">'+heading(title)+(role?rubric(role):'')+paras(text)+'</section>';
+const prayer=(title,text,role='',optionalText='')=>'<section class="prayer">'+heading(title)+(role?rubric(role):'')+paras(text,optionalText)+'</section>';
+const spoken=(text,speaker='')=>'<p class="spoken">'+(speaker?'<span class="speaker">'+esc(speaker)+'</span> ':'')+esc(text)+'</p>';
 const pair=(a,b)=>'<p class="versicle"><span class="speaker">Minister.</span> '+esc(a)+'<br><span class="response"><span class="speaker">Answer.</span> '+esc(b)+'</span></p>';
 const external=(url,title)=>'<a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+esc(title)+' <span aria-hidden="true">&#8599;</span></a>';
 const note=t=>'<p class="notice">'+esc(t)+'</p>';
+
+// All eleven opening sentences in the 1662 order (public-domain prayer text).
+// https://www.eskimo.com/~lhowell/bcp1662/daily/morning.html
+// https://www.eskimo.com/~lhowell/bcp1662/daily/evening.html
+const OPENING_SENTENCES=Object.freeze([
+ {id:'ezekiel-18-27',reference:'Ezekiel 18:27',text:'When the wicked man turneth away from his wickedness that he hath committed, and doeth that which is lawful and right, he shall save his soul alive.'},
+ {id:'psalm-51-3',reference:'Psalm 51:3',text:'I acknowledge my transgressions, and my sin is ever before me.'},
+ {id:'psalm-51-9',reference:'Psalm 51:9',text:'Hide thy face from my sins, and blot out all mine iniquities.'},
+ {id:'psalm-51-17',reference:'Psalm 51:17',text:'The sacrifices of God are a broken spirit: a broken and a contrite heart, O God, thou wilt not despise.'},
+ {id:'joel-2-13',reference:'Joel 2:13',text:'Rend your heart, and not your garments, and turn unto the Lord your God: for he is gracious and merciful, slow to anger, and of great kindness, and repenteth him of the evil.'},
+ {id:'daniel-9-9-10',reference:'Daniel 9:9-10',text:'To the Lord our God belong mercies and forgivenesses, though we have rebelled against him; neither have we obeyed the voice of the Lord our God, to walk in his laws which he set before us.'},
+ {id:'jeremiah-10-24',reference:'Jeremiah 10:24; Psalm 6:1',text:'O Lord, correct me, but with judgment; not in thine anger, lest thou bring me to nothing.'},
+ {id:'matthew-3-2',reference:'St. Matthew 3:2',text:'Repent ye; for the Kingdom of Heaven is at hand.'},
+ {id:'luke-15-18-19',reference:'St. Luke 15:18-19',text:'I will arise and go to my father, and will say unto him, Father, I have sinned against heaven, and before thee, and am no more worthy to be called thy son.'},
+ {id:'psalm-143-2',reference:'Psalm 143:2',text:'Enter not into judgment with thy servant, O Lord; for in thy sight shall no man living be justified.'},
+ {id:'1-john-1-8-9',reference:'1 St. John 1:8-9',text:'If we say that we have no sin, we deceive ourselves, and the truth is not in us; but if we confess our sins, God is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.'}
+].map(Object.freeze));
+function normalizeSentenceSelection(value){
+ const ids=new Set(Array.isArray(value)?value:[]);
+ const selected=OPENING_SENTENCES.filter(x=>ids.has(x.id)).map(x=>x.id);
+ return selected.length?selected:['psalm-51-3'];
+}
+function openingSentencesHTML(service,preferences={}){
+ const ids=new Set(normalizeSentenceSelection(preferences[service==='ep'?'epSentences':'mpSentences']));
+ const selected=OPENING_SENTENCES.filter(x=>ids.has(x.id));
+ return '<section id="opening-sentences" class="prayer">'+heading(selected.length===1?'Opening Sentence':'Opening Sentences')+
+ selected.map(x=>'<p class="opening-sentence" data-sentence-id="'+esc(x.id)+'">'+esc(x.text)+'<span class="sentence-source">'+esc(x.reference)+'</span></p>').join('')+'</section>';
+}
+
 const VIGILS=new Set(['christmas-day','presentation','annunciation','easter-day','ascension','whitsun','st-matthias','st-john-baptist','st-peter','st-james','st-bartholomew','st-matthew','st-simon-and-st-jude','st-andrew','st-thomas','all-saints']);
 const PROPER_PSALMS={
  'christmas-day':{mp:[19,45,85],ep:[89,110,132]},
@@ -4545,21 +4612,21 @@ function litanyHTML(plan) {
  h+=pair('O Lamb of God, that takest away the sins of the world;','Have mercy upon us.');
  h+=pair('O Christ, hear us.','O Christ, hear us.');
  h+=paras('Lord, have mercy upon us.\nChrist, have mercy upon us.\nLord, have mercy upon us.')+prayer("The Lord's Prayer",T.lords+' Amen.');
- h+=pair('O Lord, deal not with us after our sins.','Neither reward us after our iniquities.')+rubric('Let us pray.')+paras(T.litanyMercy);
+ h+=pair('O Lord, deal not with us after our sins.','Neither reward us after our iniquities.')+spoken('Let us pray.')+paras(T.litanyMercy);
  h+=paras('O Lord, arise, help us, and deliver us for thy Name\'s sake.');
  h+=paras('O God, we have heard with our ears, and our fathers have declared unto us, the noble works that thou didst in their days, and in the old time before them.');
  h+=paras("O Lord, arise, help us, and deliver us for thine honour.")+paras(T.gloria);
  for(const [a,b] of [['From our enemies defend us, O Christ.','Graciously look upon our afflictions.'],['Pitifully behold the sorrows of our hearts.','Mercifully forgive the sins of thy people.'],['Favourably with mercy hear our prayers.','O Son of David, have mercy upon us.'],['Both now and ever vouchsafe to hear us, O Christ.','Graciously hear us, O Christ; graciously hear us, O Lord Christ.'],['O Lord, let thy mercy be shewed upon us.','As we do put our trust in thee.']])h+=pair(a,b);
- return h+rubric('Let us pray.')+paras(T.litanyFinal)+'</section>';
+ return h+spoken('Let us pray.')+paras(T.litanyFinal)+'</section>';
 }
 function extraHTML(plan,manualExtras) {
  const selected=[...(plan.occasional||[]),...(plan.supplementary||[])];
- let h=selected.map(x=>prayer(x.title,x.text)).join('');
+ let h=selected.map(x=>prayer(x.title,x.text,'',P.catalog[x.id]?.conditionalText||'')).join('');
  for(const id of manualExtras)if(EXTRA_PRAYERS[id])h+=prayer(...EXTRA_PRAYERS[id]);
  return h?'<section id="additional-prayers">'+heading('Prayers and Thanksgivings')+h+'</section>':'';
 }
 function officeHTML(date,service,readings,plan,cp,settings,manualExtras) {
- let h=prayer('Opening Sentence',T.sentence)+rubric('Psalm 51. 3.')+prayer('The Exhortation',T.exhortation,'The Minister shall say this exhortation.')+prayer('A General Confession',T.confession,'To be said of the whole Congregation after the Minister, all kneeling.')+prayer('The Absolution',T.absolution,'To be pronounced by the Priest alone, standing; the people still kneeling.');
+ let h=openingSentencesHTML(service,settings)+prayer('The Exhortation',T.exhortation,'The Minister shall say this exhortation.')+prayer('A General Confession',T.confession,'To be said of the whole Congregation after the Minister, all kneeling.')+prayer('The Absolution',T.absolution,'To be pronounced by the Priest alone, standing; the people still kneeling.');
  h+=prayer("The Lord's Prayer",T.lords+' '+T.doxology,'The people repeating it with the Minister.')+heading('The Preces')+pair('O Lord, open thou our lips.','And our mouth shall shew forth thy praise.')+pair('O God, make speed to save us.','O Lord, make haste to help us.')+rubric('Here all standing up, the Priest shall say,')+pair('Glory be to the Father, and to the Son, and to the Holy Ghost;','As it was in the beginning, is now, and ever shall be, world without end. Amen.')+pair('Praise ye the Lord.',"The Lord's Name be praised.");
  if(service==='mp') {
   if(readings.appointment==='easter-day')h+=canticle('The Easter Anthems','easterAnthems');
@@ -4577,7 +4644,7 @@ function officeHTML(date,service,readings,plan,cp,settings,manualExtras) {
   h+=settings.mpSecond==='jubilate'||duplicate||readings.appointment==='st-john-baptist'?canticle('Jubilate Deo. Psalm 100.','jubilate'):canticle('Benedictus','benedictus');
  }else h+=settings.epSecond==='deus'&&(C.civil(date).day!==12||PROPER_PSALMS[readings.appointment])?canticle('Deus misereatur. Psalm 67.','deus'):canticle('Nunc dimittis','nunc');
  h+=plan.creed==='athanasian'?canticle('The Creed of Saint Athanasius','athanasian'):prayer("The Apostles' Creed",T.apostles,'The Minister and the people standing.');
- h+=pair('The Lord be with you.','And with thy spirit.')+rubric('Let us pray. All devoutly kneeling.')+paras('Lord, have mercy upon us.\nChrist, have mercy upon us.\nLord, have mercy upon us.')+prayer("The Lord's Prayer",T.lords+' Amen.');
+ h+=rubric('All devoutly kneeling.')+pair('The Lord be with you.','And with thy spirit.')+spoken('Let us pray.','Minister.')+paras('Lord, have mercy upon us.\nChrist, have mercy upon us.\nLord, have mercy upon us.')+prayer("The Lord's Prayer",T.lords+' Amen.');
  h+=pair('O Lord, shew thy mercy upon us.','And grant us thy salvation.')+pair(plan.stateVersicle,plan.stateResponse)+pair('Endue thy Ministers with righteousness.','And make thy chosen people joyful.')+pair('O Lord, save thy people.','And bless thine inheritance.')+pair('Give peace in our time, O Lord.','Because there is none other that fighteth for us, but only thou, O God.')+pair('O God, make clean our hearts within us.','And take not thy Holy Spirit from us.');
  h+=collectHTML(cp)+prayer('The Second Collect, for Peace',service==='mp'?T.mpPeace:T.epPeace)+prayer(service==='mp'?'The Third Collect, for Grace':'The Third Collect, for Aid against all Perils',service==='mp'?T.mpGrace:T.epPerils)+rubric('In Quires and Places where they sing, here followeth the Anthem.');
  if(plan.litany)h+=litanyHTML(plan);else {h+=plan.regular.map(x=>prayer(x.title,x.text)).join('');h+=prayer('A Prayer for the Clergy and People',T.clergy);}
@@ -4592,7 +4659,7 @@ function communionReading(kind,cp) {
 function communionHTML(date,service,plan,cp,settings,manualExtras) {
  let h=rubric('The Priest standing at the north side of the Table shall say the Lord\'s Prayer, with the Collect following, the people kneeling.')+prayer("The Lord's Prayer",T.lords+' Amen.')+prayer('The Collect for Purity',T.purity)+heading('The Ten Commandments')+rubric('The Priest rehearses the Commandments; the people, still kneeling, make the responses.');
  h+=COMMANDMENTS.map((x,i)=>pair(x,i===9?'Lord, have mercy upon us, and write all these thy laws in our hearts, we beseech thee.':'Lord, have mercy upon us, and incline our hearts to keep this law.')).join('');
- h+=rubric('Let us pray.')+plan.regular.map(x=>prayer(x.title,x.text)).join('')+collectHTML(cp)+communionReading('The Epistle',cp)+communionReading('The Gospel',cp)+prayer('The Nicene Creed',T.nicene,'The people standing.')+heading('Notices and Sermon')+rubric('Here are declared the Holy-days and Fasting-days to be observed, and any appointed notices; then follows the Sermon or an authorized Homily.')+'<p class="source-link">'+external(BASE+'communion/index.html#:~:text=When%20the%20Minister%20giveth%20warning','Exhortations when giving notice of Communion')+'</p>';
+ h+=spoken('Let us pray.')+plan.regular.map(x=>prayer(x.title,x.text)).join('')+collectHTML(cp)+communionReading('The Epistle',cp)+communionReading('The Gospel',cp)+prayer('The Nicene Creed',T.nicene,'The people standing.')+heading('Notices and Sermon')+rubric('Here are declared the Holy-days and Fasting-days to be observed, and any appointed notices; then follows the Sermon or an authorized Homily.')+'<p class="source-link">'+external(BASE+'communion/index.html#:~:text=When%20the%20Minister%20giveth%20warning','Exhortations when giving notice of Communion')+'</p>';
  h+=heading('The Offertory')+paras(T.offertory)+rubric('Saint Matthew 5. One or more of the appointed Offertory sentences may be used; this is the first.')+'<p class="source-link">'+external(BASE+'communion/index.html#:~:text=Let%20your%20light','All Offertory sentences')+'</p>'+rubric('The alms and other devotions of the people are received and reverently placed upon the holy Table. When there is a Communion, the Priest places sufficient Bread and Wine upon the Table.')+prayer("For the Whole State of Christ's Church Militant Here in Earth",churchMilitant(P.presidentName(settings.presidentName),settings.alms),'Let us pray for the whole state of Christ\'s Church militant here in earth.');
  if(service==='ante-communion') {
    h+=prayer('A Concluding Collect',END_COLLECTS[Number(settings.endCollect)||0])+prayer('The Blessing',T.blessing,'The Priest (or Bishop, if present).');
@@ -4611,21 +4678,66 @@ function communionHTML(date,service,plan,cp,settings,manualExtras) {
 
 
 const $=id=>document.getElementById(id);
-const DEFAULTS={litany:'rubric',emberForm:'ember-1',presidentName:'N.',includeIllinois:true,includeSpecialPetitions:false,mpFirst:'teDeum',mpSecond:'benedictus',epFirst:'magnificat',epSecond:'nunc',epCollect:'auto',endCollect:'0',postcommunion:'thanksgiving',alms:false,inlineLessons:true,theme:'light',font:20};
-let settings={...DEFAULTS};
-try {const saved=JSON.parse(localStorage.getItem('bcp1662-service-settings-v1')||'{}');for(const k of Object.keys(DEFAULTS))if(k in saved&&typeof saved[k]===typeof DEFAULTS[k])settings[k]=saved[k];}catch(_){}
+// v2 imports v1 preferences once. Only the newly requested default is reset;
+// later opt-outs are saved normally, along with independent Office sentences.
+const SETTINGS_KEY='bcp1662-service-settings-v2';
+const LEGACY_SETTINGS_KEY='bcp1662-service-settings-v1';
+const DEFAULTS=Object.freeze({litany:'rubric',emberForm:'ember-1',presidentName:'N.',includeIllinois:true,includeSpecialPetitions:true,mpSentences:Object.freeze(['psalm-51-3']),epSentences:Object.freeze(['psalm-51-3']),mpFirst:'teDeum',mpSecond:'benedictus',epFirst:'magnificat',epSecond:'nunc',epCollect:'auto',endCollect:'0',postcommunion:'thanksgiving',alms:false,inlineLessons:true,theme:'light',font:20,lineSpacing:'compact'});
+function defaultSettings(){return {...DEFAULTS,mpSentences:[...DEFAULTS.mpSentences],epSentences:[...DEFAULTS.epSentences]};}
+function readSavedSettings(key){
+ try{const value=JSON.parse(localStorage.getItem(key)||'null');return value&&typeof value==='object'&&!Array.isArray(value)?value:null;}catch(_){return null;}
+}
+let settings=defaultSettings();
+const currentSaved=readSavedSettings(SETTINGS_KEY);
+const savedSettings=currentSaved||readSavedSettings(LEGACY_SETTINGS_KEY);
+if(savedSettings){
+ for(const key of Object.keys(DEFAULTS)){
+  if(!Object.prototype.hasOwnProperty.call(savedSettings,key))continue;
+  if(Array.isArray(DEFAULTS[key]))settings[key]=normalizeSentenceSelection(savedSettings[key]);
+  else if(typeof savedSettings[key]===typeof DEFAULTS[key])settings[key]=savedSettings[key];
+ }
+}
+if(!currentSaved)settings.includeSpecialPetitions=true;
 settings.font=Math.max(16,Math.min(28,Number(settings.font)||20));
+settings.lineSpacing=settings.lineSpacing==='comfortable'?'comfortable':'compact';
 let date=C.iso(new Date()),service='mp',appointment='auto',properOverride='auto',eveChoice='auto',include=new Set(),exclude=new Set(),manualExtras=new Set(),renderCount=0;
 let urlWarning='';
 try {const q=new URLSearchParams(location.search);if(q.has('date')){C.easterSunday(C.civil(q.get('date')).year);date=C.iso(q.get('date'));if(C.civil(date).year<1584||C.civil(date).year>4098)throw new Error('Date outside the supported range.');}if(SERVICES[q.get('service')])service=q.get('service');}catch(_){date=C.iso(new Date());urlWarning='The date in the link was invalid. Today is displayed instead.';}
-const save=()=>{try{localStorage.setItem('bcp1662-service-settings-v1',JSON.stringify(settings));}catch(_){}};
+const save=()=>{try{localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));}catch(_){}};
+save(); // Finish migration now, even when no setting is changed in this visit.
 function displayDate(value) {return new Intl.DateTimeFormat(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric',timeZone:'UTC'}).format(new Date(C.dayNumber(value)*86400000));}
 function planOptions(){return {litany:settings.litany,emberForm:settings.emberForm,presidentName:settings.presidentName,includeIllinois:settings.includeIllinois,includeSpecialPetitions:settings.includeSpecialPetitions,appointment,include:[...include],exclude:[...exclude]};}
 function resetDateChoices(){appointment='auto';properOverride='auto';eveChoice='auto';include.clear();exclude.clear();manualExtras.clear();}
-function setAppearance(){document.documentElement.dataset.theme=settings.theme==='dark'?'dark':'light';document.documentElement.style.setProperty('--prayer-size',settings.font+'px');$('theme').textContent=settings.theme==='dark'?'Light mode':'Dark mode';}
+function setAppearance(){document.documentElement.dataset.spacing=settings.lineSpacing==='comfortable'?'comfortable':'compact';document.documentElement.dataset.theme=settings.theme==='dark'?'dark':'light';document.documentElement.style.setProperty('--prayer-size',settings.font+'px');$('theme').textContent=settings.theme==='dark'?'Light mode':'Dark mode';}
 function refreshSettingsControls(){
  for(const key of Object.keys(DEFAULTS)){const control=$(key);if(!control)continue;if(control.type==='checkbox')control.checked=settings[key];else control.value=settings[key];}
+ updateSentenceControls();
 }
+
+function updateSentenceControls(){
+ for(const office of ['mp','ep']){
+  const chosen=new Set(normalizeSentenceSelection(settings[office+'Sentences']));
+  for(const input of $(office+'-sentence-options').querySelectorAll('input[data-sentence]'))input.checked=chosen.has(input.dataset.sentence);
+  $(office+'-sentence-count').textContent=chosen.size+' selected';
+ }
+}
+function setupSentencePickers(){
+ for(const office of ['mp','ep']){
+  const key=office+'Sentences',picker=$(office+'-sentence-options'),status=$(office+'-sentence-status');
+  picker.innerHTML='<legend class="sr-only">Opening sentences for '+esc(SERVICES[office])+'</legend>'+OPENING_SENTENCES.map(x=>
+   '<label class="check" for="'+office+'-sentence-'+esc(x.id)+'"><input type="checkbox" id="'+office+'-sentence-'+esc(x.id)+'" data-sentence="'+esc(x.id)+'"><span><span class="sentence-reference">'+esc(x.reference)+'</span><span class="sentence-copy">'+esc(x.text)+'</span></span></label>'
+  ).join('');
+  picker.addEventListener('change',e=>{
+   if(!e.target.matches('input[data-sentence]'))return;
+   const selected=[...picker.querySelectorAll('input[data-sentence]:checked')].map(x=>x.dataset.sentence);
+   if(!selected.length){e.target.checked=true;status.textContent='Keep at least one opening sentence selected. Select another sentence before removing this one.';return;}
+   settings[key]=normalizeSentenceSelection(selected);status.textContent='Selection saved.';save();render();
+  });
+  $(office+'-sentences-all').addEventListener('click',()=>{settings[key]=OPENING_SENTENCES.map(x=>x.id);status.textContent='All 11 opening sentences selected.';save();render();});
+  $(office+'-sentences-default').addEventListener('click',()=>{settings[key]=['psalm-51-3'];status.textContent='Psalm 51:3 selected.';save();render();});
+ }
+}
+
 function renderPrayerPicker(plan) {
  const selected=new Set(plan.selectedIds), html=[];
  for(const [id,item] of Object.entries(P.catalog)) {
@@ -4679,7 +4791,7 @@ function render(){
   const readings=L.resolve(date,{appointment});
   const plan=P.plan(date,service,planOptions());
   const cp=collectPlan(date,service,readings.appointment,properOverride,settings.epCollect,eveChoice);
-  $('date').value=date;setAppearance();appointmentControls(info);renderPrayerPicker(plan);
+  $('date').value=date;setAppearance();appointmentControls(info);renderPrayerPicker(plan);updateSentenceControls();
   for(const button of document.querySelectorAll('[data-service]'))button.setAttribute('aria-pressed',String(button.dataset.service===service));
   $('service-title').textContent=SERVICES[service];$('service-date').textContent=displayDate(date);
   $('season-label').textContent=[info.season,readings.appointment&&readings.appointment!=='daily'?C.label(readings.appointment):'',info.isEmberDay?'Ember Day':info.emberWeek?'Ember Week':'',info.isRogationDay?'Rogation Day':''].filter(Boolean).join(' / ');
@@ -4723,7 +4835,7 @@ $('theme').addEventListener('click',()=>{settings.theme=settings.theme==='dark'?
 $('font-down').addEventListener('click',()=>{settings.font=Math.max(16,settings.font-1);setAppearance();save();});
 $('font-up').addEventListener('click',()=>{settings.font=Math.min(28,settings.font+1);setAppearance();save();});
 $('print').addEventListener('click',()=>window.print());
-$('reset-settings').addEventListener('click',()=>{settings={...DEFAULTS};resetDateChoices();save();refreshSettingsControls();render();});
+$('reset-settings').addEventListener('click',()=>{settings=defaultSettings();resetDateChoices();save();for(const office of ['mp','ep'])$(office+'-sentence-status').textContent='';refreshSettingsControls();render();});
 $('share').addEventListener('click',async()=>{
  const url=new URL(location.href);url.search='';url.searchParams.set('date',date);url.searchParams.set('service',service);
  try {await navigator.clipboard.writeText(url.href);$('share-status').textContent='Link copied. Personal settings are not included.';}catch(_){$('share-status').textContent='Copy this address: '+url.href;}
@@ -4731,8 +4843,8 @@ $('share').addEventListener('click',async()=>{
 $('checks').addEventListener('click',()=>{
  try{if(!B.tests)throw new Error('The bundled foundation tests did not load.');const result=B.tests.run();$('check-result').textContent=JSON.stringify(result,null,2);}catch(e){$('check-result').textContent=e.message;}
 });
-window.BCP1662App=Object.freeze({parsePassage,extractVerses,parsePsalterSource,sanitizePsalm,psalmDoxologies,properForDate,collectPlan,prefaceFor,officeHTML,communionHTML,collects:COLLECTS,render,version:'0.2.0'});
-refreshSettingsControls();render();
+window.BCP1662App=Object.freeze({parsePassage,extractVerses,parsePsalterSource,sanitizePsalm,psalmDoxologies,properForDate,collectPlan,prefaceFor,officeHTML,communionHTML,collects:COLLECTS,openingSentences:OPENING_SENTENCES,normalizeSentenceSelection,openingSentencesHTML,render,version:'0.2.1'});
+setupSentencePickers();refreshSettingsControls();render();
 
 }catch(error){var target=document.getElementById('service');if(target){target.textContent='The app could not start: '+error.message+' Confirm that the entire replacement index.html was copied.';target.setAttribute('role','alert');}console.error(error);}})();
 </script>
