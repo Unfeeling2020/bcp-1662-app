@@ -14,6 +14,8 @@
 /* 0.2.1: spacing preference, spoken invitations, and optional clauses. */
 :root[data-spacing=comfortable]{--prayer-leading:1.72;--paragraph-before:.8rem;--paragraph-after:1.1rem;--verse-gap:.35rem;--section-before:2.25rem;--section-after:1rem;--gloria-after:2rem}
 #service .spoken{color:var(--ink);font-style:normal}
+/* 0.2.4: bold-italic congregational repetitions, scoped to the Litany. */
+#service .litany-kyrie .response{font-weight:700;font-style:italic}
 #service .optional-petition{color:inherit;font-style:italic}
 #service .opening-sentence .sentence-source,#service .offertory-sentence .sentence-source{display:block;margin-top:.3em;font: .72em/1.3 system-ui,sans-serif;color:var(--muted)}
 #service .opening-sentence+.opening-sentence,#service .offertory-sentence+.offertory-sentence{margin-top:.65em}
@@ -102,7 +104,7 @@ select:disabled{opacity:.8}
 <p>Online transcriptions can contain later amendments and typographical errors. Priest-only acts remain labeled: this display does not turn them into lay prayers. For public liturgical use, compare the service with the authoritative printed book and the minister's directions.</p>
 <h3>Code checks</h3><p>The button below runs the earlier foundation checks, not a complete textual or liturgical certification of this service renderer.</p><button id="checks">Run foundation checks</button><pre id="check-result"></pre><p>Service renderer version 0.2.2. Calendar, lesson references, prayer data and foundation code are bundled in this index.html; the old separate foundation files may remain but are not loaded by this page. No account or installation is needed. Internet access is required for external readings. Preferences are stored locally in this browser; no account database is used.</p>
 </details>
-<footer class="footer">BCP 1662 / Daily Prayer &middot; American state-prayer adaptation &middot; v0.2.3</footer>
+<footer class="footer">BCP 1662 / Daily Prayer &middot; American state-prayer adaptation &middot; v0.2.4</footer>
 </main>
 <script>
 /* Bundled unchanged: bcp1662-data.js */
@@ -6363,7 +6365,12 @@ function litanyHTML(plan,closing='') {
  h+=pair('O Lamb of God, that takest away the sins of the world;','Grant us thy peace.');
  h+=pair('O Lamb of God, that takest away the sins of the world;','Have mercy upon us.');
  h+=pair('O Christ, hear us.','O Christ, hear us.');
- h+=paras('Lord, have mercy upon us.\nChrist, have mercy upon us.\nLord, have mercy upon us.')+prayer("The Lord's Prayer",T.lords+' Amen.');
+ // Each invocation is repeated by the congregation in the Litany only.
+ h+='<div class="litany-kyrie">'+[
+  'Lord, have mercy upon us.',
+  'Christ, have mercy upon us.',
+  'Lord, have mercy upon us.'
+ ].map(text=>pair(text,text)).join('')+'</div>'+prayer("The Lord's Prayer",T.lords+' Amen.');
  h+=pair('O Lord, deal not with us after our sins.','Neither reward us after our iniquities.')+spoken('Let us pray.')+paras(T.litanyMercy);
  h+=paras('O Lord, arise, help us, and deliver us for thy Name\'s sake.');
  h+=paras('O God, we have heard with our ears, and our fathers have declared unto us, the noble works that thou didst in their days, and in the old time before them.');
@@ -6728,7 +6735,7 @@ $('share').addEventListener('click',async()=>{
 $('checks').addEventListener('click',()=>{
  try{if(!B.tests)throw new Error('The bundled foundation tests did not load.');const result=B.tests.run();$('check-result').textContent=JSON.stringify(result,null,2);}catch(e){$('check-result').textContent=e.message;}
 });
-window.BCP1662App=Object.freeze({parsePassage,extractVerses,parsePsalterSource,sanitizePsalm,psalmDoxologies,properForDate,collectPlan,prefaceFor,officeHTML,communionHTML,collects:COLLECTS,openingSentences:OPENING_SENTENCES,normalizeSentenceSelection,openingSentencesHTML,communionReadings:COMMUNION_READINGS,communionReading,offertorySentences:OFFERTORY_SENTENCES,normalizeOffertorySelection,offertorySentencesHTML,render,commination:COMMINATION,comminationScheduled,comminationHTML,apocryphaBooks:APOCRYPHA_BOOKS,apocryphaChapterURL,validateApocryphaChapter,loadPassage,readingLink,getApocryphaChapter,version:'0.2.3'});
+window.BCP1662App=Object.freeze({parsePassage,extractVerses,parsePsalterSource,sanitizePsalm,psalmDoxologies,properForDate,collectPlan,prefaceFor,officeHTML,communionHTML,collects:COLLECTS,openingSentences:OPENING_SENTENCES,normalizeSentenceSelection,openingSentencesHTML,communionReadings:COMMUNION_READINGS,communionReading,offertorySentences:OFFERTORY_SENTENCES,normalizeOffertorySelection,offertorySentencesHTML,render,commination:COMMINATION,comminationScheduled,comminationHTML,apocryphaBooks:APOCRYPHA_BOOKS,apocryphaChapterURL,validateApocryphaChapter,loadPassage,readingLink,getApocryphaChapter,version:'0.2.4'});
 setupSentencePickers();setupOffertoryPickers();refreshSettingsControls();render();
 
 }catch(error){var target=document.getElementById('service');if(target){target.textContent='The app could not start: '+error.message+' Confirm that the entire replacement index.html was copied.';target.setAttribute('role','alert');}console.error(error);}})();
