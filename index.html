@@ -17,6 +17,10 @@
 /* 0.2.4: bold-italic congregational repetitions, scoped to the Litany. */
 #service .litany-kyrie .response{font-weight:700;font-style:italic}
 #service .optional-petition{color:inherit;font-style:italic}
+#service .canticle-emphasis{color:inherit;font-style:italic}
+#black-letter-label{color:var(--ink);font-size:.88rem}
+#office-day-label{color:var(--muted);font-size:.79rem}
+.automatic-reason{font-size:.81rem;color:var(--muted);margin:.5rem 0}
 #service .opening-sentence .sentence-source,#service .offertory-sentence .sentence-source{display:block;margin-top:.3em;font: .72em/1.3 system-ui,sans-serif;color:var(--muted)}
 #service .opening-sentence+.opening-sentence,#service .offertory-sentence+.offertory-sentence{margin-top:.65em}
 #service .communion-reference{text-align:center;color:var(--muted);font-size:.85em;margin-bottom:.8em}
@@ -53,12 +57,16 @@ select:disabled{opacity:.8}
 <details class="settings"><summary>Service settings</summary><div class="grid">
 <div class="field"><label for="lineSpacing">Line spacing</label><select id="lineSpacing"><option value="compact">Single / compact</option><option value="comfortable">Comfortable (previous spacing)</option></select><small>Applies to all services and to printing.</small></div>
 <details class="field wide sentence-settings" data-only="mp"><summary>Opening sentences &mdash; Morning Prayer (<span id="mp-sentence-count">1 selected</span>)</summary>
-<p class="sentence-hint" id="mp-sentence-hint">Select one or more. They appear in Prayer Book order. Your choices are saved separately for Morning and Evening Prayer.</p>
+<label for="mpSentenceMode">Opening-sentence selection</label><select id="mpSentenceMode" aria-describedby="mp-sentence-hint"><option value="auto">Automatic &mdash; follow the date</option><option value="manual">Manual &mdash; use my saved choices</option></select>
+<p class="automatic-reason" id="mp-sentence-reason" role="status"></p>
+<p class="sentence-hint" id="mp-sentence-hint">Automatic follows the date. Changing a checkbox selects Manual for this Office; choose Automatic above to resume. Your manual choices are saved separately for Morning and Evening Prayer. Sentences appear in Prayer Book order.</p>
 <fieldset id="mp-sentence-options" class="sentence-picker" aria-describedby="mp-sentence-hint"></fieldset>
 <div class="sentence-tools"><button type="button" id="mp-sentences-all">Select all 11</button><button type="button" id="mp-sentences-default">Use Psalm 51:3 only</button></div>
 <p id="mp-sentence-status" class="status" role="status" aria-live="polite"></p></details>
 <details class="field wide sentence-settings" data-only="ep"><summary>Opening sentences &mdash; Evening Prayer (<span id="ep-sentence-count">1 selected</span>)</summary>
-<p class="sentence-hint" id="ep-sentence-hint">Select one or more. They appear in Prayer Book order. Your choices are saved separately for Morning and Evening Prayer.</p>
+<label for="epSentenceMode">Opening-sentence selection</label><select id="epSentenceMode" aria-describedby="ep-sentence-hint"><option value="auto">Automatic &mdash; follow the date</option><option value="manual">Manual &mdash; use my saved choices</option></select>
+<p class="automatic-reason" id="ep-sentence-reason" role="status"></p>
+<p class="sentence-hint" id="ep-sentence-hint">Automatic follows the date. Changing a checkbox selects Manual for this Office; choose Automatic above to resume. Your manual choices are saved separately for Morning and Evening Prayer. Sentences appear in Prayer Book order.</p>
 <fieldset id="ep-sentence-options" class="sentence-picker" aria-describedby="ep-sentence-hint"></fieldset>
 <div class="sentence-tools"><button type="button" id="ep-sentences-all">Select all 11</button><button type="button" id="ep-sentences-default">Use Psalm 51:3 only</button></div>
 <p id="ep-sentence-status" class="status" role="status" aria-live="polite"></p></details>
@@ -79,7 +87,7 @@ select:disabled{opacity:.8}
 <div class="field" data-only="office"><label for="emberForm">Ember prayer</label><select id="emberForm"><option value="ember-1">First form: Almighty God, our heavenly Father</option><option value="ember-2">Second form: Almighty God, the giver</option></select></div>
 <div class="field"><label for="presidentName">President's name in the Litany and Church Militant</label><input id="presidentName" type="text" maxlength="80" value="N." autocomplete="off"><small>Leave N. as a placeholder. This name stays in this browser's settings, not the shared link.</small></div>
 <div class="field"><label for="properOverride">Collect / Communion proper</label><select id="properOverride"></select><small>This override changes the collect and the displayed Communion readings, not the Office lessons.</small></div>
-<div class="field" data-only="mp"><label for="mpFirst">After the first lesson</label><select id="mpFirst"><option value="teDeum">Te Deum</option><option value="benedicite">Benedicite</option></select></div>
+<div class="field" data-only="mp"><label for="mpFirst">After the first lesson</label><select id="mpFirst" aria-describedby="mp-canticle-reason"><option value="auto">Automatic &mdash; follow the date</option><option value="teDeum">Te Deum (manual)</option><option value="benedicite">Benedicite (manual)</option></select><small id="mp-canticle-reason" role="status"></small></div>
 <div class="field" data-only="mp"><label for="mpSecond">After the second lesson</label><select id="mpSecond"><option value="benedictus">Benedictus (Jubilate when required)</option><option value="jubilate">Jubilate</option></select></div>
 <div class="field" data-only="ep"><label for="epFirst">After the first lesson</label><select id="epFirst"><option value="magnificat">Magnificat</option><option value="cantate">Cantate (except when in the day's Psalms)</option></select></div>
 <div class="field" data-only="ep"><label for="epSecond">After the second lesson</label><select id="epSecond"><option value="nunc">Nunc dimittis</option><option value="deus">Deus misereatur (except when in the day's Psalms)</option></select></div>
@@ -91,20 +99,26 @@ select:disabled{opacity:.8}
 </div><p><button id="reset-settings">Restore default settings</button></p></details>
 <details class="settings"><summary>Prayers and Thanksgivings</summary><p class="auto-note">The dated intentions and personal defaults are selected automatically. Change selections for this service below; changing date or service restores its defaults.</p><div id="prayer-options" class="prayer-picker"></div><p><button id="reset-prayers">Restore this service's prayer defaults</button></p></details>
 <div id="notices" aria-live="polite"></div>
-<article class="service-page"><header class="service-heading"><p id="service-date"></p><h2 id="service-title" tabindex="-1">Daily Prayer</h2><p id="season-label"></p></header><div id="service"><p>Loading the service. If this message remains, enable JavaScript and confirm that the entire replacement index.html was copied.</p><noscript>JavaScript must be enabled to assemble this service.</noscript></div></article>
+<article class="service-page"><header class="service-heading"><p id="service-date"></p><h2 id="service-title" tabindex="-1">Daily Prayer</h2><p id="season-label"></p><p id="black-letter-label" hidden></p><p id="office-day-label" hidden></p></header><div id="service"><p>Loading the service. If this message remains, enable JavaScript and confirm that the entire replacement index.html was copied.</p><noscript>JavaScript must be enabled to assemble this service.</noscript></div></article>
 <p id="load-status" class="status" aria-live="polite"></p>
 <details class="about"><summary>Sources, scope, and checks</summary>
 <h3>What this page does</h3><p>This is the service renderer, not the earlier preview. It assembles Morning Prayer, Evening Prayer, the Communion ordinary, and Ante-Communion from the selected date. It uses the original-1662 lesson table imported from <em>1662 for SingTheOffice.xlsx</em> and the supplied <em>Additions to the BCP 1662</em>, without silently repairing their wording.</p>
-<h3>Reading preferences</h3><p>Under Service settings, select one or more of the eleven opening sentences, separately for Morning and Evening Prayer. Choices appear in Prayer Book order. Special-petition clauses are enabled by default and printed in italics when included; the checkbox remains optional. Line spacing defaults to Single / compact, with the previous Comfortable spacing available. These preferences are saved in this browser. Existing choices from version 0.2.2 are retained. Communion and Ante-Communion each have a separate Offertory sentence picker, with all twenty choices available. New Offertory selections start with the first sentence; later choices are remembered.</p>
+<h3>Reading preferences</h3><p>Under Service settings, select one or more of the eleven opening sentences, separately for Morning and Evening Prayer. Choices appear in Prayer Book order. Special-petition clauses are enabled by default and printed in italics when included; the checkbox remains optional. Line spacing defaults to Single / compact, with the previous Comfortable spacing available. These preferences are saved in this browser. Unrelated preferences are retained from earlier versions. Version 0.2.5 enables the new automatic opening-sentence and Morning Prayer canticle modes once. Your previous manual sentence lists remain available by choosing Manual; the former storage record is kept for rollback. Communion and Ante-Communion each have a separate Offertory sentence picker, with all twenty choices available. New Offertory selections start with the first sentence; later choices are remembered.</p>
+<h3>Date-based devotional defaults</h3>
+<p>These are the project owner's requested defaults, not additional mandatory 1662 rubrics. Morning Prayer selects Benedicite on non-festival Mondays through Saturdays in Advent and from Septuagesima up to (but not including) Easter, and on other non-festival Wednesdays and Fridays. Sundays and red-letter festivals use Te Deum. A manual canticle choice remains available.</p>
+<p>Automatic opening sentences use this priority: (1) Sundays, red-letter festivals, and their eves at Evening Prayer: Daniel 9:9-10; (2) fasting vigils, Ember Days, Rogation Days and Fridays: Psalm 51:3; (3) Wednesdays: Psalm 51:9; (4) remaining Septuagesima/Lent weekdays: Psalm 51:17 and Joel 2:13; (5) remaining Advent weekdays: Jeremiah 10:24, Matthew 3:2 and Psalm 143:2; (6) other weekdays: Ezekiel 18:27, Luke 15:18-19 and 1 John 1:8-9. The last group is also the fallback on otherwise unspecified Christmas and Easter weekdays. Sentences stay in printed Prayer Book order.</p>
+<p>To distinguish the requested Vigils from Eves, a fasting vigil is a calendar day in the printed vigil table; a festal eve means Evening Prayer immediately before a Sunday or red-letter festival. Thus Christmas Eve Morning Prayer can use Psalm 51:3, while its Evening Prayer uses Daniel. Saturday Morning Prayer is not automatically a festal eve; Saturday Evening Prayer is. The printed Monday-feast rule moves its fasting vigil to Saturday, not Sunday. The three Rogation Days are Monday through Wednesday before Ascension. An Ember Week is not the same as an Ember Day. Festivals are the red-letter days, including Easter and Whitsun Monday/Tuesday; Ash Wednesday and the other Holy Week weekdays are not classified as festivals merely because they have proper lessons. No feast transfers or changes to lessons/collects are introduced.</p>
+<p>The banner includes 67 black-letter/calendar commemorations, with abbreviations expanded, from the <a href="https://www.eskimo.com/~lhowell/bcp1662/info/index.html" target="_blank" rel="noopener noreferrer">1662 monthly Kalendar</a>. These names are display-only and do not trigger the festival exception, change readings, add eves or displace the date's service. Historical state anniversaries on January 30, May 29 and November 5 are not added. Mary Magdalen is shown on July 22, consistent with the supplied additions and <a href="https://www.eskimo.com/~lhowell/bcp1662/info/cal_1871/july.html" target="_blank" rel="noopener noreferrer">the companion calendar</a>; the original-calendar web transcription puts her in July 21's row, a documented source discrepancy. No 1871 lessons have been imported. O Sapientia remains December 16. This is a calendar-name transcription, not a verification of saints' biographies.</p>
+<p>Italic emphasis is applied only to the three requested Te Deum phrases and the complete requested Venite verse. The underlying wording and punctuation are unchanged. Text remains the ordinary prayer color in light and dark modes and in print.</p>
 <h3>Readings and textual limits</h3><p>Canonical Office lessons are loaded as KJV from <a href="https://github.com/aruljohn/Bible-kjv" target="_blank" rel="noopener noreferrer">Arul John's Bible-kjv repository</a>. A KJV source link remains available on failure. This is a modern-spelling KJV transcription, not a diplomatic transcription of a 1611 printing. Apocryphal Office lessons also load inline as Authorized / KJV text, from <a href="https://github.com/julianstephens/kjv-sources" target="_blank" rel="noopener noreferrer">the machine-readable KJV-with-Apocrypha source</a>, whose transcription derives from eBible. This is not a word-for-word import of the originally linked website. Your <a href="https://www.eskimo.com/~lhowell/bcp1662/apocrypha/index.html" target="_blank" rel="noopener noreferrer">specified Apocrypha source</a> remains linked for reference or when a request fails. Sirach/Ecclesiasticus, Susanna, and Bel and the Dragon are mapped explicitly. Baruch 6 (the Epistle of Jeremy) is built into the page because the chapter source lists only Baruch 1-5; its 73 verses were checked against <a href="https://ebible.org/eng-kjv/BAR06.htm" target="_blank" rel="noopener noreferrer">eBible KJV Baruch 6</a>. Compared with the originally linked chapter, its evident transcription errors at verses 5, 59, 71 and 72 are corrected (afraid of them; a palace; cast; them). Other chapters require an internet connection; successful chapter requests are reused during the current visit, and failed requests can be retried. Communion Epistles and Gospels are embedded in this page for all ninety propers already supported by its calendar and proper selector. Their wording follows the <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/readings.html" target="_blank" rel="noopener noreferrer">printed BCP propers</a>, not generic KJV extracts; opening capitalization and paragraph breaks are normalized. A collapsible source reference remains available beneath each passage. These readings and all twenty Offertory sentences need no separate network request after the page loads. The Office KJV checkbox affects Office lessons only. The two advance-warning exhortations and the full administrative rubrics remain available through source links rather than all reproduced in the service stream.</p>
 <p>The Psalms are extracted as text from the existing local <code>bcp.js</code>. Its abbreviated service texts are not used or executed. This preserves that file's transcription; it is not a fresh collation of every Psalm against a printed edition. Common prayers and collects are transcribed from the public-domain BCP text; capitalization and punctuation are not a facsimile. A complete independent textual and rubrical audit remains outstanding.</p>
 <h3>Ash Wednesday</h3><p>Morning Prayer automatically includes the full <a href="https://www.eskimo.com/~lhowell/bcp1662/occasion/commination.html" target="_blank" rel="noopener noreferrer">Commination</a> after the completed Litany, including its ordinary closing prayers. It is built into this page and is not appended to Evening Prayer or either Communion service. Its Service settings checkbox is enabled by default. While enabled on Ash Wednesday, the Litany is included as a prerequisite without changing the saved Litany preference for other days. Unchecking it returns to that preference. Six evident transcription corrections, checked against the Church of England text, are listed in the Commination source disclosure. No other source wording or modern replacement rite has been substituted.</p><h3>Calendar conventions</h3><p>Modern Gregorian civil dates are used. Coinciding appointments require an explicit choice; feasts are not silently transferred. The Office lesson table remains separate from the Communion propers. The collect is anticipated at Evening Prayer before Sundays and feasts with vigils; fasting-day transfers are not used to move the lesson table. Ember weeks use the documented Sunday-through-Saturday convention. Extra Trinity Sundays require a minister's choice of an omitted Epiphany proper; the Sunday next before Advent uses the final Trinity proper.</p>
 <p>The source's St. Stephen reading, <em>Ecclesiastes 4</em>, remains flagged rather than silently changed to <em>Ecclesiasticus 4</em>. American state adaptations and the additional intentions are the project owner's directions, not a claim to reproduce an unmodified Church of England edition. Presidential forms come from the supplied document. January 20 is an annual intention, moved to January 21 only when January 20 is Sunday. It does not duplicate a presidential prayer.</p>
 <h3>Sources</h3><p>Communion readings: <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/xmas.html" target="_blank" rel="noopener noreferrer">Advent to Quinquagesima</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/lent.html" target="_blank" rel="noopener noreferrer">Lent and Holy Week</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/easter.html" target="_blank" rel="noopener noreferrer">Easter to Whitsun</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/trinity.html" target="_blank" rel="noopener noreferrer">Trinity season</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/saints.html" target="_blank" rel="noopener noreferrer">Saints</a>. Offertory wording was also checked against the <a href="https://www.churchofengland.org/prayer-and-worship/worship-texts-and-resources/book-common-prayer/lords-supper-or-holy-communion" target="_blank" rel="noopener noreferrer">Church of England Communion text</a>; its reading "specially" in Galatians 6 is used instead of "specialty" in the other transcription.</p><p><a href="https://www.eskimo.com/~lhowell/bcp1662/daily/morning.html" target="_blank" rel="noopener noreferrer">Morning Prayer</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/evening.html" target="_blank" rel="noopener noreferrer">Evening Prayer</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/litany.html" target="_blank" rel="noopener noreferrer">Litany</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/prayers.html" target="_blank" rel="noopener noreferrer">Prayers</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/thanksgivings.html" target="_blank" rel="noopener noreferrer">Thanksgivings</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/index.html" target="_blank" rel="noopener noreferrer">Communion and complete directions</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/info/tables/rules.html" target="_blank" rel="noopener noreferrer">Feasts, vigils and fasts</a>.</p>
 <p>Online transcriptions can contain later amendments and typographical errors. Priest-only acts remain labeled: this display does not turn them into lay prayers. For public liturgical use, compare the service with the authoritative printed book and the minister's directions.</p>
-<h3>Code checks</h3><p>The button below runs the earlier foundation checks, not a complete textual or liturgical certification of this service renderer.</p><button id="checks">Run foundation checks</button><pre id="check-result"></pre><p>Service renderer version 0.2.2. Calendar, lesson references, prayer data and foundation code are bundled in this index.html; the old separate foundation files may remain but are not loaded by this page. No account or installation is needed. Internet access is required for external readings. Preferences are stored locally in this browser; no account database is used.</p>
+<h3>Code checks</h3><p>The button below runs the earlier foundation checks, not a complete textual or liturgical certification of this service renderer.</p><button id="checks">Run foundation checks</button><pre id="check-result"></pre><p>Service renderer version 0.2.5. Calendar, lesson references, prayer data and foundation code are bundled in this index.html; the old separate foundation files may remain but are not loaded by this page. No account or installation is needed. Internet access is required for external readings. Preferences are stored locally in this browser; no account database is used.</p>
 </details>
-<footer class="footer">BCP 1662 / Daily Prayer &middot; American state-prayer adaptation &middot; v0.2.4</footer>
+<footer class="footer">BCP 1662 / Daily Prayer &middot; American state-prayer adaptation &middot; v0.2.5</footer>
 </main>
 <script>
 /* Bundled unchanged: bcp1662-data.js */
@@ -4455,8 +4469,9 @@ function normalizeSentenceSelection(value){
  const selected=OPENING_SENTENCES.filter(x=>ids.has(x.id)).map(x=>x.id);
  return selected.length?selected:['psalm-51-3'];
 }
-function openingSentencesHTML(service,preferences={}){
- const ids=new Set(normalizeSentenceSelection(preferences[service==='ep'?'epSentences':'mpSentences']));
+function openingSentencesHTML(service,preferences={},value=null){
+ const selection=value?selectedOpeningSentences(value,service,preferences).ids:normalizeSentenceSelection(preferences[service==='ep'?'epSentences':'mpSentences']);
+ const ids=new Set(selection);
  const selected=OPENING_SENTENCES.filter(x=>ids.has(x.id));
  return '<section id="opening-sentences" class="prayer">'+heading(selected.length===1?'Opening Sentence':'Opening Sentences')+
  selected.map(x=>'<p class="opening-sentence" data-sentence-id="'+esc(x.id)+'">'+esc(x.text)+'<span class="sentence-source">'+esc(x.reference)+'</span></p>').join('')+'</section>';
@@ -5843,6 +5858,141 @@ function offertorySentencesHTML(service,preferences={}){
 }
 
 const VIGILS=new Set(['christmas-day','presentation','annunciation','easter-day','ascension','whitsun','st-matthias','st-john-baptist','st-peter','st-james','st-bartholomew','st-matthew','st-simon-and-st-jude','st-andrew','st-thomas','all-saints']);
+// 0.2.5: the owner's devotional defaults, not new mandatory BCP rubrics.
+// Names/dates: the 1662 monthly Kalendar, with expanded abbreviations.
+// Mary Magdalen is July 22, as in the supplied additions and the companion
+// calendar; the cal_1662 July web table places her on July 21 (source discrepancy).
+// Historical state anniversaries (Jan 30, May 29, Nov 5) are not black-letter saints.
+const BLACK_LETTER_CALENDAR=Object.freeze(Object.fromEntries([
+ ['01-08','Lucian, Priest and Martyr'],
+ ['01-13','Hilary, Bishop and Confessor'],
+ ['01-18','Prisca, Roman Virgin and Martyr'],
+ ['01-20','Fabian, Bishop of Rome and Martyr'],
+ ['01-21','Agnes, Roman Virgin and Martyr'],
+ ['01-22','Vincent, Spanish Deacon and Martyr'],
+ ['02-03','Blasius, Armenian Bishop and Martyr'],
+ ['02-05','Agatha, Sicilian Virgin and Martyr'],
+ ['02-14','Valentine, Bishop and Martyr'],
+ ['03-01','David, Archbishop of Menevia'],
+ ['03-02','Chad, Bishop of Lichfield'],
+ ['03-07','Perpetua, Martyr'],
+ ['03-12','Gregory the Great, Bishop of Rome and Confessor'],
+ ['03-18','Edward, King of the West Saxons'],
+ ['03-21','Benedict, Abbot'],
+ ['04-03','Richard, Bishop of Chichester'],
+ ['04-04','Ambrose, Bishop of Milan'],
+ ['04-19','Alphege, Archbishop of Canterbury'],
+ ['04-23','St. George, Martyr'],
+ ['05-03','Invention of the Cross'],
+ ['05-06','St. John the Evangelist before the Latin Gate'],
+ ['05-19','Dunstan, Archbishop of Canterbury'],
+ ['05-26','Augustine, first Archbishop of Canterbury'],
+ ['05-27','The Venerable Bede, Priest'],
+ ['06-01','Nicomede, Roman Priest and Martyr'],
+ ['06-05','Boniface, Bishop of Mentz and Martyr'],
+ ['06-17','St. Alban, Martyr'],
+ ['06-20','Translation of Edward, King of the West Saxons'],
+ ['07-02','Visitation of the Blessed Virgin Mary'],
+ ['07-04','Translation of St. Martin, Bishop and Confessor'],
+ ['07-15','Translation of Swithun, Bishop of Winchester'],
+ ['07-20','Margaret, Virgin and Martyr at Antioch'],
+ ['07-22','St. Mary Magdalen'],
+ ['07-26','St. Anne, Mother of the Blessed Virgin Mary'],
+ ['08-01','Lammas Day'],
+ ['08-06','Transfiguration of our Lord'],
+ ['08-07','Name of Jesus'],
+ ['08-10','St. Laurence, Archdeacon of Rome and Martyr'],
+ ['08-28','St. Augustine, Bishop of Hippo, Confessor and Doctor'],
+ ['08-29','Beheading of St. John Baptist'],
+ ['09-01','Giles, Abbot and Confessor'],
+ ['09-07','Enurchus, Bishop of Orleans'],
+ ['09-08','Nativity of the Blessed Virgin Mary'],
+ ['09-14','Holy Cross Day'],
+ ['09-17','Lambert, Bishop and Martyr'],
+ ['09-26','St. Cyprian, Archbishop of Carthage and Martyr'],
+ ['09-30','St. Jerome, Priest, Confessor and Doctor'],
+ ['10-01','Remigius, Bishop of Rheims'],
+ ['10-06','Faith, Virgin and Martyr'],
+ ['10-09','St. Denys the Areopagite, Bishop and Martyr'],
+ ['10-13','Translation of King Edward the Confessor'],
+ ['10-17','Etheldreda, Virgin'],
+ ['10-25','Crispin, Martyr'],
+ ['11-06','Leonard, Confessor'],
+ ['11-11','St. Martin, Bishop and Confessor'],
+ ['11-13','Britius, Bishop'],
+ ['11-15','Machutus, Bishop'],
+ ['11-17','Hugh, Bishop of Lincoln'],
+ ['11-20','Edmund, King and Martyr'],
+ ['11-22','Cecilia, Virgin and Martyr'],
+ ['11-23','St. Clement, Bishop of Rome and Martyr'],
+ ['11-25','Catherine, Virgin and Martyr'],
+ ['12-06','Nicholas, Bishop of Myra in Lycia'],
+ ['12-08','Conception of the Blessed Virgin Mary'],
+ ['12-13','Lucy, Virgin and Martyr'],
+ ['12-16','O Sapientia'],
+ ['12-31','Silvester, Bishop of Rome']
+].map(([day,label])=>[day,Object.freeze({label,source:BASE+'info/cal_1662/'+['january','february','march','april','may','june','july','august','september','october','november','december'][Number(day.slice(0,2))-1]+'.html'})])));
+function blackLetterForDate(value){return BLACK_LETTER_CALENDAR[C.iso(value).slice(5)]||null;}
+const FESTIVAL_OFFSETS=Object.freeze({0:'easter-day',1:'easter-monday',2:'easter-tuesday',39:'ascension',49:'whitsun',50:'monday-after-whitsun',51:'tuesday-after-whitsun',56:'trinity-sunday'});
+function festivalsOn(value){
+ const date=C.iso(value),year=C.civil(date).year;
+ return [...new Set([C.fixedDates[date.slice(5)],FESTIVAL_OFFSETS[C.difference(date,C.easterSunday(year))]].filter(Boolean))];
+}
+const fastVigilCache=new Map();
+function fastingVigils(year){
+ if(!fastVigilCache.has(year)){
+  const feasts=Object.entries(C.fixedDates).filter(([,key])=>VIGILS.has(key)).map(([md,key])=>({date:C.makeDate(year,Number(md.slice(0,2)),Number(md.slice(3))),key}));
+  const easter=C.easterSunday(year);
+  for(const [offset,key] of [[0,'easter-day'],[39,'ascension'],[49,'whitsun']])feasts.push({date:C.addDays(easter,offset),key});
+  fastVigilCache.set(year,Object.freeze(feasts.map(feast=>Object.freeze({date:C.addDays(feast.date,C.weekday(feast.date)===1?-2:-1),feastDate:feast.date,key:feast.key,shifted:C.weekday(feast.date)===1}))));
+ }
+ return fastVigilCache.get(year);
+}
+function officeCalendarContext(value,office='mp'){
+ const date=C.iso(value),year=C.civil(date).year,info=C.describe(date);
+ const next=C.addDays(date,1),tomorrowFestivals=festivalsOn(next);
+ const isSunday=info.weekday===0,festivals=festivalsOn(date);
+ const eveKeys=office==='ep'?[...new Set([...(C.weekday(next)===0?[C.temporalAppointment(next)||'Sunday']:[]),...tomorrowFestivals])]:[];
+ const vigils=fastingVigils(year).filter(v=>v.date===date);
+ const offset=C.difference(date,info.easter);
+ return {date,weekday:info.weekday,isSunday,festivals,isFestival:festivals.length>0,
+  isFestalEve:eveKeys.length>0,eveKeys,vigils,isVigil:vigils.length>0,isEmberDay:info.isEmberDay,isRogationDay:info.isRogationDay,
+  isAdvent:date>=info.advent&&date<C.makeDate(year,12,25),isPreLentOrLent:offset>=-63&&offset<0,blackLetter:blackLetterForDate(date)};
+}
+function automaticOpeningSentences(value,office='mp'){
+ const context=officeCalendarContext(value,office);
+ let ids,reason,rule;
+ if(context.isSunday||context.isFestival||context.isFestalEve){
+  ids=['daniel-9-9-10'];rule='festal';
+  reason=context.isSunday?'Sunday':context.isFestival?'Festival: '+context.festivals.map(C.label).join(' / '):'Festal eve at Evening Prayer: '+context.eveKeys.map(C.label).join(' / ');
+ }else if(context.isVigil||context.isEmberDay||context.isRogationDay||context.weekday===5){
+  ids=['psalm-51-3'];rule='penitential-day';
+  reason=[context.isVigil?'Fasting vigil of '+context.vigils.map(v=>C.label(v.key)+(v.shifted?' (fast moved to Saturday)':'')).join(' / '):'',context.isEmberDay?'Ember Day':'',context.isRogationDay?'Rogation Day':'',context.weekday===5?'Friday':''].filter(Boolean).join('; ');
+ }else if(context.weekday===3){ids=['psalm-51-9'];rule='wednesday';reason='Wednesday';}
+ else if(context.isPreLentOrLent){ids=['psalm-51-17','joel-2-13'];rule='pre-lent-lent';reason='Weekday from Septuagesima through Holy Saturday';}
+ else if(context.isAdvent){ids=['jeremiah-10-24','matthew-3-2','psalm-143-2'];rule='advent';reason='Advent weekday';}
+ else {ids=['ezekiel-18-27','luke-15-18-19','1-john-1-8-9'];rule='other-day';reason='Other weekday';}
+ return {ids:normalizeSentenceSelection(ids),reason,rule,context};
+}
+function selectedOpeningSentences(value,office,preferences={}){
+ const automatic=automaticOpeningSentences(value,office);
+ if(preferences[office+'SentenceMode']==='manual')return {...automatic,ids:normalizeSentenceSelection(preferences[office+'Sentences']),reason:'Manual selection; date-based default would be '+automatic.reason+'.',manual:true};
+ return {...automatic,manual:false};
+}
+function automaticMorningCanticle(value){
+ const context=officeCalendarContext(value,'mp');
+ if(context.isSunday||context.isFestival)return {key:'teDeum',reason:context.isSunday?'Sunday':'Festival: '+context.festivals.map(C.label).join(' / ')};
+ if(context.isAdvent)return {key:'benedicite',reason:'Monday through Saturday in Advent'};
+ if(context.isPreLentOrLent)return {key:'benedicite',reason:'Monday through Saturday from Septuagesima through Holy Saturday'};
+ if([3,5].includes(context.weekday))return {key:'benedicite',reason:context.weekday===3?'Wednesday':'Friday'};
+ return {key:'teDeum',reason:'Other weekday'};
+}
+function selectedMorningCanticle(value,preferences={}){
+ const automatic=automaticMorningCanticle(value);
+ if(['teDeum','benedicite'].includes(preferences.mpFirst))return {key:preferences.mpFirst,reason:'Manual selection; date-based default would be '+(automatic.key==='benedicite'?'Benedicite':'Te Deum')+'.',manual:true};
+ return {...automatic,manual:false};
+}
+
 const PROPER_PSALMS={
  'christmas-day':{mp:[19,45,85],ep:[89,110,132]},
  'ash-wednesday':{mp:[6,32,38],ep:[102,130,143]},
@@ -6354,7 +6504,21 @@ function lessonBlock(label,lesson,id) {
 function collectHTML(plan) {
  return '<section id="collects">'+heading('The Collect of the Day')+plan.notes.map(note).join('')+plan.items.map((x,i)=>'<div class="collect" data-collect="'+esc(x.key)+'"><h4>'+esc(x.title)+(i?' (additional collect)':'')+'</h4>'+paras(x.text)+'</div>').join('')+'</section>';
 }
-function canticle(title,key,gloria=true){return prayer(title,T[key]+(gloria?'\n'+T.gloria:''));}
+// Emphasis is presentation only: all source text remains unchanged and escaped.
+const CANTICLE_EMPHASIS=Object.freeze({
+ teDeum:Object.freeze(['Holy, Holy, Holy','When thou tookest upon thee','We therefore pray thee']),
+ venite:Object.freeze(['O come, let us worship and fall down : and kneel before the Lord our Maker.'])
+});
+function canticle(title,key,gloria=true){
+ const text=T[key]+(gloria?'\n'+T.gloria:'');
+ if(!CANTICLE_EMPHASIS[key])return prayer(title,text);
+ const body=text.split('\n').filter(Boolean).map(line=>{
+  let html=esc(line);
+  for(const phrase of CANTICLE_EMPHASIS[key])html=html.replace(esc(phrase),()=>'<em class="canticle-emphasis">'+esc(phrase)+'</em>');
+  return '<p>'+html+'</p>';
+ }).join('');
+ return '<section class="prayer" data-canticle="'+esc(key)+'">'+heading(title)+body+'</section>';
+}
 function litanyHTML(plan,closing='') {
  let h='<section id="litany-service">'+heading('The Litany')+rubric('To be sung or said after Morning Prayer upon Sundays, Wednesdays, and Fridays.');
  for(const invocation of ['O God the Father, of heaven','O God the Son, Redeemer of the world','O God the Holy Ghost, proceeding from the Father and the Son','O holy, blessed, and glorious Trinity, three Persons and one God'])h+=pair(invocation+' : have mercy upon us miserable sinners.',invocation+' : have mercy upon us miserable sinners.');
@@ -6475,7 +6639,7 @@ function comminationHTML() {
 }
 
 function officeHTML(date,service,readings,plan,cp,settings,manualExtras) {
- let h=openingSentencesHTML(service,settings)+prayer('The Exhortation',T.exhortation,'The Minister shall say this exhortation.')+prayer('A General Confession',T.confession,'To be said of the whole Congregation after the Minister, all kneeling.')+prayer('The Absolution',T.absolution,'To be pronounced by the Priest alone, standing; the people still kneeling.');
+ let h=openingSentencesHTML(service,settings,date)+prayer('The Exhortation',T.exhortation,'The Minister shall say this exhortation.')+prayer('A General Confession',T.confession,'To be said of the whole Congregation after the Minister, all kneeling.')+prayer('The Absolution',T.absolution,'To be pronounced by the Priest alone, standing; the people still kneeling.');
  h+=prayer("The Lord's Prayer",T.lords+' '+T.doxology,'The people repeating it with the Minister.')+heading('The Preces')+pair('O Lord, open thou our lips.','And our mouth shall shew forth thy praise.')+pair('O God, make speed to save us.','O Lord, make haste to help us.')+rubric('Here all standing up, the Priest shall say,')+pair('Glory be to the Father, and to the Son, and to the Holy Ghost;','As it was in the beginning, is now, and ever shall be, world without end. Amen.')+pair('Praise ye the Lord.',"The Lord's Name be praised.");
  if(service==='mp') {
   if(readings.appointment==='easter-day')h+=canticle('The Easter Anthems','easterAnthems');
@@ -6485,7 +6649,7 @@ function officeHTML(date,service,readings,plan,cp,settings,manualExtras) {
  h+='<section id="psalms">'+heading('The Psalms')+'<div id="psalm-text">'+note('Loading the Prayer Book Psalter from bcp.js...')+'</div></section>';
  const lessons=readings.lessons||{};
  h+=lessonBlock('The First Lesson',lessons[service+'First'],'first-lesson');
- if(service==='mp')h+=settings.mpFirst==='benedicite'?canticle('Benedicite, omnia opera','benedicite'):canticle('Te Deum laudamus','teDeum',false);
+ if(service==='mp')h+=selectedMorningCanticle(date,settings).key==='benedicite'?canticle('Benedicite, omnia opera','benedicite'):canticle('Te Deum laudamus','teDeum',false);
  else h+=settings.epFirst==='cantate'&&(C.civil(date).day!==19||PROPER_PSALMS[readings.appointment])?canticle('Cantate Domino. Psalm 98.','cantate'):canticle('Magnificat','magnificat');
  h+=lessonBlock('The Second Lesson',lessons[service+'Second'],'second-lesson');
  if(service==='mp') {
@@ -6538,16 +6702,18 @@ function communionHTML(date,service,plan,cp,settings,manualExtras) {
 const $=id=>document.getElementById(id);
 // v2 imports v1 preferences once. Only the newly requested default is reset;
 // later opt-outs are saved normally, along with independent Office sentences.
-const SETTINGS_KEY='bcp1662-service-settings-v2';
+const SETTINGS_KEY='bcp1662-service-settings-v3';
+const PREVIOUS_SETTINGS_KEY='bcp1662-service-settings-v2';
 const LEGACY_SETTINGS_KEY='bcp1662-service-settings-v1';
-const DEFAULTS=Object.freeze({litany:'rubric',includeCommination:true,emberForm:'ember-1',presidentName:'N.',includeIllinois:true,includeSpecialPetitions:true,mpSentences:Object.freeze(['psalm-51-3']),epSentences:Object.freeze(['psalm-51-3']),communionOffertory:Object.freeze(['offertory-01']),anteOffertory:Object.freeze(['offertory-01']),mpFirst:'teDeum',mpSecond:'benedictus',epFirst:'magnificat',epSecond:'nunc',epCollect:'auto',endCollect:'0',postcommunion:'thanksgiving',alms:false,inlineLessons:true,theme:'light',font:20,lineSpacing:'compact'});
+const DEFAULTS=Object.freeze({litany:'rubric',includeCommination:true,emberForm:'ember-1',presidentName:'N.',includeIllinois:true,includeSpecialPetitions:true,mpSentences:Object.freeze(['psalm-51-3']),epSentences:Object.freeze(['psalm-51-3']),communionOffertory:Object.freeze(['offertory-01']),anteOffertory:Object.freeze(['offertory-01']),mpSentenceMode:'auto',epSentenceMode:'auto',mpFirst:'auto',mpSecond:'benedictus',epFirst:'magnificat',epSecond:'nunc',epCollect:'auto',endCollect:'0',postcommunion:'thanksgiving',alms:false,inlineLessons:true,theme:'light',font:20,lineSpacing:'compact'});
 function defaultSettings(){return {...DEFAULTS,mpSentences:[...DEFAULTS.mpSentences],epSentences:[...DEFAULTS.epSentences],communionOffertory:[...DEFAULTS.communionOffertory],anteOffertory:[...DEFAULTS.anteOffertory]};}
 function readSavedSettings(key){
  try{const value=JSON.parse(localStorage.getItem(key)||'null');return value&&typeof value==='object'&&!Array.isArray(value)?value:null;}catch(_){return null;}
 }
 let settings=defaultSettings();
 const currentSaved=readSavedSettings(SETTINGS_KEY);
-const savedSettings=currentSaved||readSavedSettings(LEGACY_SETTINGS_KEY);
+const previousSaved=readSavedSettings(PREVIOUS_SETTINGS_KEY);
+const savedSettings=currentSaved||previousSaved||readSavedSettings(LEGACY_SETTINGS_KEY);
 if(savedSettings){
  for(const key of Object.keys(DEFAULTS)){
   if(!Object.prototype.hasOwnProperty.call(savedSettings,key))continue;
@@ -6555,7 +6721,12 @@ if(savedSettings){
   else if(typeof savedSettings[key]===typeof DEFAULTS[key])settings[key]=savedSettings[key];
  }
 }
-if(!currentSaved)settings.includeSpecialPetitions=true;
+if(!currentSaved&&!previousSaved)settings.includeSpecialPetitions=true;
+// Switch the new automatic modes on once; preserve manual sentence lists and
+// every unrelated preference. Previous v2/v1 storage is untouched for rollback.
+if(!currentSaved){settings.mpFirst='auto';settings.mpSentenceMode='auto';settings.epSentenceMode='auto';}
+settings.mpFirst=['auto','teDeum','benedicite'].includes(settings.mpFirst)?settings.mpFirst:'auto';
+for(const office of ['mp','ep'])settings[office+'SentenceMode']=settings[office+'SentenceMode']==='manual'?'manual':'auto';
 settings.font=Math.max(16,Math.min(28,Number(settings.font)||20));
 settings.lineSpacing=settings.lineSpacing==='comfortable'?'comfortable':'compact';
 let date=C.iso(new Date()),service='mp',appointment='auto',properOverride='auto',eveChoice='auto',include=new Set(),exclude=new Set(),manualExtras=new Set(),renderCount=0;
@@ -6574,9 +6745,12 @@ function refreshSettingsControls(){
 
 function updateSentenceControls(){
  for(const office of ['mp','ep']){
-  const chosen=new Set(normalizeSentenceSelection(settings[office+'Sentences']));
+  const selection=selectedOpeningSentences(date,office,settings);
+  const chosen=new Set(selection.ids);
+  $(office+'SentenceMode').value=selection.manual?'manual':'auto';
+  $(office+'-sentence-reason').textContent=(selection.manual?'':'Automatic: ')+selection.reason;
   for(const input of $(office+'-sentence-options').querySelectorAll('input[data-sentence]'))input.checked=chosen.has(input.dataset.sentence);
-  $(office+'-sentence-count').textContent=chosen.size+' selected';
+  $(office+'-sentence-count').textContent=chosen.size+' selected'+(selection.manual?' / manual':' / automatic');
  }
 }
 function setupSentencePickers(){
@@ -6589,10 +6763,10 @@ function setupSentencePickers(){
    if(!e.target.matches('input[data-sentence]'))return;
    const selected=[...picker.querySelectorAll('input[data-sentence]:checked')].map(x=>x.dataset.sentence);
    if(!selected.length){e.target.checked=true;status.textContent='Keep at least one opening sentence selected. Select another sentence before removing this one.';return;}
-   settings[key]=normalizeSentenceSelection(selected);status.textContent='Selection saved.';save();render();
+   settings[key]=normalizeSentenceSelection(selected);settings[office+'SentenceMode']='manual';status.textContent='Manual selection saved. Choose Automatic above to resume date-based defaults.';save();render();
   });
-  $(office+'-sentences-all').addEventListener('click',()=>{settings[key]=OPENING_SENTENCES.map(x=>x.id);status.textContent='All 11 opening sentences selected.';save();render();});
-  $(office+'-sentences-default').addEventListener('click',()=>{settings[key]=['psalm-51-3'];status.textContent='Psalm 51:3 selected.';save();render();});
+  $(office+'-sentences-all').addEventListener('click',()=>{settings[key]=OPENING_SENTENCES.map(x=>x.id);settings[office+'SentenceMode']='manual';status.textContent='All 11 opening sentences selected (Manual).';save();render();});
+  $(office+'-sentences-default').addEventListener('click',()=>{settings[key]=['psalm-51-3'];settings[office+'SentenceMode']='manual';status.textContent='Psalm 51:3 selected (Manual).';save();render();});
  }
 }
 
@@ -6637,6 +6811,18 @@ function renderPrayerPicker(plan) {
  html.push('<h4>Other BCP prayers and thanksgivings</h4>');
  for(const [id,[title]] of Object.entries(EXTRA_PRAYERS))html.push('<label class="check"><input type="checkbox" data-extra="'+esc(id)+'" '+(manualExtras.has(id)?'checked':'')+'><span>'+esc(title)+'</span></label>');
  $('prayer-options').innerHTML=html.join('');
+}
+function updateCalendarDefaultsControls(){
+ const choice=selectedMorningCanticle(date,settings);
+ $('mpFirst').value=settings.mpFirst;
+ $('mp-canticle-reason').textContent=(choice.key==='benedicite'?'Benedicite':'Te Deum')+' today. '+choice.reason.replace(/\.$/,'')+'.';
+ const black=blackLetterForDate(date);
+ $('black-letter-label').hidden=!black;
+ $('black-letter-label').textContent=black?'Black-letter commemoration: '+black.label:'';
+ const context=officeCalendarContext(date,service);
+ const text=context.isFestalEve?'Eve of '+context.eveKeys.map(C.label).join(' / '):context.isVigil?'Fasting vigil of '+context.vigils.map(v=>C.label(v.key)+(v.shifted?' (fast moved to Saturday)':'')).join(' / '):'';
+ $('office-day-label').hidden=!text;
+ $('office-day-label').textContent=text;
 }
 function updateComminationControls(){
  const active=comminationScheduled(date,service,settings),control=$('litany'),required=$('litany-commination-option');
@@ -6683,7 +6869,7 @@ function render(){
   const readings=L.resolve(date,{appointment});
   const plan=P.plan(date,service,planOptions());
   const cp=collectPlan(date,service,readings.appointment,properOverride,settings.epCollect,eveChoice);
-  $('date').value=date;setAppearance();appointmentControls(info);renderPrayerPicker(plan);updateSentenceControls();updateOffertoryControls();updateComminationControls();
+  $('date').value=date;setAppearance();appointmentControls(info);renderPrayerPicker(plan);updateSentenceControls();updateOffertoryControls();updateComminationControls();updateCalendarDefaultsControls();
   for(const button of document.querySelectorAll('[data-service]'))button.setAttribute('aria-pressed',String(button.dataset.service===service));
   $('service-title').textContent=SERVICES[service];$('service-date').textContent=displayDate(date);
   $('season-label').textContent=[info.season,readings.appointment&&readings.appointment!=='daily'?C.label(readings.appointment):'',info.isEmberDay?'Ember Day':info.emberWeek?'Ember Week':'',info.isRogationDay?'Rogation Day':''].filter(Boolean).join(' / ');
@@ -6716,7 +6902,7 @@ $('properOverride').addEventListener('change',e=>{properOverride=e.target.value;
 $('eveChoice').addEventListener('change',e=>{eveChoice=e.target.value;render();});
 for(const key of Object.keys(DEFAULTS)){
  const control=$(key);if(!control)continue;
- control.addEventListener('change',()=>{settings[key]=control.type==='checkbox'?control.checked:control.value;if(key==='emberForm'){include.delete('ember-1');include.delete('ember-2');}save();render();});
+ control.addEventListener('change',()=>{settings[key]=control.type==='checkbox'?control.checked:control.value;if(key==='emberForm'){include.delete('ember-1');include.delete('ember-2');}if(key==='mpSentenceMode'||key==='epSentenceMode')$(key.slice(0,2)+'-sentence-status').textContent='';save();render();});
 }
 $('prayer-options').addEventListener('change',e=>{
  const c=e.target;if(c.dataset.prayer){if(c.checked){include.add(c.dataset.prayer);exclude.delete(c.dataset.prayer);}else{include.delete(c.dataset.prayer);exclude.add(c.dataset.prayer);}}
@@ -6735,7 +6921,7 @@ $('share').addEventListener('click',async()=>{
 $('checks').addEventListener('click',()=>{
  try{if(!B.tests)throw new Error('The bundled foundation tests did not load.');const result=B.tests.run();$('check-result').textContent=JSON.stringify(result,null,2);}catch(e){$('check-result').textContent=e.message;}
 });
-window.BCP1662App=Object.freeze({parsePassage,extractVerses,parsePsalterSource,sanitizePsalm,psalmDoxologies,properForDate,collectPlan,prefaceFor,officeHTML,communionHTML,collects:COLLECTS,openingSentences:OPENING_SENTENCES,normalizeSentenceSelection,openingSentencesHTML,communionReadings:COMMUNION_READINGS,communionReading,offertorySentences:OFFERTORY_SENTENCES,normalizeOffertorySelection,offertorySentencesHTML,render,commination:COMMINATION,comminationScheduled,comminationHTML,apocryphaBooks:APOCRYPHA_BOOKS,apocryphaChapterURL,validateApocryphaChapter,loadPassage,readingLink,getApocryphaChapter,version:'0.2.4'});
+window.BCP1662App=Object.freeze({parsePassage,extractVerses,parsePsalterSource,sanitizePsalm,psalmDoxologies,properForDate,collectPlan,prefaceFor,officeHTML,communionHTML,collects:COLLECTS,openingSentences:OPENING_SENTENCES,normalizeSentenceSelection,openingSentencesHTML,communionReadings:COMMUNION_READINGS,communionReading,offertorySentences:OFFERTORY_SENTENCES,normalizeOffertorySelection,offertorySentencesHTML,render,commination:COMMINATION,comminationScheduled,comminationHTML,apocryphaBooks:APOCRYPHA_BOOKS,apocryphaChapterURL,validateApocryphaChapter,loadPassage,readingLink,getApocryphaChapter,blackLetterCalendar:BLACK_LETTER_CALENDAR,blackLetterForDate,festivalsOn,fastingVigils,officeCalendarContext,automaticOpeningSentences,selectedOpeningSentences,automaticMorningCanticle,selectedMorningCanticle,canticleHTML:canticle,version:'0.2.5'});
 setupSentencePickers();setupOffertoryPickers();refreshSettingsControls();render();
 
 }catch(error){var target=document.getElementById('service');if(target){target.textContent='The app could not start: '+error.message+' Confirm that the entire replacement index.html was copied.';target.setAttribute('role','alert');}console.error(error);}})();
