@@ -72,14 +72,18 @@ select:disabled{opacity:.8}
 <p id="ep-sentence-status" class="status" role="status" aria-live="polite"></p></details>
 
 <details class="field wide sentence-settings" data-only="full-communion"><summary>Offertory sentences &mdash; Holy Communion (<span id="hc-offertory-count">1 selected</span>)</summary>
-<p class="sentence-hint" id="hc-offertory-hint">Select one or more of the twenty printed sentences. They appear in Prayer Book order. Holy Communion and Ante-Communion choices are saved separately in this browser.</p>
+<label for="communionOffertoryMode">Offertory selection</label><select id="communionOffertoryMode" aria-describedby="hc-offertory-hint"><option value="auto">Automatic &mdash; daily random</option><option value="manual">Manual &mdash; use my saved choices</option></select>
+<p class="automatic-reason" id="hc-offertory-reason" role="status"></p>
+<p class="sentence-hint" id="hc-offertory-hint">Automatic chooses one sentence for this date and service in this browser. It stays the same when you refresh or adjust settings. Changing a checkbox selects Manual; your manual choices are saved separately for the two services. Sentences appear in Prayer Book order.</p>
 <fieldset id="hc-offertory-options" class="sentence-picker" aria-describedby="hc-offertory-hint"></fieldset>
-<div class="sentence-tools"><button type="button" id="hc-offertory-all">Select all 20</button><button type="button" id="hc-offertory-default">Use the first sentence only</button></div>
+<div class="sentence-tools"><button type="button" id="hc-offertory-all">Select all 20</button><button type="button" id="hc-offertory-default">Use the first sentence only</button><button type="button" id="hc-offertory-auto">Use automatic random default</button></div>
 <p id="hc-offertory-status" class="status" role="status" aria-live="polite"></p></details>
 <details class="field wide sentence-settings" data-only="ante-communion"><summary>Offertory sentences &mdash; Ante-Communion (<span id="ac-offertory-count">1 selected</span>)</summary>
-<p class="sentence-hint" id="ac-offertory-hint">Select one or more of the twenty printed sentences. They appear in Prayer Book order. Holy Communion and Ante-Communion choices are saved separately in this browser.</p>
+<label for="anteOffertoryMode">Offertory selection</label><select id="anteOffertoryMode" aria-describedby="ac-offertory-hint"><option value="auto">Automatic &mdash; daily random</option><option value="manual">Manual &mdash; use my saved choices</option></select>
+<p class="automatic-reason" id="ac-offertory-reason" role="status"></p>
+<p class="sentence-hint" id="ac-offertory-hint">Automatic chooses one sentence for this date and service in this browser. It stays the same when you refresh or adjust settings. Changing a checkbox selects Manual; your manual choices are saved separately for the two services. Sentences appear in Prayer Book order.</p>
 <fieldset id="ac-offertory-options" class="sentence-picker" aria-describedby="ac-offertory-hint"></fieldset>
-<div class="sentence-tools"><button type="button" id="ac-offertory-all">Select all 20</button><button type="button" id="ac-offertory-default">Use the first sentence only</button></div>
+<div class="sentence-tools"><button type="button" id="ac-offertory-all">Select all 20</button><button type="button" id="ac-offertory-default">Use the first sentence only</button><button type="button" id="ac-offertory-auto">Use automatic random default</button></div>
 <p id="ac-offertory-status" class="status" role="status" aria-live="polite"></p></details>
 
 <div class="field" data-only="mp"><label for="litany">Litany at Morning Prayer</label><select id="litany"><option id="litany-commination-option" value="commination-required" hidden>Included before the Commination</option><option value="rubric">According to the rubric</option><option value="always">Always include (personal override)</option><option value="never">Omit (personal override)</option></select></div>
@@ -93,7 +97,13 @@ select:disabled{opacity:.8}
 <div class="field" data-only="ep"><label for="epSecond">After the second lesson</label><select id="epSecond"><option value="nunc">Nunc dimittis</option><option value="deus">Deus misereatur (except when in the day's Psalms)</option></select></div>
 <div class="field" data-only="ep"><label for="epCollect">Evening collect</label><select id="epCollect"><option value="auto">Anticipate Sundays and feasts with vigils</option><option value="today">Keep today's collect (manual override)</option><option value="tomorrow">Use tomorrow's collect (manual override)</option></select></div>
 <div class="field" data-only="ep"><label for="eveChoice">Tomorrow's coinciding appointments</label><select id="eveChoice"></select><small>Only the collect is anticipated. Lessons and Psalms retain the selected civil date.</small></div>
-<div class="field" data-only="ante-communion"><label for="endCollect">Concluding collect</label><select id="endCollect"><option value="0">Assist us mercifully</option><option value="1">O Almighty Lord</option><option value="2">Grant, we beseech thee</option><option value="3">Prevent us, O Lord</option><option value="4">Almighty God, the fountain of all wisdom</option><option value="5">Almighty God, who hast promised</option></select></div>
+<details class="field wide sentence-settings" data-only="ante-communion"><summary>Concluding collects &mdash; Ante-Communion (<span id="ac-collect-count">1 selected</span>)</summary>
+<label for="endCollectMode">Concluding-collect selection</label><select id="endCollectMode" aria-describedby="ac-collect-hint"><option value="auto">Automatic &mdash; daily random</option><option value="manual">Manual &mdash; use my saved choices</option></select>
+<p class="automatic-reason" id="ac-collect-reason" role="status"></p>
+<p class="sentence-hint" id="ac-collect-hint">Choose one or more concluding collects using the checkboxes. Automatic selects one for this date in this browser. Changing a checkbox selects Manual. These prayers remain at the end of Ante-Communion, after the Prayer for the Church Militant and before the Blessing.</p>
+<fieldset id="ac-collect-options" class="sentence-picker" aria-describedby="ac-collect-hint"></fieldset>
+<div class="sentence-tools"><button type="button" id="ac-collect-all">Select all 6</button><button type="button" id="ac-collect-default">Use the first collect only</button><button type="button" id="ac-collect-auto">Use automatic random default</button></div>
+<p id="ac-collect-status" class="status" role="status" aria-live="polite"></p></details>
 <div class="field" data-only="full-communion"><label for="postcommunion">Prayer after Communion</label><select id="postcommunion"><option value="thanksgiving">Almighty and everliving God (thanksgiving)</option><option value="oblation">O Lord and heavenly Father (oblation)</option></select></div>
 <div class="field wide"><label class="check"><input type="checkbox" id="inlineLessons" checked><span>Load KJV Office lessons, including the Apocrypha, inside the service.</span></label><label class="check"><input type="checkbox" id="includeIllinois" checked><span>Include the supplied Illinois courts intention.</span></label><label class="check"><input type="checkbox" id="includeSpecialPetitions" checked><span>Include the special-petition clauses in All Conditions and the General Thanksgiving.</span></label><label class="check" data-only="communion"><input type="checkbox" id="alms"><span>Alms or oblations are present (include that clause in Church Militant).</span></label></div>
 </div><p><button id="reset-settings">Restore default settings</button></p></details>
@@ -103,7 +113,11 @@ select:disabled{opacity:.8}
 <p id="load-status" class="status" aria-live="polite"></p>
 <details class="about"><summary>Sources, scope, and checks</summary>
 <h3>What this page does</h3><p>This is the service renderer, not the earlier preview. It assembles Morning Prayer, Evening Prayer, the Communion ordinary, and Ante-Communion from the selected date. It uses the original-1662 lesson table imported from <em>1662 for SingTheOffice.xlsx</em> and the supplied <em>Additions to the BCP 1662</em>, without silently repairing their wording.</p>
-<h3>Reading preferences</h3><p>Under Service settings, select one or more of the eleven opening sentences, separately for Morning and Evening Prayer. Choices appear in Prayer Book order. Special-petition clauses are enabled by default and printed in italics when included; the checkbox remains optional. Line spacing defaults to Single / compact, with the previous Comfortable spacing available. These preferences are saved in this browser. Unrelated preferences are retained from earlier versions. Version 0.2.5 enables the new automatic opening-sentence and Morning Prayer canticle modes once. Your previous manual sentence lists remain available by choosing Manual; the former storage record is kept for rollback. Communion and Ante-Communion each have a separate Offertory sentence picker, with all twenty choices available. New Offertory selections start with the first sentence; later choices are remembered.</p>
+<h3>Reading preferences</h3><p>Under Service settings, select one or more of the eleven opening sentences, separately for Morning and Evening Prayer. Choices appear in Prayer Book order. Special-petition clauses are enabled by default and printed in italics when included; the checkbox remains optional. Line spacing defaults to Single / compact, with the previous Comfortable spacing available. These preferences are saved in this browser. Unrelated preferences are retained from earlier versions. Version 0.2.5 enables the new automatic opening-sentence and Morning Prayer canticle modes once. Your previous manual sentence lists remain available by choosing Manual; the former storage record is kept for rollback. Communion and Ante-Communion each have a separate Offertory sentence picker, with all twenty choices available. Version 0.2.7 enables one automatic random Offertory sentence for each Communion service and one automatic concluding collect for Ante-Communion. Choices are stable per date and service in this browser. Manual checkbox lists are retained and can be restored by choosing Manual. Later manual overrides remain saved. Ante-Communion concluding collects now have a six-choice checkbox picker instead of a single dropdown.</p>
+<h3>Additional-prayer placement and daily variety</h3>
+<p>At Morning Prayer, selected occasional prayers and thanksgivings precede All Conditions of Men. At Evening Prayer they precede the General Thanksgiving. When that closing prayer is not selected, additions remain before Saint Chrysostom and the Grace. Both automatic dated/Ember additions and manual choices follow this order; no omitted prayer is forced back into the service.</p>
+<p>In Holy Communion and Ante-Communion, selected occasional prayers and thanksgivings follow the presidential prayer and precede the Collect of the Day. They are no longer repeated after the Blessing. This placement is the owner's requested adaptation, not an assertion of an unmodified 1662 order. The Ante-Communion concluding collects stay after the Prayer for the Church Militant and before the Blessing, using their dedicated checkboxes.</p>
+<p>Automatic variety uses a randomly generated browser seed with the date and service. The same date keeps the same choices through reloads, font changes, and other settings. A new date may coincidentally repeat a choice. Different browsers may receive different defaults, so people praying together should coordinate their manual selections. Personal selections and the random seed are not included in shared links. If browser storage is unavailable, choices stay fixed during the visit but may change after reloading. Clearing site data also resets the seed.</p>
 <h3>Date-based devotional defaults</h3>
 <p>These are the project owner's requested defaults, not additional mandatory 1662 rubrics. Morning Prayer selects Benedicite on non-festival Mondays through Saturdays in Advent and from Septuagesima up to (but not including) Easter, and on other non-festival Wednesdays and Fridays. Sundays and red-letter festivals use Te Deum. A manual canticle choice remains available.</p>
 <p>Automatic opening sentences use this priority: (1) Sundays, red-letter festivals, and their eves at Evening Prayer: Daniel 9:9-10; (2) fasting vigils, Ember Days, Rogation Days and Fridays: Psalm 51:3; (3) Wednesdays: Psalm 51:9; (4) remaining Septuagesima/Lent weekdays: Psalm 51:17 and Joel 2:13; (5) remaining Advent weekdays: Jeremiah 10:24, Matthew 3:2 and Psalm 143:2; (6) other weekdays: Ezekiel 18:27, Luke 15:18-19 and 1 John 1:8-9. The last group is also the fallback on otherwise unspecified Christmas and Easter weekdays. Sentences stay in printed Prayer Book order.</p>
@@ -116,9 +130,9 @@ select:disabled{opacity:.8}
 <p>The source's St. Stephen reading, <em>Ecclesiastes 4</em>, remains flagged rather than silently changed to <em>Ecclesiasticus 4</em>. American state adaptations and the additional intentions are the project owner's directions, not a claim to reproduce an unmodified Church of England edition. Presidential forms come from the supplied document. January 20 is an annual intention, moved to January 21 only when January 20 is Sunday. It does not duplicate a presidential prayer.</p>
 <h3>Sources</h3><p>Communion readings: <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/xmas.html" target="_blank" rel="noopener noreferrer">Advent to Quinquagesima</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/lent.html" target="_blank" rel="noopener noreferrer">Lent and Holy Week</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/easter.html" target="_blank" rel="noopener noreferrer">Easter to Whitsun</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/trinity.html" target="_blank" rel="noopener noreferrer">Trinity season</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/saints.html" target="_blank" rel="noopener noreferrer">Saints</a>. Offertory wording was also checked against the <a href="https://www.churchofengland.org/prayer-and-worship/worship-texts-and-resources/book-common-prayer/lords-supper-or-holy-communion" target="_blank" rel="noopener noreferrer">Church of England Communion text</a>; its reading "specially" in Galatians 6 is used instead of "specialty" in the other transcription.</p><p><a href="https://www.eskimo.com/~lhowell/bcp1662/daily/morning.html" target="_blank" rel="noopener noreferrer">Morning Prayer</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/evening.html" target="_blank" rel="noopener noreferrer">Evening Prayer</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/litany.html" target="_blank" rel="noopener noreferrer">Litany</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/prayers.html" target="_blank" rel="noopener noreferrer">Prayers</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/daily/thanksgivings.html" target="_blank" rel="noopener noreferrer">Thanksgivings</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/communion/index.html" target="_blank" rel="noopener noreferrer">Communion and complete directions</a> / <a href="https://www.eskimo.com/~lhowell/bcp1662/info/tables/rules.html" target="_blank" rel="noopener noreferrer">Feasts, vigils and fasts</a>.</p>
 <p>Online transcriptions can contain later amendments and typographical errors. Priest-only acts remain labeled: this display does not turn them into lay prayers. For public liturgical use, compare the service with the authoritative printed book and the minister's directions.</p>
-<h3>Code checks</h3><p>The button below runs the earlier foundation checks, not a complete textual or liturgical certification of this service renderer.</p><button id="checks">Run foundation checks</button><pre id="check-result"></pre><p>Service renderer version 0.2.6. Calendar, lesson references, prayer data and foundation code are bundled in this index.html; the old separate foundation files may remain but are not loaded by this page. No account or installation is needed. Internet access is required for external readings. Preferences are stored locally in this browser; no account database is used.</p>
+<h3>Code checks</h3><p>The button below runs the earlier foundation checks, not a complete textual or liturgical certification of this service renderer.</p><button id="checks">Run foundation checks</button><pre id="check-result"></pre><p>Service renderer version 0.2.7. Calendar, lesson references, prayer data and foundation code are bundled in this index.html; the old separate foundation files may remain but are not loaded by this page. No account or installation is needed. Internet access is required for external readings. Preferences are stored locally in this browser; no account database is used.</p>
 </details>
-<footer class="footer">BCP 1662 / Daily Prayer &middot; American state-prayer adaptation &middot; v0.2.6</footer>
+<footer class="footer">BCP 1662 / Daily Prayer &middot; American state-prayer adaptation &middot; v0.2.7</footer>
 </main>
 <script>
 /* Bundled unchanged: bcp1662-data.js */
@@ -5851,12 +5865,58 @@ function normalizeOffertorySelection(value){
  const selected=OFFERTORY_SENTENCES.filter(x=>ids.has(x.id)).map(x=>x.id);
  return selected.length?selected:['offertory-01'];
 }
-function offertorySentencesHTML(service,preferences={}){
- const key=service==='ante-communion'?'anteOffertory':'communionOffertory';
- const ids=new Set(normalizeOffertorySelection(preferences[key]));
+function offertorySentencesHTML(service,preferences={},value=C.iso(new Date())){
+ const ids=new Set(selectedOffertory(value,service,preferences).ids);
  return '<section id="offertory-sentences">'+heading('The Offertory')+
  rubric('Then shall the Priest return to the Lord\'s Table, and begin the Offertory, saying one or more of these Sentences following, as he thinketh most convenient in his discretion.')+
  OFFERTORY_SENTENCES.filter(x=>ids.has(x.id)).map(x=>'<p class="offertory-sentence" data-offertory-id="'+esc(x.id)+'">'+esc(x.text)+'<span class="sentence-source">'+esc(x.reference)+'</span></p>').join('')+'</section>';
+}
+
+// 0.2.7: daily variety without changing a selection during prayer.
+// A per-browser seed plus date and distinct group keys gives stable pseudorandom
+// defaults. No growing history, network request, or private URL data is needed.
+const RANDOM_SEED_KEY='bcp1662-random-seed-v1';
+let dailyChoiceSeed;
+function getDailyChoiceSeed(){
+ if(dailyChoiceSeed!==undefined)return dailyChoiceSeed;
+ try{const raw=localStorage.getItem(RANDOM_SEED_KEY);if(/^[0-9a-f]{8}$/.test(raw||'')){dailyChoiceSeed=raw;return raw;}}catch(_){}
+ let n;
+ try{const words=new Uint32Array(1);globalThis.crypto.getRandomValues(words);n=words[0];}
+ catch(_){n=Math.floor(Math.random()*0x100000000)>>>0;}
+ dailyChoiceSeed=n.toString(16).padStart(8,'0');
+ try{localStorage.setItem(RANDOM_SEED_KEY,dailyChoiceSeed);}catch(_){}
+ return dailyChoiceSeed;
+}
+function dailyChoiceIndex(value,group,size,seed=getDailyChoiceSeed()){
+ if(!Number.isInteger(size)||size<1)throw new RangeError('The choice list must not be empty.');
+ const input=String(seed)+':'+C.iso(value)+':'+group;
+ let h=2166136261;
+ for(let i=0;i<input.length;i++){h^=input.charCodeAt(i);h=Math.imul(h,16777619);}
+ h^=h>>>16;h=Math.imul(h,0x85ebca6b);h^=h>>>13;h=Math.imul(h,0xc2b2ae35);h^=h>>>16;
+ return (h>>>0)%size;
+}
+function selectedOffertory(value,service,preferences={}){
+ const key=service==='ante-communion'?'anteOffertory':'communionOffertory';
+ const manual=preferences[key+'Mode']==='manual';
+ const ids=manual?normalizeOffertorySelection(preferences[key]):[OFFERTORY_SENTENCES[dailyChoiceIndex(value,service+':offertory',OFFERTORY_SENTENCES.length)].id];
+ return {ids,manual,reason:manual?'Your saved checkbox choices.':'One random sentence for '+C.iso(value)+', retained for this service and date in this browser.'};
+}
+const END_COLLECT_TITLES=Object.freeze(['Assist us mercifully','O Almighty Lord','Grant, we beseech thee','Prevent us, O Lord','Almighty God, the fountain of all wisdom','Almighty God, who hast promised']);
+const END_COLLECT_CHOICES=Object.freeze(END_COLLECTS.map((text,i)=>Object.freeze({id:'end-'+i,title:END_COLLECT_TITLES[i],text})));
+function normalizeEndCollectSelection(value){
+ const ids=new Set(Array.isArray(value)?value:[]);
+ const selected=END_COLLECT_CHOICES.filter(x=>ids.has(x.id)).map(x=>x.id);
+ return selected.length?selected:['end-0'];
+}
+function selectedEndCollects(value,preferences={}){
+ const manual=preferences.endCollectMode==='manual';
+ const ids=manual?normalizeEndCollectSelection(preferences.endCollects):[END_COLLECT_CHOICES[dailyChoiceIndex(value,'ante-communion:concluding-collect',END_COLLECT_CHOICES.length)].id];
+ return {ids,manual,reason:manual?'Your saved checkbox choices.':'One random concluding collect for '+C.iso(value)+', retained for this date in this browser.'};
+}
+function concludingCollectsHTML(value,preferences={}){
+ const chosen=new Set(selectedEndCollects(value,preferences).ids);
+ return '<section id="concluding-collects">'+heading(chosen.size>1?'Concluding Collects':'A Concluding Collect')+
+ END_COLLECT_CHOICES.filter(x=>chosen.has(x.id)).map(x=>'<div class="concluding-collect" data-collect-id="'+x.id+'">'+paras(x.text)+'</div>').join('')+'</section>';
 }
 
 const VIGILS=new Set(['christmas-day','presentation','annunciation','easter-day','ascension','whitsun','st-matthias','st-john-baptist','st-peter','st-james','st-bartholomew','st-matthew','st-simon-and-st-jude','st-andrew','st-thomas','all-saints']);
@@ -6635,10 +6695,19 @@ function litanyHTML(plan,closing='') {
  for(const [a,b] of [['From our enemies defend us, O Christ.','Graciously look upon our afflictions.'],['Pitifully behold the sorrows of our hearts.','Mercifully forgive the sins of thy people.'],['Favourably with mercy hear our prayers.','O Son of David, have mercy upon us.'],['Both now and ever vouchsafe to hear us, O Christ.','Graciously hear us, O Christ; graciously hear us, O Lord Christ.'],['O Lord, let thy mercy be shewed upon us.','As we do put our trust in thee.']])h+=pair(a,b);
  return h+spoken('Let us pray.')+paras(T.litanyFinal)+closing+'</section>';
 }
-function extraHTML(plan,manualExtras) {
- const selected=[...(plan.occasional||[]),...(plan.supplementary||[])];
- let h=selected.map(x=>prayer(x.title,x.text,'',P.catalog[x.id]?.conditionalText||'')).join('');
- for(const id of manualExtras)if(EXTRA_PRAYERS[id])h+=prayer(...EXTRA_PRAYERS[id]);
+// 0.2.7: optional additions precede the owner's closing-prayer anchor.
+// Litany text is deliberately untouched; only its supplied closing block changes.
+function extraHTML(plan,manualExtras=[],service=plan.service) {
+ const selected=[...new Map([...(plan.occasional||[]),...(plan.supplementary||[])].map(x=>[x.id,x])).values()];
+ const anchor=service==='mp'?'all-conditions':service==='ep'?'general-thanksgiving':null;
+ const entry=x=>prayer(x.title,x.text,'',P.catalog[x.id]?.conditionalText||'');
+ let h=selected.filter(x=>x.id!==anchor).map(entry).join('');
+ for(const id of new Set(manualExtras)) {
+  // Ante-Communion has a dedicated closing-collect picker, not two copies.
+  if(service==='ante-communion'&&END_COLLECT_CHOICES.some(x=>x.id===id))continue;
+  if(EXTRA_PRAYERS[id])h+=prayer(...EXTRA_PRAYERS[id]);
+ }
+ h+=selected.filter(x=>x.id===anchor).map(entry).join('');
  return h?'<section id="additional-prayers">'+heading('Prayers and Thanksgivings')+h+'</section>':'';
 }
 // 0.2.3: the complete Commination from the owner's supplied 1662 source.
@@ -6753,7 +6822,7 @@ function officeHTML(date,service,readings,plan,cp,settings,manualExtras) {
  h+=rubric('All devoutly kneeling.')+pair('The Lord be with you.','And with thy spirit.')+spoken('Let us pray.','Minister.')+paras('Lord, have mercy upon us.\nChrist, have mercy upon us.\nLord, have mercy upon us.')+prayer("The Lord's Prayer",T.lords+' Amen.');
  h+=pair('O Lord, shew thy mercy upon us.','And grant us thy salvation.')+pair(plan.stateVersicle,plan.stateResponse)+pair('Endue thy Ministers with righteousness.','And make thy chosen people joyful.')+pair('O Lord, save thy people.','And bless thine inheritance.')+pair('Give peace in our time, O Lord.','Because there is none other that fighteth for us, but only thou, O God.')+pair('O God, make clean our hearts within us.','And take not thy Holy Spirit from us.');
  h+=collectHTML(cp)+prayer('The Second Collect, for Peace',service==='mp'?T.mpPeace:T.epPeace)+prayer(service==='mp'?'The Third Collect, for Grace':'The Third Collect, for Aid against all Perils',service==='mp'?T.mpGrace:T.epPerils)+rubric('In Quires and Places where they sing, here followeth the Anthem.');
- const closing=extraHTML(plan,manualExtras)+prayer('A Prayer of Saint Chrysostom',T.chrysostom)+prayer('The Grace',T.grace);
+ const closing=extraHTML(plan,manualExtras,service)+prayer('A Prayer of Saint Chrysostom',T.chrysostom)+prayer('The Grace',T.grace);
  if(plan.litany)h+=litanyHTML(plan,closing);else {h+=plan.regular.map(x=>prayer(x.title,x.text)).join('');h+=prayer('A Prayer for the Clergy and People',T.clergy)+closing;}
  if(plan.litany&&comminationScheduled(date,service,settings))h+=comminationHTML();
  return h;
@@ -6774,10 +6843,10 @@ function communionReading(kind,cp) {
 function communionHTML(date,service,plan,cp,settings,manualExtras) {
  let h=rubric('The Priest standing at the north side of the Table shall say the Lord\'s Prayer, with the Collect following, the people kneeling.')+prayer("The Lord's Prayer",T.lords+' Amen.')+prayer('The Collect for Purity',T.purity)+heading('The Ten Commandments')+rubric('The Priest rehearses the Commandments; the people, still kneeling, make the responses.');
  h+=COMMANDMENTS.map((x,i)=>pair(x,i===9?'Lord, have mercy upon us, and write all these thy laws in our hearts, we beseech thee.':'Lord, have mercy upon us, and incline our hearts to keep this law.')).join('');
- h+=spoken('Let us pray.')+plan.regular.map(x=>prayer(x.title,x.text)).join('')+collectHTML(cp)+communionReading('The Epistle',cp)+communionReading('The Gospel',cp)+prayer('The Nicene Creed',T.nicene,'The people standing.')+heading('Notices and Sermon')+rubric('Here are declared the Holy-days and Fasting-days to be observed, and any appointed notices; then follows the Sermon or an authorized Homily.')+'<p class="source-link">'+external(BASE+'communion/index.html#:~:text=When%20the%20Minister%20giveth%20warning','Exhortations when giving notice of Communion')+'</p>';
- h+=offertorySentencesHTML(service,settings)+rubric('The alms and other devotions of the people are received and reverently placed upon the holy Table. When there is a Communion, the Priest places sufficient Bread and Wine upon the Table.')+prayer("For the Whole State of Christ's Church Militant Here in Earth",churchMilitant(P.presidentName(settings.presidentName),settings.alms),'Let us pray for the whole state of Christ\'s Church militant here in earth.');
+ h+=spoken('Let us pray.')+plan.regular.map(x=>prayer(x.title,x.text)).join('')+extraHTML(plan,manualExtras,service)+collectHTML(cp)+communionReading('The Epistle',cp)+communionReading('The Gospel',cp)+prayer('The Nicene Creed',T.nicene,'The people standing.')+heading('Notices and Sermon')+rubric('Here are declared the Holy-days and Fasting-days to be observed, and any appointed notices; then follows the Sermon or an authorized Homily.')+'<p class="source-link">'+external(BASE+'communion/index.html#:~:text=When%20the%20Minister%20giveth%20warning','Exhortations when giving notice of Communion')+'</p>';
+ h+=offertorySentencesHTML(service,settings,date)+rubric('The alms and other devotions of the people are received and reverently placed upon the holy Table. When there is a Communion, the Priest places sufficient Bread and Wine upon the Table.')+prayer("For the Whole State of Christ's Church Militant Here in Earth",churchMilitant(P.presidentName(settings.presidentName),settings.alms),'Let us pray for the whole state of Christ\'s Church militant here in earth.');
  if(service==='ante-communion') {
-   h+=prayer('A Concluding Collect',END_COLLECTS[Number(settings.endCollect)||0])+prayer('The Blessing',T.blessing,'The Priest (or Bishop, if present).');
+   h+=concludingCollectsHTML(date,settings)+prayer('The Blessing',T.blessing,'The Priest (or Bishop, if present).');
  } else {
  h+=prayer('The Exhortation at the Celebration',T.communionExhortation,'The Communicants being conveniently placed, the Priest shall say this exhortation.')+prayer('The Invitation',T.invitation)+prayer('A General Confession',T.communionConfession,'Made in the name of all who intend to receive, by one of the Ministers; he and all the people kneeling.')+prayer('The Absolution',T.communionAbsolution,'The Priest (or Bishop, if present), standing and turning to the people.')+heading('The Comfortable Words');
  h+=rubric('Hear what comfortable words our Saviour Christ saith unto all that truly turn to him.')+paras('Come unto me all that travail and are heavy laden, and I will refresh you.\nSo God loved the world, that he gave his only-begotten Son, to the end that all that believe in him should not perish, but have everlasting life.')+rubric('Hear also what Saint Paul saith.')+paras('This is a true saying, and worthy of all men to be received, That Christ Jesus came into the world to save sinners.')+rubric('Hear also what Saint John saith.')+paras("If any man sin, we have an Advocate with the Father, Jesus Christ the righteous; and he is the propitiation for our sins.");
@@ -6786,40 +6855,42 @@ function communionHTML(date,service,plan,cp,settings,manualExtras) {
  h+=heading('The Preface')+paras('It is very meet, right, and our bounden duty, that we should at all times, and in all places, give thanks unto thee, O Lord, '+(pf==='trinity'?'':'Holy Father, ')+'Almighty, Everlasting God.')+(pf?paras(PREFACES[pf]):'')+paras(T.sanctus);
  h+=prayer('The Prayer of Humble Access',T.humbleAccess,'The Priest kneeling at the Lord\'s Table, in the name of all who shall receive.')+prayer('The Prayer of Consecration',T.consecration,'The Priest, standing before the Table, having ordered the Bread and Wine, shall say the following.')+rubric('(a) Here the Priest is to take the Paten into his hands. (b) Here to break the Bread. (c) Here to lay his hand upon all the Bread. (d) Here he is to take the Cup into his hand. (e) Here to lay his hand upon every vessel containing Wine to be consecrated.')+heading('The Communion')+rubric('The Minister first receives in both kinds, then delivers to the other clergy and to the people, all meekly kneeling.')+prayer('At the Delivery of the Bread',T.bread)+prayer('At the Delivery of the Cup',T.cup)+rubric('When all have communicated, the Minister returns to the Lord\'s Table and reverently places upon it what remains of the consecrated Elements, covering them with a fair linen cloth.')+prayer("The Lord's Prayer",T.lords+' '+T.doxology,'The Priest, the people repeating after him every petition.')+prayer('After Communion',settings.postcommunion==='oblation'?T.oblation:T.postcommunion)+prayer('Gloria in excelsis',T.gloriaExcelsis)+prayer('The Blessing',T.blessing,'The Priest (or Bishop, if present).');
  }
- const additions=extraHTML(plan,manualExtras);
- if(additions)h+='<hr>'+heading('Additional Devotions - Outside the Communion Rite')+rubric('These selected occasional prayers are displayed after the service, not inserted as Communion rubrics.')+additions;
  return h;
 }
 
 
 const $=id=>document.getElementById(id);
-// v2 imports v1 preferences once. Only the newly requested default is reset;
-// later opt-outs are saved normally, along with independent Office sentences.
-const SETTINGS_KEY='bcp1662-service-settings-v3';
-const PREVIOUS_SETTINGS_KEY='bcp1662-service-settings-v2';
+// v4 introduces randomized defaults once; v3/v2/v1 records remain untouched.
+const SETTINGS_KEY='bcp1662-service-settings-v4';
+const PREVIOUS_SETTINGS_KEY='bcp1662-service-settings-v3';
+const OLDER_SETTINGS_KEY='bcp1662-service-settings-v2';
 const LEGACY_SETTINGS_KEY='bcp1662-service-settings-v1';
-const DEFAULTS=Object.freeze({litany:'rubric',includeCommination:true,emberForm:'ember-1',presidentName:'N.',includeIllinois:true,includeSpecialPetitions:true,mpSentences:Object.freeze(['psalm-51-3']),epSentences:Object.freeze(['psalm-51-3']),communionOffertory:Object.freeze(['offertory-01']),anteOffertory:Object.freeze(['offertory-01']),mpSentenceMode:'auto',epSentenceMode:'auto',mpFirst:'auto',mpSecond:'benedictus',epFirst:'magnificat',epSecond:'nunc',epCollect:'auto',endCollect:'0',postcommunion:'thanksgiving',alms:false,inlineLessons:true,theme:'light',font:20,lineSpacing:'compact'});
-function defaultSettings(){return {...DEFAULTS,mpSentences:[...DEFAULTS.mpSentences],epSentences:[...DEFAULTS.epSentences],communionOffertory:[...DEFAULTS.communionOffertory],anteOffertory:[...DEFAULTS.anteOffertory]};}
+const DEFAULTS=Object.freeze({litany:'rubric',includeCommination:true,emberForm:'ember-1',presidentName:'N.',includeIllinois:true,includeSpecialPetitions:true,mpSentences:Object.freeze(['psalm-51-3']),epSentences:Object.freeze(['psalm-51-3']),communionOffertory:Object.freeze(['offertory-01']),anteOffertory:Object.freeze(['offertory-01']),communionOffertoryMode:'auto',anteOffertoryMode:'auto',endCollectMode:'auto',endCollects:Object.freeze(['end-0']),mpSentenceMode:'auto',epSentenceMode:'auto',mpFirst:'auto',mpSecond:'benedictus',epFirst:'magnificat',epSecond:'nunc',epCollect:'auto',postcommunion:'thanksgiving',alms:false,inlineLessons:true,theme:'light',font:20,lineSpacing:'compact'});
+function defaultSettings(){return Object.fromEntries(Object.entries(DEFAULTS).map(([key,value])=>[key,Array.isArray(value)?[...value]:value]));}
 function readSavedSettings(key){
  try{const value=JSON.parse(localStorage.getItem(key)||'null');return value&&typeof value==='object'&&!Array.isArray(value)?value:null;}catch(_){return null;}
 }
 let settings=defaultSettings();
 const currentSaved=readSavedSettings(SETTINGS_KEY);
 const previousSaved=readSavedSettings(PREVIOUS_SETTINGS_KEY);
-const savedSettings=currentSaved||previousSaved||readSavedSettings(LEGACY_SETTINGS_KEY);
+const olderSaved=readSavedSettings(OLDER_SETTINGS_KEY);
+const savedSettings=currentSaved||previousSaved||olderSaved||readSavedSettings(LEGACY_SETTINGS_KEY);
 if(savedSettings){
  for(const key of Object.keys(DEFAULTS)){
   if(!Object.prototype.hasOwnProperty.call(savedSettings,key))continue;
-  if(Array.isArray(DEFAULTS[key]))settings[key]=(key==='communionOffertory'||key==='anteOffertory')?normalizeOffertorySelection(savedSettings[key]):normalizeSentenceSelection(savedSettings[key]);
+  if(Array.isArray(DEFAULTS[key]))settings[key]=key==='endCollects'?normalizeEndCollectSelection(savedSettings[key]):(key==='communionOffertory'||key==='anteOffertory')?normalizeOffertorySelection(savedSettings[key]):normalizeSentenceSelection(savedSettings[key]);
   else if(typeof savedSettings[key]===typeof DEFAULTS[key])settings[key]=savedSettings[key];
  }
 }
-if(!currentSaved&&!previousSaved)settings.includeSpecialPetitions=true;
-// Switch the new automatic modes on once; preserve manual sentence lists and
-// every unrelated preference. Previous v2/v1 storage is untouched for rollback.
-if(!currentSaved){settings.mpFirst='auto';settings.mpSentenceMode='auto';settings.epSentenceMode='auto';}
+if(!currentSaved&&!previousSaved&&!olderSaved)settings.includeSpecialPetitions=true;
+if(!currentSaved&&!previousSaved){settings.mpFirst='auto';settings.mpSentenceMode='auto';settings.epSentenceMode='auto';}
+if(!currentSaved){
+ settings.communionOffertoryMode='auto';settings.anteOffertoryMode='auto';settings.endCollectMode='auto';
+ // Preserve the former single concluding collect as the saved Manual choice.
+ if(!Array.isArray(savedSettings?.endCollects))settings.endCollects=normalizeEndCollectSelection(['end-'+(savedSettings?.endCollect??'0')]);
+}
 settings.mpFirst=['auto','teDeum','benedicite'].includes(settings.mpFirst)?settings.mpFirst:'auto';
-for(const office of ['mp','ep'])settings[office+'SentenceMode']=settings[office+'SentenceMode']==='manual'?'manual':'auto';
+for(const key of ['mpSentenceMode','epSentenceMode','communionOffertoryMode','anteOffertoryMode','endCollectMode'])settings[key]=settings[key]==='manual'?'manual':'auto';
 settings.font=Math.max(16,Math.min(28,Number(settings.font)||20));
 settings.lineSpacing=settings.lineSpacing==='comfortable'?'comfortable':'compact';
 let date=C.iso(new Date()),service='mp',appointment='auto',properOverride='auto',eveChoice='auto',include=new Set(),exclude=new Set(),manualExtras=new Set(),renderCount=0;
@@ -6833,7 +6904,7 @@ function resetDateChoices(){appointment='auto';properOverride='auto';eveChoice='
 function setAppearance(){document.documentElement.dataset.spacing=settings.lineSpacing==='comfortable'?'comfortable':'compact';document.documentElement.dataset.theme=settings.theme==='dark'?'dark':'light';document.documentElement.style.setProperty('--prayer-size',settings.font+'px');$('theme').textContent=settings.theme==='dark'?'Light mode':'Dark mode';}
 function refreshSettingsControls(){
  for(const key of Object.keys(DEFAULTS)){const control=$(key);if(!control)continue;if(control.type==='checkbox')control.checked=settings[key];else control.value=settings[key];}
- updateSentenceControls();updateOffertoryControls();
+ updateSentenceControls();updateOffertoryControls();updateEndCollectControls();
 }
 
 function updateSentenceControls(){
@@ -6864,18 +6935,20 @@ function setupSentencePickers(){
 }
 
 const OFFERTORY_PICKERS=Object.freeze([
- Object.freeze({prefix:'hc',key:'communionOffertory',title:'Holy Communion'}),
- Object.freeze({prefix:'ac',key:'anteOffertory',title:'Ante-Communion'})
+ Object.freeze({prefix:'hc',key:'communionOffertory',modeKey:'communionOffertoryMode',service:'communion',title:'Holy Communion'}),
+ Object.freeze({prefix:'ac',key:'anteOffertory',modeKey:'anteOffertoryMode',service:'ante-communion',title:'Ante-Communion'})
 ]);
 function updateOffertoryControls(){
- for(const {prefix,key} of OFFERTORY_PICKERS){
-  const chosen=new Set(normalizeOffertorySelection(settings[key]));
+ for(const {prefix,modeKey,service:office} of OFFERTORY_PICKERS){
+  const selection=selectedOffertory(date,office,settings),chosen=new Set(selection.ids);
+  $(modeKey).value=selection.manual?'manual':'auto';
+  $(prefix+'-offertory-reason').textContent=(selection.manual?'Manual: ':'Automatic: ')+selection.reason;
   for(const input of $(prefix+'-offertory-options').querySelectorAll('input[data-offertory]'))input.checked=chosen.has(input.dataset.offertory);
-  $(prefix+'-offertory-count').textContent=chosen.size+' selected';
+  $(prefix+'-offertory-count').textContent=chosen.size+' selected'+(selection.manual?' / manual':' / automatic');
  }
 }
 function setupOffertoryPickers(){
- for(const {prefix,key,title} of OFFERTORY_PICKERS){
+ for(const {prefix,key,modeKey,title} of OFFERTORY_PICKERS){
   const picker=$(prefix+'-offertory-options'),status=$(prefix+'-offertory-status');
   picker.innerHTML='<legend class="sr-only">Offertory sentences for '+esc(title)+'</legend>'+OFFERTORY_SENTENCES.map((x,i)=>
    '<label class="check" for="'+prefix+'-'+esc(x.id)+'"><input type="checkbox" id="'+prefix+'-'+esc(x.id)+'" data-offertory="'+esc(x.id)+'"><span><span class="sentence-reference">'+(i+1)+'. '+esc(x.reference)+'</span><span class="sentence-copy">'+esc(x.text)+'</span></span></label>'
@@ -6884,11 +6957,36 @@ function setupOffertoryPickers(){
    if(!e.target.matches('input[data-offertory]'))return;
    const selected=[...picker.querySelectorAll('input[data-offertory]:checked')].map(x=>x.dataset.offertory);
    if(!selected.length){e.target.checked=true;status.textContent='Keep at least one Offertory sentence selected. Select another before removing this one.';return;}
-   settings[key]=normalizeOffertorySelection(selected);status.textContent='Selection saved.';save();render();
+   settings[key]=normalizeOffertorySelection(selected);settings[modeKey]='manual';status.textContent='Manual selection saved. Choose Automatic to resume daily variety.';save();render();
   });
-  $(prefix+'-offertory-all').addEventListener('click',()=>{settings[key]=OFFERTORY_SENTENCES.map(x=>x.id);status.textContent='All 20 Offertory sentences selected.';save();render();});
-  $(prefix+'-offertory-default').addEventListener('click',()=>{settings[key]=['offertory-01'];status.textContent='The first Offertory sentence selected.';save();render();});
+  $(prefix+'-offertory-all').addEventListener('click',()=>{settings[key]=OFFERTORY_SENTENCES.map(x=>x.id);settings[modeKey]='manual';status.textContent='All 20 Offertory sentences selected (Manual).';save();render();});
+  $(prefix+'-offertory-default').addEventListener('click',()=>{settings[key]=['offertory-01'];settings[modeKey]='manual';status.textContent='The first Offertory sentence selected (Manual).';save();render();});
+  $(prefix+'-offertory-auto').addEventListener('click',()=>{settings[modeKey]='auto';status.textContent='Automatic daily variety restored; your manual list is retained.';save();render();});
+  $(modeKey).addEventListener('change',()=>{status.textContent='';});
  }
+}
+function updateEndCollectControls(){
+ const selection=selectedEndCollects(date,settings),chosen=new Set(selection.ids);
+ $('endCollectMode').value=selection.manual?'manual':'auto';
+ $('ac-collect-reason').textContent=(selection.manual?'Manual: ':'Automatic: ')+selection.reason;
+ for(const input of $('ac-collect-options').querySelectorAll('input[data-collect]'))input.checked=chosen.has(input.dataset.collect);
+ $('ac-collect-count').textContent=chosen.size+' selected'+(selection.manual?' / manual':' / automatic');
+}
+function setupEndCollectPicker(){
+ const picker=$('ac-collect-options'),status=$('ac-collect-status');
+ picker.innerHTML='<legend class="sr-only">Concluding collects for Ante-Communion</legend>'+END_COLLECT_CHOICES.map((x,i)=>
+  '<label class="check" for="ac-collect-'+x.id+'"><input type="checkbox" id="ac-collect-'+x.id+'" data-collect="'+x.id+'"><span><span class="sentence-reference">'+(i+1)+'. '+esc(x.title)+'</span><span class="sentence-copy">'+esc(x.text)+'</span></span></label>'
+ ).join('');
+ picker.addEventListener('change',e=>{
+  if(!e.target.matches('input[data-collect]'))return;
+  const selected=[...picker.querySelectorAll('input[data-collect]:checked')].map(x=>x.dataset.collect);
+  if(!selected.length){e.target.checked=true;status.textContent='Keep at least one concluding collect selected. Select another before removing this one.';return;}
+  settings.endCollects=normalizeEndCollectSelection(selected);settings.endCollectMode='manual';status.textContent='Manual selection saved. Choose Automatic to resume daily variety.';save();render();
+ });
+ $('ac-collect-all').addEventListener('click',()=>{settings.endCollects=END_COLLECT_CHOICES.map(x=>x.id);settings.endCollectMode='manual';status.textContent='All 6 concluding collects selected (Manual).';save();render();});
+ $('ac-collect-default').addEventListener('click',()=>{settings.endCollects=['end-0'];settings.endCollectMode='manual';status.textContent='The first concluding collect selected (Manual).';save();render();});
+ $('ac-collect-auto').addEventListener('click',()=>{settings.endCollectMode='auto';status.textContent='Automatic daily variety restored; your manual list is retained.';save();render();});
+ $('endCollectMode').addEventListener('change',()=>{status.textContent='';});
 }
 
 function renderPrayerPicker(plan) {
@@ -6902,7 +7000,8 @@ function renderPrayerPicker(plan) {
  const ember=plan.selectedIds.find(id=>id==='ember-1'||id==='ember-2');
  if(ember)html.unshift('<p class="auto-note">Ember prayer included automatically. Choose its form in Service settings.</p>');
  html.push('<h4>Other BCP prayers and thanksgivings</h4>');
- for(const [id,[title]] of Object.entries(EXTRA_PRAYERS))html.push('<label class="check"><input type="checkbox" data-extra="'+esc(id)+'" '+(manualExtras.has(id)?'checked':'')+'><span>'+esc(title)+'</span></label>');
+ for(const [id,[title]] of Object.entries(EXTRA_PRAYERS).filter(([id])=>service!=='ante-communion'||!END_COLLECT_CHOICES.some(x=>x.id===id)))html.push('<label class="check"><input type="checkbox" data-extra="'+esc(id)+'" '+(manualExtras.has(id)?'checked':'')+'><span>'+esc(title)+'</span></label>');
+ if(service==='ante-communion')html.push('<p class="auto-note">Concluding collects are selected under Service settings and remain before the Blessing; they are not duplicated here.</p>');
  $('prayer-options').innerHTML=html.join('');
 }
 function updateCalendarDefaultsControls(){
@@ -6962,7 +7061,7 @@ function render(){
   const readings=L.resolve(date,{appointment});
   const plan=P.plan(date,service,planOptions());
   const cp=collectPlan(date,service,readings.appointment,properOverride,settings.epCollect,eveChoice);
-  $('date').value=date;setAppearance();appointmentControls(info);renderPrayerPicker(plan);updateSentenceControls();updateOffertoryControls();updateComminationControls();updateCalendarDefaultsControls();
+  $('date').value=date;setAppearance();appointmentControls(info);renderPrayerPicker(plan);updateSentenceControls();updateOffertoryControls();updateEndCollectControls();updateComminationControls();updateCalendarDefaultsControls();
   for(const button of document.querySelectorAll('[data-service]'))button.setAttribute('aria-pressed',String(button.dataset.service===service));
   $('service-title').textContent=SERVICES[service];$('service-date').textContent=displayDate(date);
   $('season-label').textContent=[info.season,readings.appointment&&readings.appointment!=='daily'?C.label(readings.appointment):'',info.isEmberDay?'Ember Day':info.emberWeek?'Ember Week':'',info.isRogationDay?'Rogation Day':''].filter(Boolean).join(' / ');
@@ -7006,7 +7105,7 @@ $('theme').addEventListener('click',()=>{settings.theme=settings.theme==='dark'?
 $('font-down').addEventListener('click',()=>{settings.font=Math.max(16,settings.font-1);setAppearance();save();});
 $('font-up').addEventListener('click',()=>{settings.font=Math.min(28,settings.font+1);setAppearance();save();});
 $('print').addEventListener('click',()=>window.print());
-$('reset-settings').addEventListener('click',()=>{settings=defaultSettings();resetDateChoices();save();for(const office of ['mp','ep'])$(office+'-sentence-status').textContent='';for(const {prefix} of OFFERTORY_PICKERS)$(prefix+'-offertory-status').textContent='';refreshSettingsControls();render();});
+$('reset-settings').addEventListener('click',()=>{settings=defaultSettings();resetDateChoices();save();for(const office of ['mp','ep'])$(office+'-sentence-status').textContent='';for(const {prefix} of OFFERTORY_PICKERS)$(prefix+'-offertory-status').textContent='';$('ac-collect-status').textContent='';refreshSettingsControls();render();});
 $('share').addEventListener('click',async()=>{
  const url=new URL(location.href);url.search='';url.searchParams.set('date',date);url.searchParams.set('service',service);
  try {await navigator.clipboard.writeText(url.href);$('share-status').textContent='Link copied. Personal settings are not included.';}catch(_){$('share-status').textContent='Copy this address: '+url.href;}
@@ -7014,8 +7113,8 @@ $('share').addEventListener('click',async()=>{
 $('checks').addEventListener('click',()=>{
  try{if(!B.tests)throw new Error('The bundled foundation tests did not load.');const result=B.tests.run();$('check-result').textContent=JSON.stringify(result,null,2);}catch(e){$('check-result').textContent=e.message;}
 });
-window.BCP1662App=Object.freeze({parsePassage,extractVerses,parsePsalterSource,sanitizePsalm,psalmDoxologies,properForDate,collectPlan,prefaceFor,officeHTML,communionHTML,collects:COLLECTS,openingSentences:OPENING_SENTENCES,normalizeSentenceSelection,openingSentencesHTML,communionReadings:COMMUNION_READINGS,communionReading,offertorySentences:OFFERTORY_SENTENCES,normalizeOffertorySelection,offertorySentencesHTML,render,commination:COMMINATION,comminationScheduled,comminationHTML,apocryphaBooks:APOCRYPHA_BOOKS,apocryphaChapterURL,validateApocryphaChapter,loadPassage,readingLink,getApocryphaChapter,blackLetterCalendar:BLACK_LETTER_CALENDAR,blackLetterForDate,festivalsOn,fastingVigils,officeCalendarContext,automaticOpeningSentences,selectedOpeningSentences,automaticMorningCanticle,selectedMorningCanticle,canticleHTML:canticle,version:'0.2.6'});
-setupSentencePickers();setupOffertoryPickers();refreshSettingsControls();render();
+window.BCP1662App=Object.freeze({parsePassage,extractVerses,parsePsalterSource,sanitizePsalm,psalmDoxologies,properForDate,collectPlan,prefaceFor,officeHTML,communionHTML,collects:COLLECTS,openingSentences:OPENING_SENTENCES,normalizeSentenceSelection,openingSentencesHTML,communionReadings:COMMUNION_READINGS,communionReading,offertorySentences:OFFERTORY_SENTENCES,normalizeOffertorySelection,offertorySentencesHTML,render,commination:COMMINATION,comminationScheduled,comminationHTML,apocryphaBooks:APOCRYPHA_BOOKS,apocryphaChapterURL,validateApocryphaChapter,loadPassage,readingLink,getApocryphaChapter,blackLetterCalendar:BLACK_LETTER_CALENDAR,blackLetterForDate,festivalsOn,fastingVigils,officeCalendarContext,automaticOpeningSentences,selectedOpeningSentences,automaticMorningCanticle,selectedMorningCanticle,canticleHTML:canticle,selectedOffertory,selectedEndCollects,normalizeEndCollectSelection,concludingCollects:END_COLLECT_CHOICES,concludingCollectsHTML,dailyChoiceIndex,extraHTML,version:'0.2.7'});
+setupSentencePickers();setupOffertoryPickers();setupEndCollectPicker();refreshSettingsControls();render();
 
 }catch(error){var target=document.getElementById('service');if(target){target.textContent='The app could not start: '+error.message+' Confirm that the entire replacement index.html was copied.';target.setAttribute('role','alert');}console.error(error);}})();
 </script>
